@@ -1,7 +1,11 @@
-import fs from 'fs';
-import path from 'path';
+// Le contenu est embarqué au moment du build (import.meta.glob) au lieu d'être lu
+// avec `fs` au runtime : indispensable sur Vercel, où le dossier /content n'est
+// pas forcément présent dans la fonction serverless.
+const blogFiles = import.meta.glob<BlogPost>('/content/blog/*.json', { eager: true, import: 'default' });
+const projectFiles = import.meta.glob<Project>('/content/projects/*.json', { eager: true, import: 'default' });
+const aboutFile = import.meta.glob<Record<string, string>>('/content/about.json', { eager: true, import: 'default' });
 
-const contentDir = path.join(process.cwd(), 'content');
+const slugOf = (filePath: string) => filePath.split('/').pop()!.replace(/\.json$/, '');
 
 export interface BlogPost {
 	slug: string;
@@ -35,21 +39,10 @@ export interface Project {
 	link_github?: string;
 }
 
-function readJson<T>(filePath: string): T {
-	return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
-}
-
 export function getBlogPosts(): BlogPost[] {
-	const dir = path.join(contentDir, 'blog');
-	if (!fs.existsSync(dir)) return [];
 	const now = new Date();
-	return fs.readdirSync(dir)
-		.filter((f: string) => f.endsWith('.json'))
-		.map((file: string) => {
-			const slug = file.replace('.json', '');
-			const post = readJson<BlogPost>(path.join(dir, file));
-			return { ...post, slug };
-		})
+	return Object.entries(blogFiles)
+		.map(([file, post]) => ({ ...post, slug: slugOf(file) }))
 		.filter((post: BlogPost) => {
 			if (!post.publish_date) return true;
 			return new Date(post.publish_date) <= now;
@@ -58,34 +51,21 @@ export function getBlogPosts(): BlogPost[] {
 }
 
 export function getBlogPost(slug: string): BlogPost | null {
-	const file = path.join(contentDir, 'blog', `${slug}.json`);
-	if (!fs.existsSync(file)) return null;
-	const post = readJson<BlogPost>(file);
-	return { ...post, slug };
+	const post = blogFiles[`/content/blog/${slug}.json`];
+	return post ? { ...post, slug } : null;
 }
 
 export function getProjects(): Project[] {
-	const dir = path.join(contentDir, 'projects');
-	if (!fs.existsSync(dir)) return [];
-	return fs.readdirSync(dir)
-		.filter((f: string) => f.endsWith('.json'))
-		.map((file: string) => {
-			const slug = file.replace('.json', '');
-			const p = readJson<Project>(path.join(dir, file));
-			return { ...p, slug, available: p.available ?? true, show_arrow: p.show_arrow ?? true };
-		})
+	return Object.entries(projectFiles)
+		.map(([file, p]) => ({ ...p, slug: slugOf(file), available: p.available ?? true, show_arrow: p.show_arrow ?? true }))
 		.sort((a: Project, b: Project) => b.year - a.year);
 }
 
 export function getProject(slug: string): Project | null {
-	const file = path.join(contentDir, 'projects', `${slug}.json`);
-	if (!fs.existsSync(file)) return null;
-	const p = readJson<Project>(file);
-	return { ...p, slug, available: p.available ?? true, show_arrow: p.show_arrow ?? true };
+	const p = projectFiles[`/content/projects/${slug}.json`];
+	return p ? { ...p, slug, available: p.available ?? true, show_arrow: p.show_arrow ?? true } : null;
 }
 
 export function getAbout() {
-	const file = path.join(contentDir, 'about.json');
-	if (!fs.existsSync(file)) return null;
-	return readJson<Record<string, string>>(file);
+	return aboutFile['/content/about.json'] ?? null;
 }

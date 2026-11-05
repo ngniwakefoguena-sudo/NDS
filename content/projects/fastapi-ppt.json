@@ -1,0 +1,25 @@
+{
+  "slug": "fastapi-ppt",
+  "title": "FastAPI : Architecture",
+  "tagline_fr": "Présentation technique sur FastAPI et APIs performantes",
+  "tagline_en": "Technical deep-dive on FastAPI and high-performance APIs",
+  "description_fr": "Support pédagogique sur la conception d'APIs Python modernes avec FastAPI : async, validation, OpenAPI, authentification, déploiement.",
+  "description_en": "Educational deck on modern Python API design with FastAPI: async, validation, OpenAPI, auth, deployment.",
+  "year": 2024,
+  "role_fr": "Auteur / Formateur",
+  "role_en": "Author / Speaker",
+  "category": "data",
+  "tags": [
+    "API",
+    "Python",
+    "Formation"
+  ],
+  "stack": [
+    "FastAPI",
+    "Python",
+    "Pydantic",
+    "Docker"
+  ],
+  "cover": "/images/fast_api_ppt.webp",
+  "featured": true
+}

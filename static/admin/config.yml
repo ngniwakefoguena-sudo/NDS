@@ -1,0 +1,84 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+locale: fr
+logo_url: https://norbertdigitalservice.fr/images/logo.jpg
+
+slug:
+  encoding: "ascii"
+  clean_replacement: "-"
+  sanitize_replacement: "-"
+
+collections:
+  - name: projects
+    label: "Réalisations"
+    label_singular: "Réalisation"
+    folder: content/projects
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} ({{year}})"
+    fields:
+      - { label: "Titre", name: title, widget: string }
+      - { label: "Accroche (FR)", name: tagline_fr, widget: string }
+      - { label: "Accroche (EN)", name: tagline_en, widget: string, required: false }
+      - { label: "Description (FR)", name: description_fr, widget: text }
+      - { label: "Description (EN)", name: description_en, widget: text, required: false }
+      - { label: "Année", name: year, widget: number, value_type: int, min: 2020, max: 2030 }
+      - { label: "Rôle (FR)", name: role_fr, widget: string }
+      - { label: "Rôle (EN)", name: role_en, widget: string, required: false }
+      - label: "Catégorie"
+        name: category
+        widget: select
+        options:
+          - { label: "Fullstack / Web", value: "fullstack" }
+          - { label: "Mobile", value: "mobile" }
+          - { label: "IA / LLM", value: "ai" }
+          - { label: "Data Engineering", value: "data" }
+      - { label: "Tags", name: tags, widget: list }
+      - { label: "Stack technique", name: stack, widget: list }
+      - { label: "Image du projet", name: cover, widget: image, required: false }
+      - { label: "Lien du projet (URL)", name: url, widget: string, required: false }
+      - { label: "Lien GitHub", name: link_github, widget: string, required: false }
+      - { label: "Mis en avant (featured)", name: featured, widget: boolean, default: false }
+      - { label: "Projet disponible / cliquable", name: available, widget: boolean, default: true, hint: "Si désactivé, l'icône flèche est cachée et le projet n'est pas cliquable." }
+      - { label: "Afficher le bouton flèche", name: show_arrow, widget: boolean, default: true }
+
+  - name: blog
+    label: "Articles de blog"
+    label_singular: "Article"
+    folder: content/blog
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Titre", name: title, widget: string }
+      - { label: "Date de publication", name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Publier à cette date/heure (programmer)", name: publish_date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ssZ", required: false, hint: "Laissez vide pour publier immédiatement. Sinon, l'article sera visible uniquement à partir de cette date et heure." }
+      - { label: "Résumé", name: summary, widget: text }
+      - { label: "Image de couverture", name: cover, widget: image, required: false }
+      - { label: "Tags", name: tags, widget: list, required: false }
+      - { label: "Contenu (Markdown)", name: body, widget: markdown }
+
+  - name: site_settings
+    label: "Paramètres du site"
+    files:
+      - label: "À propos"
+        name: about
+        file: content/about.json
+        fields:
+          - { label: "Titre principal", name: title, widget: string }
+          - { label: "Paragraphe 1", name: para1, widget: text }
+          - { label: "Paragraphe 2", name: para2, widget: text }
+          - { label: "Projets livrés", name: stat_projects, widget: string }
+          - { label: "Années d'expertise", name: stat_years, widget: string }
+          - { label: "Satisfaction client", name: stat_satisfaction, widget: string }

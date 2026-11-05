@@ -1,0 +1,26 @@
+{
+  "slug": "webscraping-annuaire",
+  "title": "Web Scraping : Annuaire Pro",
+  "tagline_fr": "Extraction automatisée et structurée d'annuaires professionnels",
+  "tagline_en": "Automated and structured extraction of professional directories",
+  "description_fr": "Pipeline d'ingestion de données : scraping avec crawl4ai, nettoyage, structuration, export CSV/JSON. Gestion fine des proxies et anti-bot.",
+  "description_en": "Data ingestion pipeline: scraping with crawl4ai, cleaning, structuring, CSV/JSON export. Proxy and anti-bot handling.",
+  "year": 2024,
+  "role_fr": "Data Engineer : conception du pipeline et traitement",
+  "role_en": "Data Engineer : pipeline design and processing",
+  "category": "data",
+  "tags": [
+    "Data Engineering",
+    "Scraping",
+    "Python"
+  ],
+  "stack": [
+    "Python",
+    "crawl4ai",
+    "BeautifulSoup",
+    "Pandas",
+    "PostgreSQL"
+  ],
+  "cover": "/images/webscraping.webp",
+  "featured": true
+}

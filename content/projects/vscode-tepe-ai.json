@@ -1,0 +1,30 @@
+{
+  "slug": "vscode-tepe-ai",
+  "title": "Tepe AI : App Mobile Flutter",
+  "tagline_fr": "Application mobile Flutter avec backend FastAPI et RAG Gemini",
+  "tagline_en": "Flutter mobile app with FastAPI backend and Gemini RAG",
+  "description_fr": "Application mobile développée en Flutter avec Riverpod comme gestionnaire d'état et Clean Architecture. Le backend FastAPI intègre l'API Gemini pour alimenter un système RAG (Retrieval-Augmented Generation) directement dans l'API. Authentification Google, gestion PostgreSQL et déploiement containerisé.",
+  "description_en": "Mobile application built with Flutter using Riverpod for state management and Clean Architecture. The FastAPI backend integrates the Gemini API to power a RAG (Retrieval-Augmented Generation) system directly in the API. Google auth, PostgreSQL management and containerized deployment.",
+  "year": 2024,
+  "role_fr": "Lead Developer : mobile, backend & intégration IA",
+  "role_en": "Lead Developer : mobile, backend & AI integration",
+  "category": "ai",
+  "tags": [
+    "Flutter",
+    "RAG",
+    "Gemini",
+    "Clean Architecture"
+  ],
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "FastAPI",
+    "Python",
+    "Gemini",
+    "PostgreSQL",
+    "Docker"
+  ],
+  "cover": "/images/vscodetepeai.webp",
+  "featured": true
+}

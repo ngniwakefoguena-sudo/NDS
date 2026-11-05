@@ -1,0 +1,26 @@
+{
+  "slug": "helios-france",
+  "title": "Groupe Helios France",
+  "tagline_fr": "Site vitrine premium pour un groupe immobilier",
+  "tagline_en": "Premium marketing site for a real-estate group",
+  "description_fr": "Site institutionnel moderne avec animations soignées, pages services, portfolio de biens et formulaire de contact optimisé conversion.",
+  "description_en": "Modern corporate site with polished animations, service pages, property showcase, and conversion-optimized contact form.",
+  "year": 2024,
+  "role_fr": "Développeur Fullstack : design, intégration, mise en ligne",
+  "role_en": "Fullstack developer : design, implementation, deployment",
+  "category": "fullstack",
+  "tags": [
+    "Web",
+    "Marketing",
+    "Immobilier"
+  ],
+  "stack": [
+    "Laravel",
+    "PHP",
+    "MySQL",
+    "TailwindCSS",
+    "Laravel Cloud"
+  ],
+  "cover": "/images/groupeheliosfrance.webp",
+  "featured": false
+}

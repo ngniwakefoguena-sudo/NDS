@@ -1,0 +1,27 @@
+{
+  "slug": "gestloto",
+  "title": "GestLoto",
+  "tagline_fr": "Plateforme de gestion intelligente pour loteries",
+  "tagline_en": "Smart management platform for lotteries",
+  "description_fr": "Application web complète pour la gestion des opérations de loterie : ventes, reporting, dashboard admin, gestion multi-utilisateurs. Architecture scalable pensée pour des volumes importants.",
+  "description_en": "Complete web app for lottery operations: sales, reporting, admin dashboard, multi-user management. Scalable architecture designed for high volume.",
+  "year": 2025,
+  "role_fr": "Lead Fullstack : conception, backend, frontend, déploiement",
+  "role_en": "Lead Fullstack : architecture, backend, frontend, deployment",
+  "category": "fullstack",
+  "tags": [
+    "Fullstack",
+    "Web App",
+    "Dashboard"
+  ],
+  "stack": [
+    "Django",
+    "Python",
+    "PostgreSQL",
+    "TailwindCSS",
+    "Docker",
+    "Netlify"
+  ],
+  "cover": "/images/gestloto.webp",
+  "featured": true
+}

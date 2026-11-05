@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+		<!-- Favicon — logo du site -->
+		<link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
+		<link rel="apple-touch-icon" href="/images/logo.jpg" />
+
+		<!-- Validation Google Search Console -->
+		<meta name="google-site-verification" content="WtRapmS7FfmDEiIOWGqltyhtKdodFbKNKEEWGaxRYw4" />
+
+		<!-- Validation Trustpilot -->
+		<meta name="trustpilot-one-time-domain-verification-id" content="2491c93c-ae7a-4b3b-92ce-efd85bc68ec8" />
+
+		<!-- Preload hero bg (LCP) -->
+		<link rel="preload" as="image" href="/images/hero-bg.webp" fetchpriority="high" />
+
+		<!-- Polices auto-hébergées — preload pour FCP optimal -->
+		<link rel="preload" as="font" href="/fonts/inter.woff2" type="font/woff2" crossorigin />
+		<link rel="preload" as="font" href="/fonts/space-grotesk.woff2" type="font/woff2" crossorigin />
+		<link rel="preload" as="font" href="/fonts/kaushan.woff2" type="font/woff2" crossorigin />
+
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<!-- Google Tag Manager — chargé après le rendu initial pour ne pas bloquer FCP/LCP -->
+		<script>
+			function loadGTM(){var w=window,d=document,s='script',l='dataLayer',i='GTM-5QGRJJZJ';w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}
+			if('requestIdleCallback' in window){requestIdleCallback(loadGTM)}else{setTimeout(loadGTM,2500)}
+		</script>
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QGRJJZJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<div style="display: contents">%sveltekit.body%</div>
+
+		<!-- Formulaire fantôme pour Netlify Forms — détecté au build, invisible à l'utilisateur -->
+		<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+			<input name="bot-field" />
+			<input name="entreprise" />
+			<input name="email" />
+			<input name="telephone" />
+			<input name="service" />
+			<input name="budget" />
+			<textarea name="besoin"></textarea>
+			<input name="reunion_date" />
+			<input name="reunion_creneau" />
+		</form>
+	</body>
+</html>

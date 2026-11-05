@@ -1,0 +1,37 @@
+/* Couleur principale → vert Norbert Digital Service */
+[class*="AppHeader"] {
+  background: linear-gradient(135deg, #1a2210 0%, #2a3a18 100%) !important;
+}
+
+/* Boutons principaux */
+[class*="Button"][class*="primary"],
+button[class*="primary"] {
+  background: linear-gradient(135deg, #98c816, #70a008) !important;
+  border-color: #98c816 !important;
+}
+
+button[class*="primary"]:hover {
+  background: linear-gradient(135deg, #afe010, #98c816) !important;
+  opacity: 0.9;
+}
+
+/* Liens actifs / sélection */
+[class*="active"] a,
+[class*="NavLink"][class*="active"] {
+  color: #98c816 !important;
+  border-color: #98c816 !important;
+}
+
+/* Accent focus / sélection */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #98c816 !important;
+  box-shadow: 0 0 0 2px rgba(152,200,22,0.2) !important;
+  outline: none !important;
+}
+
+/* Barre de progression upload */
+[class*="progress"] {
+  background: #98c816 !important;
+}

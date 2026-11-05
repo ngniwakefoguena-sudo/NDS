@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* Polices auto-hébergées — pas de requête externe Google Fonts */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kaushan Script';
+  src: url('/fonts/kaushan.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-bg: rgb(var(--bg));
+  --color-surface: rgb(var(--surface));
+  --color-surface-2: rgb(var(--surface-2));
+  --color-ink: rgb(var(--ink));
+  --color-muted: rgb(var(--muted));
+  --color-accent: rgb(var(--accent));
+  --color-accent-2: rgb(var(--accent-2));
+  --color-line: rgb(var(--line));
+}
+
+@layer base {
+  /* ── Light / Blanc-gris (défaut) ── */
+  :root {
+    color-scheme: light;
+
+    --bg: 255 255 255;           /* blanc pur */
+    --surface: 248 249 252;      /* gris très léger, neutre */
+    --surface-2: 255 255 255;
+    --ink: 18 28 14;             /* dark green-ink */
+    --muted: 75 90 65;           /* darker olive-gray for better contrast (a11y) */
+    --accent: 152 200 22;        /* vert citron vif #98C816 */
+    --accent-2: 112 160 8;       /* vert citron profond #70A008 */
+    --line: 0 0 0;
+
+    /* ── Système Glass / Goute d'eau ── */
+    --glass-bg-strong:    rgba(255, 255, 255, 0.78);
+    --glass-bg:           rgba(255, 255, 255, 0.52);
+    --glass-bg-md:        rgba(255, 255, 255, 0.35);
+    --glass-border:       rgba(255, 255, 255, 0.88);
+    --glass-border-xs:    rgba(255, 255, 255, 0.62);
+
+    --glass-shadow-card:
+      0 20px 60px rgba(80, 110, 20, 0.12),
+      0 4px 16px rgba(80, 110, 20, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+
+    --glass-shadow-float:
+      0 8px 28px rgba(80, 110, 20, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+    --field-bg:              rgba(255, 255, 255, 0.62);
+    --field-border:          rgba(140, 170, 100, 0.38);
+    --field-border-focus:    rgba(152, 200, 22, 0.60);
+    --field-shadow-focus:    0 0 0 3px rgba(152, 200, 22, 0.14);
+  }
+
+  /* ── Dark mode ── */
+  [data-theme='dark'] {
+    color-scheme: dark;
+    --bg: 8 12 6;
+    --surface: 14 20 10;
+    --surface-2: 22 32 16;
+    --ink: 242 248 236;
+    --muted: 148 174 124;
+    --accent: 196 236 52;        /* citron bright sur fond sombre */
+    --accent-2: 164 208 28;
+    --line: 255 255 255;
+
+    --glass-bg-strong:    rgba(14, 20, 10, 0.85);
+    --glass-bg:           rgba(255, 255, 255, 0.03);
+    --glass-bg-md:        rgba(255, 255, 255, 0.05);
+    --glass-border:       rgba(255, 255, 255, 0.08);
+    --glass-border-xs:    rgba(255, 255, 255, 0.05);
+    --glass-shadow-card:  0 30px 80px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --glass-shadow-float: 0 8px 32px rgba(0, 0, 0, 0.45);
+    --field-bg:           rgba(255, 255, 255, 0.04);
+    --field-border:       rgba(255, 255, 255, 0.09);
+    --field-border-focus: rgba(196, 236, 52, 0.65);
+    --field-shadow-focus: 0 0 0 3px rgba(196, 236, 52, 0.14);
+  }
+
+  html {
+    font-size: 17px;
+    background-color: rgb(var(--bg));
+    min-height: 100%;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', system-ui, sans-serif; }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.20);
+    color: rgb(var(--ink));
+  }
+
+  * { box-sizing: border-box; }
+}

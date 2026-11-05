@@ -1,0 +1,27 @@
+{
+  "slug": "immo",
+  "title": "Plateforme Immobilière",
+  "tagline_fr": "Marketplace immobilier avec recherche avancée",
+  "tagline_en": "Real-estate marketplace with advanced search",
+  "description_fr": "Plateforme de mise en relation entre propriétaires et chercheurs de biens. Recherche géolocalisée, filtres avancés, espaces personnels.",
+  "description_en": "Platform connecting property owners with seekers. Geo-located search, advanced filters, user dashboards.",
+  "year": 2024,
+  "role_fr": "Fullstack Developer",
+  "role_en": "Fullstack Developer",
+  "category": "mobile",
+  "tags": [
+    "Marketplace",
+    "Mobile",
+    "Fullstack"
+  ],
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Laravel",
+    "PostgreSQL"
+  ],
+  "cover": "/images/immo.webp",
+  "featured": false,
+  "link_github": "https://github.com/deniscoflash"
+}

@@ -1,4 +1,8 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapterNetlify from '@sveltejs/adapter-netlify';
+import adapterVercel from '@sveltejs/adapter-vercel';
+
+// Netlify définit NETLIFY=true pendant ses builds ; partout ailleurs (Vercel, local) on garde l'adaptateur Vercel.
+const adapter = process.env.NETLIFY ? adapterNetlify : adapterVercel;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

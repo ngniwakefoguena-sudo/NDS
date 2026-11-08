@@ -36,12 +36,12 @@
 			<div class="footer-col col-services">
 				<h3 class="col-heading">Nos services</h3>
 				<ul class="link-list">
-					<li><a href="/services" class="footer-link">Développement Web</a></li>
-					<li><a href="/services" class="footer-link">Application Mobile</a></li>
-					<li><a href="/services" class="footer-link">Intelligence Artificielle</a></li>
-					<li><a href="/services" class="footer-link">Automatisation</a></li>
-					<li><a href="/services" class="footer-link">Marketing Digital</a></li>
-					<li><a href="/services" class="footer-link">Génération de Leads</a></li>
+					<li><a href="/services/creation-site-web" class="footer-link">Développement Web</a></li>
+					<li><a href="/services/application-mobile" class="footer-link">Application Mobile</a></li>
+					<li><a href="/services/intelligence-artificielle" class="footer-link">Intelligence Artificielle</a></li>
+					<li><a href="/services/automatisation-n8n" class="footer-link">Automatisation</a></li>
+					<li><a href="/services/marketing-digital-seo" class="footer-link">Marketing Digital</a></li>
+					<li><a href="/services/generation-de-leads" class="footer-link">Génération de Leads</a></li>
 					<li><a href="/services" class="footer-link">Data Engineering</a></li>
 					<li><a href="/services" class="footer-link">Formation</a></li>
 					<li><a href="/services" class="footer-link">Design UI/UX</a></li>

@@ -1,92 +1,6 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
-	import {
-		Globe, Smartphone, BrainCircuit, Database, Layers, Server,
-		Zap, Megaphone, Target, BookOpen
-	} from 'lucide-svelte';
-
-	const services = [
-		{
-			icon: Globe,
-			title: 'Développement Web',
-			description: 'Sites et applications web haute performance, optimisés pour le SEO, l\'accessibilité et la conversion.',
-			stack: ['SvelteKit', 'Next.js', 'React', 'TailwindCSS'],
-			accent: true,
-			iconBg: 'linear-gradient(135deg, rgb(152,200,22), rgb(112,160,8))',
-		},
-		{
-			icon: Smartphone,
-			title: 'Application Mobile',
-			description: 'Applications iOS et Android cross-platform, performantes et natives, de la maquette au déploiement.',
-			stack: ['React Native', 'Flutter', 'Expo', 'TypeScript'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
-		},
-		{
-			icon: BrainCircuit,
-			title: 'Intelligence Artificielle',
-			description: 'Intégration de modèles IA dans vos produits : chatbots métier, RAG, analyse de données, recommandation.',
-			stack: ['Python', 'LangChain', 'Gemini', 'FastAPI'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #a855f7, #ec4899)',
-		},
-		{
-			icon: Zap,
-			title: 'Automatisation',
-			description: 'Automatisez les tâches répétitives qui coûtent du temps : traitements de documents, workflows, synchronisation CRM/ERP, génération de rapports et emails automatiques.',
-			stack: ['Python', 'n8n', 'Zapier', 'Make', 'API REST'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #f59e0b, #ef4444)',
-		},
-		{
-			icon: Megaphone,
-			title: 'Marketing Digital',
-			description: 'Stratégie de contenu, SEO technique, campagnes publicitaires et présence réseaux sociaux pour accroître votre visibilité et convertir vos visiteurs.',
-			stack: ['SEO', 'Google Ads', 'Meta Ads', 'Analytics'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #3b82f6, #6366f1)',
-		},
-		{
-			icon: Target,
-			title: 'Génération de Leads B2B & B2C',
-			description: 'Systèmes d\'acquisition de prospects qualifiés : landing pages optimisées, scraping éthique, campagnes email, tunnels de conversion et CRM automatisé.',
-			stack: ['HubSpot', 'Lemlist', 'LinkedIn', 'Email automation'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #ec4899, #f97316)',
-		},
-		{
-			icon: Database,
-			title: 'Data Engineering',
-			description: 'Pipelines de données robustes, entrepôts analytiques et dashboards pour piloter vos décisions avec des données fiables.',
-			stack: ['PostgreSQL', 'BigQuery', 'dbt', 'Airflow'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #10b981, #06b6d4)',
-		},
-		{
-			icon: BookOpen,
-			title: 'Formation',
-			description: 'Formations sur mesure pour vos équipes : développement web et mobile, IA, automatisation, data. Formats présentiel, distanciel ou e-learning.',
-			stack: ['Python', 'SvelteKit', 'Flutter', 'FastAPI', 'IA / ML'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #059669, #065f46)',
-		},
-		{
-			icon: Layers,
-			title: 'Design UI/UX',
-			description: 'Interfaces élégantes, design systems cohérents et expériences utilisateur centrées sur la conversion.',
-			stack: ['Figma', 'Framer', 'Storybook', 'Prototypage'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #8b5cf6, #a78bfa)',
-		},
-		{
-			icon: Server,
-			title: 'Backend & API',
-			description: 'APIs RESTful et GraphQL scalables, sécurisées, documentées et prêtes pour la production.',
-			stack: ['Node.js', 'Django', 'PostgreSQL', 'Docker'],
-			accent: false,
-			iconBg: 'linear-gradient(135deg, #6366f1, #06b6d4)',
-		},
-	];
+	import { services } from '$lib/data/services';
 </script>
 
 <Seo
@@ -120,7 +34,9 @@
 						<service.icon class="w-5 h-5 text-white" />
 					</div>
 					<div class="flex flex-col gap-2">
-						<h3 class="text-sm font-bold text-ink">{service.title}</h3>
+						<h2 class="text-sm font-bold text-ink">
+							{#if service.page}<a href="/services/{service.page.slug}" class="hover:underline">{service.title}</a>{:else}{service.title}{/if}
+						</h2>
 						<p class="text-sm text-muted leading-relaxed">{service.description}</p>
 					</div>
 					<div class="flex flex-wrap gap-1.5 mt-auto">
@@ -128,8 +44,8 @@
 							<span class="tech-pill px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-muted">{tech}</span>
 						{/each}
 					</div>
-					<a href="/contact" class="flex items-center gap-1 text-xs font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-						Discuter de ce service
+					<a href={service.page ? `/services/${service.page.slug}` : '/contact'} class="flex items-center gap-1 text-xs font-semibold text-accent">
+						{service.page ? 'Découvrir ce service' : 'Discuter de ce service'}
 						<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
 					</a>
 				</div>

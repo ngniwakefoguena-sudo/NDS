@@ -1,5 +1,6 @@
 import { getBlogPosts, getProjects } from '$lib/server/content';
 import { site } from '$lib/data/site';
+import { servicePages } from '$lib/data/services';
 
 const staticPages = [
 	{ path: '/',         priority: '1.0', changefreq: 'weekly' },
@@ -23,6 +24,13 @@ export async function GET() {
     <lastmod>${today}</lastmod>
     <priority>${p.priority}</priority>
     <changefreq>${p.changefreq}</changefreq>
+  </url>`),
+		...servicePages.map(s => `
+  <url>
+    <loc>${site.url}/services/${s.page.slug}</loc>
+    <lastmod>${today}</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
   </url>`),
 		...projects.map(p => `
   <url>

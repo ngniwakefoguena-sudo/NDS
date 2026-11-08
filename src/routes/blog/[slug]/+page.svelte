@@ -110,7 +110,8 @@
 					{/each}
 				</div>
 				<p class="text-sm text-muted mt-6">
-					Besoin d'aide pour passer à l'action ? Découvrez <a href="/services" class="underline font-semibold text-ink">nos services</a>
+					Besoin d'aide pour passer à l'action ? Découvrez
+					{#if data.service}notre offre <a href="/services/{data.service.slug}" class="underline font-semibold text-ink">{data.service.name}</a>{:else}<a href="/services" class="underline font-semibold text-ink">nos services</a>{/if}
 					ou <a href="/blog" class="underline font-semibold text-ink">tous nos articles</a>.
 				</p>
 			</section>

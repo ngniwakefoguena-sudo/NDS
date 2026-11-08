@@ -1,5 +1,6 @@
 import { getBlogPost, getBlogPosts, type BlogPost } from '$lib/server/content';
 import { error } from '@sveltejs/kit';
+import { servicePages } from '$lib/data/services';
 import { marked } from 'marked';
 
 // Extension pour centrer du texte : :::center ... :::
@@ -39,6 +40,12 @@ function relatedPosts(post: BlogPost) {
 		.map(({ p }) => ({ slug: p.slug, title: p.title, summary: p.summary, cover: p.cover, date: p.date }));
 }
 
+/** La page service dont cet article est un guide (pour renvoyer le lecteur vers l'offre). */
+function relatedService(slug: string) {
+	const s = servicePages.find((sp) => sp.page.articles.includes(slug));
+	return s ? { slug: s.page.slug, name: s.page.h1 } : null;
+}
+
 export async function load({ params }) {
 	const post = getBlogPost(params.slug);
 	if (!post) throw error(404, 'Article introuvable');
@@ -50,5 +57,5 @@ export async function load({ params }) {
 	// Le titre de l'article est déjà le seul <h1> de la page : les titres « # » du contenu deviennent des <h2>
 	const body = post.body.replace(/^# /gm, '## ');
 
-	return { post: { ...post, html: await marked.parse(body), readingTime }, related: relatedPosts(post) };
+	return { post: { ...post, html: await marked.parse(body), readingTime }, related: relatedPosts(post), service: relatedService(post.slug) };
 }

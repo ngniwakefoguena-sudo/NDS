@@ -43,6 +43,7 @@
 		"@type": "ProfessionalService",
 		"@id": `${site.url}/#organisation`,
 		"name": site.name,
+		"alternateName": ["NDS", "Norbert Digital Services"],
 		"url": site.url,
 		"email": site.email,
 		"telephone": site.phone,
@@ -95,6 +96,16 @@
 			"availableLanguage": ["French", "English"]
 		},
 		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook]
+	})}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"@id": `${site.url}/#site`,
+		"name": site.name,
+		"alternateName": "NDS",
+		"url": site.url,
+		"inLanguage": "fr-FR",
+		"publisher": { "@id": `${site.url}/#organisation` }
 	})}</script>`}
 </svelte:head>
 

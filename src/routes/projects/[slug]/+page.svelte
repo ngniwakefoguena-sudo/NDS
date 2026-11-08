@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+	import { site } from '$lib/data/site';
 	import { ArrowLeft, ExternalLink, Calendar, User } from 'lucide-svelte';
 	import type { PageData } from './$types';
 
@@ -13,10 +15,20 @@
 	const c = $derived(catColors[data.project.category] ?? catColors['cat_data'] ?? { bg: 'rgba(100,100,100,0.10)', border: 'rgba(100,100,100,0.22)', text: '#666', gradient: 'linear-gradient(135deg, #666, #999)' });
 </script>
 
-<svelte:head>
-	<title>{data.project.title} | Norbert Digital Service</title>
-	<meta name="description" content={data.project.tagline_fr} />
-</svelte:head>
+<Seo
+	title={data.project.title}
+	description={data.project.tagline_fr}
+	image={data.project.cover || undefined}
+	jsonLd={{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Accueil', item: `${site.url}/` },
+			{ '@type': 'ListItem', position: 2, name: 'Réalisations', item: `${site.url}/projects` },
+			{ '@type': 'ListItem', position: 3, name: data.project.title, item: `${site.url}/projects/${data.project.slug}` }
+		]
+	}}
+/>
 
 <!-- ───── HERO BANNER ───── -->
 <section class="hero-banner">

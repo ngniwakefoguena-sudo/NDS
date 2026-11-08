@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import { ArrowUpRight } from 'lucide-svelte';
 	import type { PageData } from './$types';
 
@@ -25,7 +26,10 @@
 	);
 </script>
 
-<svelte:head><title>Réalisations | Norbert Digital Service</title></svelte:head>
+<Seo
+	title="Réalisations : projets web, mobile et IA"
+	description="Découvrez les sites web, applications mobiles et solutions d'intelligence artificielle réalisés par Norbert Digital Service pour ses clients."
+/>
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">
 	<div class="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style="background: radial-gradient(circle, rgba(152,200,22,0.15) 0%, transparent 65%);"></div>

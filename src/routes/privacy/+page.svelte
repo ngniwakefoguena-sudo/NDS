@@ -1,11 +1,12 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/data/site';
 </script>
 
-<svelte:head>
-	<title>Politique de Confidentialité | Norbert Digital Service</title>
-	<meta name="description" content="Politique de confidentialité de Norbert Digital Service concernant l'utilisation de nos services et intégrations WhatsApp." />
-</svelte:head>
+<Seo
+	title="Politique de confidentialité"
+	description="Politique de confidentialité de Norbert Digital Service concernant l'utilisation de nos services et intégrations WhatsApp."
+/>
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">
 	<!-- Background accents -->

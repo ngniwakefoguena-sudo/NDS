@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import { ArrowRight, BookOpen, CreditCard, Smartphone as WalletIcon, Handshake } from 'lucide-svelte';
 	import type { PageData } from './$types';
@@ -44,6 +45,11 @@
 		};
 	});
 </script>
+
+<Seo
+	title="Agence web, mobile & IA à Paris"
+	description="Norbert Digital Service crée sites web, applications mobiles et automatisations IA (n8n) pour les PME en France et en Afrique. Réponse sous 24h."
+/>
 
 <Hero />
 

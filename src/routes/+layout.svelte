@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import { page } from '$app/state';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
@@ -9,7 +8,6 @@
 
 	let { children } = $props();
 
-	const title = `${site.name} | Agence Web, Mobile & IA`;
 	const description = site.description;
 </script>
 
@@ -29,16 +27,8 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
 	<link rel="shortcut icon" href="/favicon.png" />
 
-	<!-- Preload hero image for fast LCP -->
-	<link rel="preload" as="image" href="/images/hero-bg.webp" type="image/webp" fetchpriority="high" />
-
-	<!-- SEO de base -->
-	<title>{title}</title>
-	<meta name="description" content={description} />
+	<!-- SEO de base : titre, description, canonical et Open Graph sont gérés page par page par <Seo /> -->
 	<meta name="author" content={site.name} />
-	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="Norbert Digital Service, agence digitale Paris, développement web Paris, application mobile, intelligence artificielle, automatisation, carte de fidélité digitale, carte de fidélité dématérialisée, programme fidélité Apple Wallet, carte fidélité Google Wallet, fidélisation client, n8n, Python, Flutter, React, Svelte, SvelteKit, Django, FastAPI, Django REST API, Node.js, TypeScript, IA, LLM, GPT, RAG, data engineering, PostgreSQL, MongoDB, Docker, marketing digital, génération de leads, B2B, B2C, SEO, UI/UX, API, backend, DevOps, France, Île-de-France, agence web Paris, agence mobile Paris" />
-	<link rel="canonical" href={page.url.href} />
 
 	<!-- GEO méta tags -->
 	<meta name="geo.region" content="FR-IDF" />
@@ -46,28 +36,11 @@
 	<meta name="geo.position" content="48.8566;2.3522" />
 	<meta name="ICBM" content="48.8566, 2.3522" />
 
-	<!-- Open Graph — partage WhatsApp, LinkedIn, Facebook -->
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={description} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={page.url.href} />
-	<meta property="og:image" content={site.ogImage} />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content={site.name} />
-	<meta property="og:site_name" content={site.name} />
-	<meta property="og:locale" content="fr_FR" />
-
-	<!-- Twitter / X -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={title} />
-	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={site.ogImage} />
-
 	<!-- JSON-LD structured data -->
 	{@html `<script type="application/ld+json">${JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "ProfessionalService",
+		"@id": `${site.url}/#organisation`,
 		"name": site.name,
 		"url": site.url,
 		"email": site.email,
@@ -120,7 +93,7 @@
 			"areaServed": "FR",
 			"availableLanguage": ["French", "English"]
 		},
-		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook, site.socials.whatsapp]
+		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook]
 	})}</script>`}
 </svelte:head>
 

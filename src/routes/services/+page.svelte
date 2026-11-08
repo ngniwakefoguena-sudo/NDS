@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import {
 		Globe, Smartphone, BrainCircuit, Database, Layers, Server,
 		Zap, Megaphone, Target, BookOpen
@@ -88,10 +89,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Services | Norbert Digital Service</title>
-	<meta name="description" content="Web, Mobile, IA, Automatisation, Marketing Digital, Génération de Leads et Formation. Découvrez toutes nos prestations digitales." />
-</svelte:head>
+<Seo
+	title="Services : sites web, apps mobiles, IA et automatisation"
+	description="Création de sites web, applications mobiles, intégration IA, automatisation n8n, marketing digital et génération de leads pour les PME. Découvrez nos prestations."
+/>
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">
 	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(152,200,22,0.18) 0%, transparent 70%);"></div>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import { Send, Mail, Clock, CircleCheck, Phone, CalendarDays } from 'lucide-svelte';
 	import { site } from '$lib/data/site';
 
@@ -149,10 +150,10 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Contact | Norbert Digital Service</title>
-	<meta name="description" content="Contactez Norbert Digital Service pour discuter de votre projet web, mobile ou IA. Réponse sous 24h." />
-</svelte:head>
+<Seo
+	title="Contact : parlons de votre projet"
+	description="Contactez Norbert Digital Service pour votre projet de site web, d'application mobile ou d'IA. Réponse sous 24h, par formulaire, téléphone ou WhatsApp."
+/>
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">
 	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(152,200,22,0.18) 0%, transparent 65%);"></div>

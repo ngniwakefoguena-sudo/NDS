@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import { Lightbulb, Shield, Users } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 
@@ -49,10 +50,10 @@
 	});
 </script>
 
-<svelte:head>
-	<title>À Propos | Norbert Digital Service — Agence Web, Mobile & IA</title>
-	<meta name="description" content="Découvrez Norbert Digital Service, agence digitale française spécialisée en développement web, mobile, intelligence artificielle et automatisation." />
-</svelte:head>
+<Seo
+	title="À propos : agence web, mobile et IA"
+	description="Découvrez Norbert Digital Service, agence digitale française spécialisée en développement web, mobile, intelligence artificielle et automatisation."
+/>
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden" style="background: rgb(var(--bg));">
 	<div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 36px 36px;"></div>

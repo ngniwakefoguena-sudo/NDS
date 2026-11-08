@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+	import { site } from '$lib/data/site';
 	import type { PageData } from './$types';
 	import { ArrowLeft, Calendar, Tag, Clock, FileText } from 'lucide-svelte';
 
@@ -14,10 +16,38 @@
 	const waLink = $derived(`https://wa.me/33659173774?text=${encodeURIComponent(waMessage)}`);
 </script>
 
-<svelte:head>
-	<title>{data.post.title} | Norbert Digital Service</title>
-	<meta name="description" content={data.post.summary} />
-</svelte:head>
+<Seo
+	title={data.post.title}
+	description={data.post.summary}
+	image={data.post.cover || undefined}
+	type="article"
+	publishedTime={data.post.date}
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			headline: data.post.title,
+			description: data.post.summary,
+			datePublished: data.post.date,
+			dateModified: data.post.date,
+			inLanguage: 'fr-FR',
+			image: data.post.cover ? (data.post.cover.startsWith('http') ? data.post.cover : `${site.url}${data.post.cover}`) : site.ogImage,
+			keywords: data.post.tags?.join(', '),
+			mainEntityOfPage: `${site.url}/blog/${data.post.slug}`,
+			author: { '@id': `${site.url}/#organisation` },
+			publisher: { '@id': `${site.url}/#organisation` }
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Accueil', item: `${site.url}/` },
+				{ '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.url}/blog` },
+				{ '@type': 'ListItem', position: 3, name: data.post.title, item: `${site.url}/blog/${data.post.slug}` }
+			]
+		}
+	]}
+/>
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">
 	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(152,200,22,0.14) 0%, transparent 65%);"></div>

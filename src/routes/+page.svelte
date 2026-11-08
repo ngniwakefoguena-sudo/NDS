@@ -1,49 +1,26 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import { ArrowRight, BookOpen, CreditCard, Smartphone as WalletIcon, Handshake } from 'lucide-svelte';
+	import ServiceList from '$lib/components/ServiceList.svelte';
+	import { ArrowRight, BookOpen } from 'lucide-svelte';
+	import { servicePages, process } from '$lib/data/services';
+	import { reveal } from '$lib/actions/motion';
 	import type { PageData } from './$types';
-	import { onMount } from 'svelte';
 
 	let { data }: { data: PageData } = $props();
 
-	let visible = $state(false);
+	/* Les 6 offres principales en grand, les autres expertises en lien simple */
+	const main = servicePages.slice(0, 6);
+	const more = servicePages.slice(6);
 
-	/* ── Partenaires ── */
 	const partners = [
 		{ name: 'ICS Innovations', logo: '/images/ics.png', bgColor: '' },
 		{ name: 'Afrilife Insurance', logo: '/images/Afri_insurance.png', bgColor: '#E8551B' },
 		{ name: 'Mahkong', logo: '/images/mahkong.avif', bgColor: '' },
-		{ name: 'Puol', logo: '/images/puol.png', bgColor: '#000000' },
+		{ name: 'Puol', logo: '/images/puol.png', bgColor: '#000000' }
 	];
-	let partnersVisible = $state(false);
 
-	onMount(() => {
-		/* Agency observer */
-		const observer = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) {
-				visible = true;
-				observer.disconnect();
-			}
-		});
-		const el = document.getElementById('agency-section');
-		if (el) observer.observe(el);
-
-		/* Partners observer */
-		const partnersObserver = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) {
-				partnersVisible = true;
-				partnersObserver.disconnect();
-			}
-		});
-		const pEl = document.getElementById('partners-section');
-		if (pEl) partnersObserver.observe(pEl);
-
-		return () => {
-			observer.disconnect();
-			partnersObserver.disconnect();
-		};
-	});
+	const fmt = (d: string) => new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 </script>
 
 <Seo
@@ -53,333 +30,293 @@
 
 <Hero />
 
-<!-- ═══════════════════ Section Blog ═══════════════════ -->
-<section class="relative py-14 md:py-20 overflow-hidden" style="background: rgb(var(--surface));">
-	<div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 36px 36px;"></div>
+<!-- ═════════ Services ═════════ -->
+<section class="sec" aria-labelledby="services-title">
+	<div class="wrap">
+		<header class="sec-head split" use:reveal>
+			<h2 id="services-title" class="h2">Ce que nous faisons pour vous</h2>
+			<p class="sub">Un seul interlocuteur pour votre site, votre application, l’IA et le marketing : tout est pensé pour fonctionner ensemble.</p>
+		</header>
 
-	<div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-		<!-- En-tête centré + design -->
-		<div class="flex flex-col items-center text-center mb-12 md:mb-14">
-			<div class="badge-pill inline-flex items-center gap-2 px-4 py-1.5 rounded-md w-fit mb-5">
-				<span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
-				<span class="text-[11px] font-semibold text-accent tracking-widest uppercase">Blog</span>
-			</div>
-			<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-ink" style="font-family: 'Space Grotesk', sans-serif;">
-				Nos derniers <span style="font-family: 'Kaushan Script', cursive; color: rgb(var(--accent)); font-size: 1.15em;">articles</span>
-			</h2>
-			<p class="text-sm text-muted mt-3 max-w-md leading-relaxed">
-				Conseils pratiques, retours d'expérience et tendances du digital.
-			</p>
-			<a href="/blog" class="btn-blog mt-5 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded font-semibold text-xs">
-				Voir tous les articles
-				<ArrowRight class="w-3.5 h-3.5" />
-			</a>
+		<ServiceList items={main} />
+
+		<div class="more" use:reveal>
+			<span class="more-label">Et aussi :</span>
+			{#each more as s (s.page.slug)}
+				<a href="/services/{s.page.slug}" class="chip">{s.title}</a>
+			{/each}
 		</div>
+	</div>
+</section>
 
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-			{#each data.posts as post}
-				<a href="/blog/{post.slug}" class="blog-card group rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1">
-					<div class="w-full h-40 flex-shrink-0 overflow-hidden">
-						{#if post.cover}
-							<img src={post.cover} alt={post.title} loading="lazy" decoding="async" width="600" height="400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-						{:else}
-							<div class="w-full h-full flex items-center justify-center" style="background: rgba(152,200,22,0.07);">
-								<BookOpen class="w-8 h-8 text-accent opacity-30" />
-							</div>
-						{/if}
-					</div>
+<!-- ═════════ Méthode ═════════ -->
+<section class="sec mist" aria-labelledby="process-title">
+	<div class="wrap">
+		<header class="sec-head" use:reveal>
+			<h2 id="process-title" class="h2">Comment on travaille ensemble</h2>
+			<p class="sub">Une méthode simple, avec un point d’étape à chaque phase : vous savez toujours où en est votre projet.</p>
+		</header>
+		<ol class="process" use:reveal={{ stagger: 140 }}>
+			{#each process as step, i}
+				<li class="p-step" data-reveal-item>
+					<span class="p-num">{i + 1}</span>
+					<h3 class="p-title">{step.title}</h3>
+					<p class="p-text">{step.text}</p>
+				</li>
+			{/each}
+		</ol>
+	</div>
+</section>
 
-					<div class="p-5 flex flex-col gap-2.5 flex-1">
-						{#if post.tags?.length}
-							<div class="flex flex-wrap gap-1.5">
-								{#each post.tags.slice(0,2) as tag}
-									<span class="tag-pill px-2.5 py-0.5 rounded text-[10px] font-semibold">{tag}</span>
-								{/each}
-							</div>
-						{/if}
-						<h3 class="text-sm font-bold text-ink leading-snug flex-1">{post.title}</h3>
-						<p class="text-xs text-muted leading-relaxed line-clamp-2">{post.summary}</p>
-						<div class="flex items-center justify-between pt-3 card-footer">
-							<span class="text-xs text-muted">{new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-							<span class="text-xs font-semibold text-accent">Lire &rarr;</span>
+<!-- ═════════ Réalisations ═════════ -->
+{#if data.featured.length}
+	<section class="sec" aria-labelledby="work-title">
+		<div class="wrap">
+			<header class="sec-head split" use:reveal>
+				<h2 id="work-title" class="h2">Quelques réalisations</h2>
+				<a href="/projects" class="link">Toutes les réalisations <ArrowRight class="w-4 h-4" /></a>
+			</header>
+			<div class="work" use:reveal={{ stagger: 100 }}>
+				{#each data.featured as p (p.slug)}
+					<a href="/projects/{p.slug}" class="work-card" data-reveal-item>
+						<div class="work-img">
+							{#if p.cover}<img src={p.cover} alt={p.title} loading="lazy" decoding="async" width="640" height="420" />{/if}
 						</div>
+						<h3 class="work-title">{p.title}</h3>
+						<p class="work-desc">{p.tagline_fr}</p>
+					</a>
+				{/each}
+			</div>
+		</div>
+	</section>
+{/if}
+
+<!-- ═════════ Partenaires ═════════ -->
+<section class="sec mist partners" aria-labelledby="partners-title">
+	<div class="wrap">
+		<header class="sec-head center" use:reveal>
+			<h2 id="partners-title" class="h2">Ils nous font confiance</h2>
+			<p class="denisco" aria-label="Deniscoflash"><span class="d1">Denis</span><span class="d2">coflash</span></p>
+		</header>
+	</div>
+	<div class="marquee">
+		<div class="track">
+			{#each [0, 1, 2] as copy}
+				{#each partners as partner}
+					<div class="partner" aria-hidden={copy > 0}>
+						<div class="partner-logo" style={partner.bgColor ? `background:${partner.bgColor}` : ''}>
+							<img src={partner.logo} alt={copy > 0 ? '' : partner.name} loading="lazy" decoding="async" />
+						</div>
+						<span class="partner-name">{partner.name}</span>
 					</div>
+				{/each}
+			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- ═════════ Blog ═════════ -->
+<section class="sec" aria-labelledby="blog-title">
+	<div class="wrap">
+		<header class="sec-head split" use:reveal>
+			<h2 id="blog-title" class="h2">Nos derniers conseils</h2>
+			<a href="/blog" class="link">Tous les articles <ArrowRight class="w-4 h-4" /></a>
+		</header>
+		<div class="posts" use:reveal={{ stagger: 100 }}>
+			{#each data.posts as post (post.slug)}
+				<a href="/blog/{post.slug}" class="post" data-reveal-item>
+					<div class="post-img">
+						{#if post.cover}
+							<img src={post.cover} alt="" loading="lazy" decoding="async" width="600" height="400" />
+						{:else}
+							<BookOpen class="w-8 h-8 text-accent opacity-40" />
+						{/if}
+					</div>
+					<time class="post-date" datetime={post.date}>{fmt(post.date)}</time>
+					<h3 class="post-title">{post.title}</h3>
+					<p class="post-sum">{post.summary}</p>
 				</a>
 			{/each}
 		</div>
 	</div>
 </section>
 
-<!-- ═══════════════════ Section Carte Fidélité (masquée temporairement — {#if false}) ═══════════════════ -->
-{#if false}
-<section class="relative py-12 md:py-16 overflow-hidden" style="background: rgb(var(--bg));">
-	<div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-		<div class="fidelity-card rounded-lg overflow-hidden md:grid md:grid-cols-5 md:gap-0">
-			<!-- Texte (3 cols) -->
-			<div class="p-6 md:p-10 md:col-span-3 flex flex-col justify-center">
-				<div class="inline-flex items-center gap-2 px-3 py-1 rounded w-fit mb-4" style="background: rgba(152,200,22,0.12); border: 1px solid rgba(152,200,22,0.25);">
-					<CreditCard class="w-3.5 h-3.5" style="color: #98C816;" />
-					<span class="text-[10px] font-bold tracking-widest uppercase" style="color: #98C816;">Nouveau service</span>
-				</div>
-				<h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-3" style="font-family: 'Space Grotesk', sans-serif;">
-					Cartes de fidélité <span style="font-family: 'Kaushan Script', cursive; color: #98C816; font-size: 1.1em;">digitales</span>
-				</h2>
-				<p class="text-sm leading-relaxed mb-5" style="color: rgba(255,255,255,0.65);">
-					Fidélisez vos clients avec des cartes dématérialisées sur <strong style="color: rgba(255,255,255,0.85);">Apple Wallet</strong> et <strong style="color: rgba(255,255,255,0.85);">Google Wallet</strong>. Zéro app à installer, notifications push automatiques et tableau de bord en temps réel.
-				</p>
-				<div class="flex flex-wrap gap-3 items-center">
-					<a href="http://app.norbertdigitalservice.fr" target="_blank" rel="noopener" class="fidelity-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded font-semibold text-xs">
-						Découvrir la plateforme
-						<ArrowRight class="w-3.5 h-3.5" />
-					</a>
-					<a href="/contact" class="text-xs font-medium transition-colors" style="color: rgba(255,255,255,0.55);" onmouseenter={(e) => e.currentTarget.style.color = '#ffffff'} onmouseleave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}>
-						En savoir plus →
-					</a>
-				</div>
-			</div>
-			<!-- Visuel (2 cols) -->
-			<div class="hidden md:flex md:col-span-2 items-center justify-center p-8 relative">
-				<div class="fidelity-visual w-full max-w-[200px] aspect-[3/4] rounded-lg flex flex-col items-center justify-center gap-3">
-					<WalletIcon class="w-10 h-10" style="color: #98C816;" />
-					<div class="text-center">
-						<p class="text-xs font-bold text-white mb-0.5">Apple Wallet</p>
-						<p class="text-xs font-bold text-white">Google Wallet</p>
-					</div>
-					<div class="flex gap-1.5 mt-2">
-						<span class="w-2 h-2 rounded-full" style="background: #98C816;"></span>
-						<span class="w-2 h-2 rounded-full" style="background: rgba(152,200,22,0.4);"></span>
-						<span class="w-2 h-2 rounded-full" style="background: rgba(152,200,22,0.2);"></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-{/if}
-
-<!-- ═══════════════════ Section Agence ═══════════════════ -->
-<section id="agency-section" class="agency-section relative py-16 md:py-24 overflow-hidden">
-	<div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-
-		<div class="text-center mb-12 md:mb-16">
-			<h2 class="text-2xl md:text-4xl font-bold tracking-tight text-ink" style="font-family: 'Space Grotesk', sans-serif;">
-				Avec <span class="agency-highlight">Norbert Digital Service</span>, vous allez :
-			</h2>
-		</div>
-
-		<div class="grid grid-cols-4 gap-2 md:gap-8 pb-2 md:pb-0">
-			<!-- Item 1: Web & Mobile -->
-			<div class="agency-item flex flex-col items-center text-center gap-2 md:gap-5" class:animate-fade-up={visible} style="animation-delay: 0s; opacity: {visible ? 1 : 0};">
-				<div class="agency-icon-wrap">
-					<svg class="agency-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-				</div>
-				<div>
-					<h3 class="text-[9px] md:text-sm font-bold text-ink mb-1 md:mb-2 leading-tight">Concevoir vos solutions Web & Mobile</h3>
-					<p class="hidden md:block text-xs text-muted leading-relaxed">Sites, apps et plateformes sur mesure, performants et optimisés SEO.</p>
-				</div>
-			</div>
-
-			<!-- Item 2: IA -->
-			<div class="agency-item flex flex-col items-center text-center gap-2 md:gap-5" class:animate-fade-up={visible} style="animation-delay: 0.15s; opacity: {visible ? 1 : 0};">
-				<div class="agency-icon-wrap">
-					<svg class="agency-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14a4 4 0 0 1 4 4v2H4v-2a4 4 0 0 1 4-4"/><circle cx="9" cy="7" r="0.5" fill="currentColor"/><circle cx="15" cy="7" r="0.5" fill="currentColor"/><path d="M8 22h8"/><path d="M12 18v4"/></svg>
-				</div>
-				<div>
-					<h3 class="text-[9px] md:text-sm font-bold text-ink mb-1 md:mb-2 leading-tight">Intégrer l'IA dans vos processus</h3>
-					<p class="hidden md:block text-xs text-muted leading-relaxed">Chatbots métier, RAG, analyse de données et recommandation intelligente.</p>
-				</div>
-			</div>
-
-			<!-- Item 3: Automatisation -->
-			<div class="agency-item flex flex-col items-center text-center gap-2 md:gap-5" class:animate-fade-up={visible} style="animation-delay: 0.3s; opacity: {visible ? 1 : 0};">
-				<div class="agency-icon-wrap">
-					<svg class="agency-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-				</div>
-				<div>
-					<h3 class="text-[9px] md:text-sm font-bold text-ink mb-1 md:mb-2 leading-tight">Automatiser vos processus</h3>
-					<p class="hidden md:block text-xs text-muted leading-relaxed">Workflows n8n, Python, CRM/ERP, synchronisation et rapports automatiques.</p>
-				</div>
-			</div>
-
-			<!-- Item 4: Marketing & Leads -->
-			<div class="agency-item flex flex-col items-center text-center gap-2 md:gap-5" class:animate-fade-up={visible} style="animation-delay: 0.45s; opacity: {visible ? 1 : 0};">
-				<div class="agency-icon-wrap">
-					<svg class="agency-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><polyline points="18 4 22 8"/><polyline points="18 4 14 8"/></svg>
-				</div>
-				<div>
-					<h3 class="text-[9px] md:text-sm font-bold text-ink mb-1 md:mb-2 leading-tight">Booster votre croissance</h3>
-					<p class="hidden md:block text-xs text-muted leading-relaxed">SEO/GEO, campagnes Ads, génération de leads B2B/B2C et tunnels de conversion.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ═══════════════════ Section Partenaires ═══════════════════ -->
-<section id="partners-section" class="partners-section relative py-16 md:py-20 overflow-hidden" style="background: rgb(var(--surface));">
-	<div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px); background-size: 32px 32px;"></div>
-
-	<div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-		<!-- En-tête -->
-		<div class="flex items-center justify-center gap-3 mb-4 md:mb-6" style="opacity: {partnersVisible ? 1 : 0}; transform: translateY({partnersVisible ? '0' : '20px'}); transition: opacity 0.6s ease, transform 0.6s ease;">
-			<div class="partner-header-icon">
-				<Handshake class="w-5 h-5" style="color: rgb(var(--ink)); opacity: 0.7;" />
-			</div>
-			<h2 class="text-2xl md:text-3xl font-bold tracking-tight text-ink uppercase" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.06em;">
-				Nos Partenaires
-			</h2>
-		</div>
-	</div>
-
-	<!-- Deniscoflash branding -->
-	<div class="deniscoflash-wrap" style="opacity: {partnersVisible ? 1 : 0}; transform: translateY({partnersVisible ? '0' : '12px'}); transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;">
-		<span class="deniscoflash-text">
-			<span class="deniscoflash-denis">Denis</span><span class="deniscoflash-co">coflash</span>
-		</span>
-	</div>
-
-	<!-- Marquee infini -->
-	<div class="partners-marquee" role="marquee" aria-label="Nos partenaires">
-		<div class="partners-marquee-track">
-			<!-- Set 1 -->
-			{#each partners as partner}
-				<div class="partner-item">
-					<div
-						class="partner-circle"
-						style={partner.bgColor ? `background: ${partner.bgColor};` : ''}
-					>
-						<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" class="partner-logo" />
-					</div>
-					<span class="partner-name">{partner.name}</span>
-				</div>
-			{/each}
-			<!-- Set 2 (duplicate for seamless loop) -->
-			{#each partners as partner}
-				<div class="partner-item" aria-hidden="true">
-					<div
-						class="partner-circle"
-						style={partner.bgColor ? `background: ${partner.bgColor};` : ''}
-					>
-						<img src={partner.logo} alt="" loading="lazy" decoding="async" class="partner-logo" />
-					</div>
-					<span class="partner-name">{partner.name}</span>
-				</div>
-			{/each}
-			<!-- Set 3 (extra duplicate for wide screens) -->
-			{#each partners as partner}
-				<div class="partner-item" aria-hidden="true">
-					<div
-						class="partner-circle"
-						style={partner.bgColor ? `background: ${partner.bgColor};` : ''}
-					>
-						<img src={partner.logo} alt="" loading="lazy" decoding="async" class="partner-logo" />
-					</div>
-					<span class="partner-name">{partner.name}</span>
-				</div>
-			{/each}
+<!-- ═════════ Appel à l'action ═════════ -->
+<section class="cta" aria-labelledby="cta-title">
+	<div class="wrap cta-inner" use:reveal>
+		<h2 id="cta-title" class="cta-title">Un projet en tête ? Parlons-en.</h2>
+		<p class="cta-text">Décrivez votre besoin en quelques lignes. Vous recevez une réponse sous 24h avec une première proposition.</p>
+		<div class="cta-btns">
+			<a href="/contact" class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
+			<a href="https://wa.me/33659173774" target="_blank" rel="noopener" class="btn-line">Écrire sur WhatsApp</a>
 		</div>
 	</div>
 </section>
 
 <style>
-	/* ── Agency Section ── */
-	.agency-section {
-		background: rgb(var(--bg));
-	}
-	.agency-highlight {
-		font-family: 'Kaushan Script', cursive;
-		color: rgb(var(--accent));
-		font-size: 1.1em;
-	}
-	
-	.agency-icon-wrap {
-		width: 52px;
-		height: 52px;
-		border-radius: 50%;
+	.wrap { max-width: 80rem; margin: 0 auto; padding: 0 1.25rem; }
+	@media (min-width: 768px) { .wrap { padding: 0 2rem; } }
+
+	.sec { padding: 5.5rem 0; background: rgb(var(--bg)); }
+	.sec.mist { background: rgb(var(--mist)); }
+	@media (max-width: 767px) { .sec { padding: 4rem 0; } }
+
+	.sec-head { margin-bottom: 3rem; max-width: 46rem; }
+	.sec-head.split {
+		max-width: none;
 		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 1rem 3rem;
+	}
+	.sec-head.split .sub { max-width: 30rem; }
+	.sec-head.center { text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 2rem; }
+	.h2 {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: clamp(1.9rem, 4vw, 3rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		line-height: 1.05;
+		color: rgb(var(--ink));
+		margin: 0;
+	}
+	.sub { color: rgb(var(--muted)); line-height: 1.6; margin: 0.9rem 0 0; }
+	.sec-head.split .sub { margin: 0; }
+	.link {
+		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		background: rgba(var(--accent), 0.1);
-		border: 2px solid rgba(var(--accent), 0.2);
-		transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-		box-shadow: 0 4px 14px rgba(var(--accent), 0.15);
-		margin: 0 auto;
+		gap: 0.4rem;
+		font-weight: 600;
+		color: rgb(var(--ink));
+		border-bottom: 2px solid rgb(var(--accent));
+		padding-bottom: 2px;
 	}
-	@media (min-width: 768px) {
-		.agency-icon-wrap {
-			width: 72px;
-			height: 72px;
-		}
-	}
-	.agency-item:hover .agency-icon-wrap {
-		background: rgba(var(--accent), 0.15);
-		transform: scale(1.08) translateY(-4px);
-		box-shadow: 0 8px 24px rgba(var(--accent), 0.25);
-	}
-	.agency-icon {
-		width: 24px;
-		height: 24px;
-		color: rgb(var(--accent));
-	}
-	@media (min-width: 768px) {
-		.agency-icon {
-			width: 32px;
-			height: 32px;
-		}
-	}
+	.link :global(svg) { transition: transform 0.2s; }
+	.link:hover :global(svg) { transform: translateX(3px); }
 
-	/* Animations */
-	.animate-fade-up {
-		animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	/* ── Autres expertises ── */
+	.more { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 1.75rem; }
+	.more-label { font-size: 0.9rem; color: rgb(var(--muted)); margin-right: 0.25rem; }
+	.chip {
+		padding: 0.45rem 1rem;
+		border-radius: 999px;
+		border: 1px solid rgb(var(--line) / 0.14);
+		font-size: 0.88rem;
+		font-weight: 500;
+		color: rgb(var(--ink));
+		transition: background 0.2s, border-color 0.2s;
 	}
-	@keyframes fadeUp {
-		from { opacity: 0; transform: translateY(40px) scale(0.95); }
-		to { opacity: 1; transform: translateY(0) scale(1); }
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.animate-fade-up { animation: none; opacity: 1 !important; transform: none; }
-	}
+	.chip:hover { background: rgb(var(--accent) / 0.14); border-color: rgb(var(--accent)); }
 
-	/* Scrollbar hiding for mobile row */
-	.hide-scrollbar::-webkit-scrollbar {
-		display: none;
+	/* ── Méthode ── */
+	.process {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 2rem;
+		counter-reset: none;
 	}
-	.hide-scrollbar {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
+	@media (min-width: 768px) { .process { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+	.p-step { position: relative; padding-top: 3.75rem; }
+	.p-step::before {
+		content: '';
+		position: absolute;
+		top: 1.35rem;
+		left: 2.9rem;
+		right: -1.5rem;
+		height: 2px;
+		background: rgb(var(--accent) / 0.35);
 	}
+	.p-step:last-child::before { display: none; }
+	@media (max-width: 767px) { .p-step::before { display: none; } .p-step { padding-top: 0; padding-left: 4rem; } }
+	.p-num {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		background: rgb(var(--accent));
+		color: rgb(var(--night));
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		font-size: 1.1rem;
+	}
+	.p-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 0.5rem; }
+	.p-text { font-size: 0.92rem; color: rgb(var(--muted)); line-height: 1.6; margin: 0; }
 
-	/* ── Shared ── */
-	.badge-pill {
-		background: var(--glass-bg);
-		backdrop-filter: blur(12px);
-		border: 1px solid var(--glass-border);
-		box-shadow: 0 4px 14px rgba(80,110,20,0.09), inset 0 1px 0 rgba(255,255,255,1);
+	/* ── Réalisations ── */
+	.work { display: grid; gap: 1.75rem; }
+	@media (min-width: 768px) { .work { grid-template-columns: repeat(3, 1fr); } }
+	.work-card { display: block; }
+	.work-img {
+		aspect-ratio: 16 / 11;
+		border-radius: 1.25rem;
+		overflow: hidden;
+		background: rgb(var(--mist));
+		margin-bottom: 1rem;
 	}
-	.btn-blog {
-		background: linear-gradient(135deg, #98C816, #70A008);
-		color: white;
-		letter-spacing: 0.04em;
-		box-shadow: 0 6px 20px rgba(120,175,10,0.35);
-		transition: opacity 0.2s, transform 0.2s;
-		border-top: 1px solid rgba(255,255,255,0.15);
-	}
-	.btn-blog:hover { opacity: 0.9; transform: translateY(-1px); }
-	.card-footer { border-top: 1px solid rgba(0, 0, 0, 0.06); }
+	.work-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+	.work-card:hover .work-img img { transform: scale(1.05); }
+	.work-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 0.3rem; }
+	.work-card:hover .work-title { text-decoration: underline; text-decoration-color: rgb(var(--accent)); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+	.work-desc { font-size: 0.92rem; color: rgb(var(--muted)); margin: 0; line-height: 1.5; }
 
-	/* ── Blog cards ── */
-	.blog-card {
-		background: rgb(var(--surface));
+	/* ── Partenaires ── */
+	.partners { padding-bottom: 4.5rem; }
+	.denisco { font-family: 'Tangerine', cursive; font-weight: 700; font-size: 2.6rem; line-height: 1; margin: 1rem 0 0; }
+	.d1 { color: #19100a; }
+	.d2 { color: rgb(232, 93, 4); }
+	:global([data-theme='dark']) .d1 { color: rgba(255, 255, 255, 0.9); }
+	.marquee {
+		overflow: hidden;
+		mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+		padding: 0.75rem 0;
+	}
+	.track { display: flex; width: max-content; animation: marquee 24s linear infinite; }
+	.marquee:hover .track { animation-play-state: paused; }
+	@keyframes marquee { to { transform: translateX(calc(-100% / 3)); } }
+	.partner { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-right: 4rem; }
+	.partner-logo {
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		background: #fff;
 		border: 1px solid rgba(0, 0, 0, 0.06);
-		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+		box-shadow: 0 6px 20px rgba(60, 90, 10, 0.08);
 	}
-	.tag-pill {
-		background: rgba(152,200,22,0.10);
-		border: 1px solid rgba(152,200,22,0.18);
-		color: #8cba12;
-	}
+	.partner-logo img { max-width: 65%; max-height: 65%; object-fit: contain; }
+	.partner-name { font-size: 0.8rem; font-weight: 600; color: rgb(var(--muted)); white-space: nowrap; }
 
-	.line-clamp-2 {
+	/* ── Blog ── */
+	.posts { display: grid; gap: 2rem; }
+	@media (min-width: 768px) { .posts { grid-template-columns: repeat(3, 1fr); } }
+	.post { display: flex; flex-direction: column; }
+	.post-img {
+		aspect-ratio: 3 / 2;
+		border-radius: 1.1rem;
+		overflow: hidden;
+		background: rgb(var(--mist));
+		display: grid;
+		place-items: center;
+		margin-bottom: 1rem;
+	}
+	.post-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+	.post:hover .post-img img { transform: scale(1.05); }
+	.post-date { font-size: 0.8rem; color: rgb(var(--muted)); margin-bottom: 0.4rem; }
+	.post-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; line-height: 1.3; color: rgb(var(--ink)); margin: 0 0 0.5rem; }
+	.post:hover .post-title { text-decoration: underline; text-decoration-color: rgb(var(--accent)); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+	.post-sum {
+		font-size: 0.9rem;
+		color: rgb(var(--muted));
+		line-height: 1.55;
+		margin: 0;
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		line-clamp: 2;
@@ -387,172 +324,41 @@
 		overflow: hidden;
 	}
 
-	/* ── Carte fidélité ── */
-	.fidelity-card {
-		background: linear-gradient(135deg, #1a1f16 0%, #2a3320 50%, #1e2518 100%);
-		border: 1px solid rgba(152,200,22,0.15);
-		box-shadow: 0 16px 48px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+	/* ── CTA final ── */
+	.cta { background: rgb(var(--night)); color: #fff; padding: 6rem 0 7rem; position: relative; overflow: hidden; }
+	.cta::before {
+		content: '';
+		position: absolute;
+		width: 640px;
+		height: 640px;
+		left: 50%;
+		top: 30%;
+		transform: translateX(-50%);
+		background: radial-gradient(circle, rgba(152, 200, 22, 0.2), transparent 65%);
 	}
-	.fidelity-btn {
-		background: linear-gradient(135deg, #98C816, #70A008);
-		color: white;
-		letter-spacing: 0.04em;
-		box-shadow: 0 6px 20px rgba(120,175,10,0.4);
-		transition: opacity 0.2s, transform 0.2s;
-		border-top: 1px solid rgba(255,255,255,0.15);
-	}
-	.fidelity-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-	.fidelity-visual {
-		background: rgba(152,200,22,0.06);
-		border: 1px solid rgba(152,200,22,0.15);
-		box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-	}
-
-	/* ── Partners Section ── */
-	.partners-section {
-		background: rgb(var(--surface));
-	}
-
-	.partner-header-icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 36px;
-		height: 36px;
-		border-radius: 8px;
-		background: rgba(var(--ink), 0.05);
-		border: 1px solid rgba(var(--ink), 0.08);
-	}
-
-	/* ── Deniscoflash branding ── */
-	.deniscoflash-wrap {
-		text-align: center;
-		margin-bottom: 0.75rem;
-	}
-	.deniscoflash-text {
-		font-family: 'Tangerine', cursive;
-		font-weight: 700;
-		font-size: clamp(1.6rem, 4.5vw, 2.6rem);
-		letter-spacing: -0.03em;
-		line-height: 1;
-	}
-	@media (min-width: 768px) {
-		.deniscoflash-text {
-			font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-		}
-	}
-	.deniscoflash-denis {
-		color: #19100a;
-	}
-	.deniscoflash-co {
-		color: rgb(232, 93, 4);
-	}
-	:global([data-theme='dark']) .deniscoflash-denis {
-		color: rgba(255, 255, 255, 0.9);
-	}
-	:global([data-theme='dark']) .deniscoflash-co {
-		color: #E8751F;
-	}
-
-	/* ── Marquee infini ── */
-	.partners-marquee {
-		overflow: hidden;
-		width: 100%;
-		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-		mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-		padding: 12px 0 8px;
-	}
-
-	.partners-marquee-track {
-		display: flex;
-		align-items: center;
-		width: max-content;
-		animation: marqueeScroll 18s linear infinite;
-	}
-
-	@keyframes marqueeScroll {
-		0%   { transform: translateX(0); }
-		100% { transform: translateX(calc(-100% / 3)); }
-	}
-
-	/* Pause on hover */
-	.partners-marquee:hover .partners-marquee-track {
-		animation-play-state: paused;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.partners-marquee-track {
-			animation: none;
-		}
-	}
-
-	.partner-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 12px;
-		flex-shrink: 0;
-		/* Espacement uniforme porté par chaque item (y compris le dernier)
-		   pour que chaque set fasse exactement 1/3 de la piste → boucle sans saut */
-		margin-right: 56px;
-	}
-
-	.partner-circle {
-		width: 100px;
-		height: 100px;
-		border-radius: 50%;
-		background: rgb(var(--surface-2));
-		border: 2px solid rgba(var(--line), 0.06);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-	}
-
-	@media (min-width: 768px) {
-		.partner-circle {
-			width: 120px;
-			height: 120px;
-		}
-		.partner-item {
-			margin-right: 72px;
-		}
-	}
-
-	.partner-circle:hover {
-		transform: scale(1.08);
-		box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-	}
-
-	.partner-logo {
-		max-width: 65%;
-		max-height: 65%;
-		width: auto;
-		height: auto;
-		object-fit: contain;
-	}
-
-	.partner-name {
+	.cta-inner { position: relative; text-align: center; }
+	.cta-title {
 		font-family: 'Space Grotesk', sans-serif;
-		font-size: 11px;
+		font-size: clamp(2.1rem, 5vw, 3.8rem);
+		font-weight: 700;
+		letter-spacing: -0.035em;
+		line-height: 1.05;
+		margin: 0 auto 1rem;
+		max-width: 18ch;
+	}
+	.cta-text { color: rgba(255, 255, 255, 0.7); max-width: 36rem; margin: 0 auto 2rem; line-height: 1.6; }
+	.cta-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+	.btn-lime, .btn-line {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.95rem 1.6rem;
+		border-radius: 999px;
 		font-weight: 600;
-		color: rgb(var(--muted));
-		letter-spacing: 0.02em;
-		text-align: center;
-		white-space: nowrap;
+		transition: transform 0.2s, background 0.2s;
 	}
-
-	/* ── Dark mode ── */
-	/* Rond clair (blanc cassé) en mode sombre pour faire ressortir les logos */
-	:global([data-theme='dark']) .partner-circle {
-		background: rgba(255, 255, 255, 0.95);
-		border-color: rgba(255, 255, 255, 0.2);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-	}
-	:global([data-theme='dark']) .partner-circle:hover {
-		box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
-	}
+	.btn-lime { background: rgb(var(--accent)); color: rgb(var(--night)); box-shadow: 0 10px 30px rgba(152, 200, 22, 0.3); }
+	.btn-lime:hover { transform: translateY(-2px); }
+	.btn-line { border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; }
+	.btn-line:hover { background: rgba(255, 255, 255, 0.08); }
 </style>
-

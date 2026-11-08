@@ -2,7 +2,8 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/data/site';
 	import { getService, servicePages, process } from '$lib/data/services';
-	import { ArrowLeft, Check } from 'lucide-svelte';
+	import { ArrowRight, Check, Plus } from 'lucide-svelte';
+	import { reveal } from '$lib/actions/motion';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -52,160 +53,341 @@
 	]}
 />
 
-<div class="relative min-h-screen pt-32 pb-24 overflow-hidden">
-	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(152,200,22,0.18) 0%, transparent 70%);"></div>
-	<div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(rgba(152,200,22,0.07) 1px, transparent 1px); background-size: 36px 36px;"></div>
-
-	<div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-		<!-- Fil d'Ariane -->
-		<nav aria-label="Fil d'Ariane" class="mb-8">
-			<a href="/services" class="glass inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-ink transition-colors px-4 py-2 rounded-full">
-				<ArrowLeft class="w-4 h-4" />
-				Tous les services
-			</a>
-		</nav>
-
-		<!-- En-tête -->
-		<header class="mb-16">
-			<div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background: {service.iconBg}; box-shadow: 0 4px 14px rgba(0,0,0,0.15);">
-				<service.icon class="w-6 h-6 text-white" />
-			</div>
-			<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-ink mb-6 leading-[1.08]">{p.h1}</h1>
+<section class="head">
+	<div class="wrap head-grid">
+		<div>
+			<nav aria-label="Fil d’Ariane" class="crumbs">
+				<a href="/">Accueil</a><span aria-hidden="true">/</span><a href="/services">Services</a><span aria-hidden="true">/</span><span aria-current="page">{service.title}</span>
+			</nav>
+			<h1 class="title">{p.h1}</h1>
 			{#each p.intro as para}
-				<p class="text-base md:text-lg text-muted leading-relaxed mb-4 max-w-3xl">{para}</p>
+				<p class="lead">{para}</p>
 			{/each}
-			<div class="flex flex-wrap gap-3 mt-8">
-				<a href="/contact" class="btn-pill inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white text-sm">Demander un devis</a>
-				<a href={waLink} target="_blank" rel="noopener" class="glass inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-ink text-sm">Discuter sur WhatsApp</a>
+			<div class="ctas">
+				<a href="/contact" class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
+				<a href={waLink} target="_blank" rel="noopener" class="btn-line">Discuter sur WhatsApp</a>
 			</div>
-		</header>
-
-		<!-- Ce qui est inclus -->
-		<section class="mb-16" aria-labelledby="includes-title">
-			<h2 id="includes-title" class="section-title">Ce que nous réalisons pour vous</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{#each p.includes as item}
-					<div class="glass rounded-2xl p-5">
-						<h3 class="text-sm font-bold text-ink mb-1.5 flex items-center gap-2">
-							<Check class="w-4 h-4 text-accent shrink-0" />
-							{item.title}
-						</h3>
-						<p class="text-sm text-muted leading-relaxed">{item.text}</p>
-					</div>
-				{/each}
-			</div>
-		</section>
-
-		<!-- Pour qui -->
-		<section class="mb-16" aria-labelledby="forwho-title">
-			<h2 id="forwho-title" class="section-title">Pour qui ?</h2>
-			<ul class="flex flex-wrap gap-2">
+		</div>
+		<aside class="who" aria-labelledby="who-title">
+			<span class="who-icon"><service.icon class="w-6 h-6" /></span>
+			<h2 id="who-title" class="who-title">Pour qui ?</h2>
+			<ul>
 				{#each p.forWho as who}
-					<li class="tech-pill px-4 py-2 rounded-full text-sm text-ink">{who}</li>
+					<li><Check class="w-4 h-4 shrink-0" /> {who}</li>
 				{/each}
 			</ul>
-		</section>
-
-		<!-- Méthode -->
-		<section class="mb-16" aria-labelledby="process-title">
-			<h2 id="process-title" class="section-title">Comment se déroule un projet</h2>
-			<ol class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{#each process as step, i}
-					<li class="glass rounded-2xl p-5">
-						<span class="text-xs font-bold text-accent tracking-widest">ÉTAPE {i + 1}</span>
-						<h3 class="text-sm font-bold text-ink mt-1 mb-1.5">{step.title}</h3>
-						<p class="text-sm text-muted leading-relaxed">{step.text}</p>
-					</li>
-				{/each}
-			</ol>
-			<div class="flex flex-wrap gap-1.5 mt-6">
-				<span class="text-xs text-muted mr-1 self-center">Technologies :</span>
-				{#each service.stack as tech}
-					<span class="tech-pill px-2.5 py-0.5 rounded-full text-[11px] font-semibold text-muted">{tech}</span>
-				{/each}
-			</div>
-		</section>
-
-		<!-- FAQ -->
-		<section class="mb-16" aria-labelledby="faq-title">
-			<h2 id="faq-title" class="section-title">Questions fréquentes</h2>
-			<div class="flex flex-col gap-3">
-				{#each p.faq as f}
-					<details class="glass rounded-2xl p-5 group">
-						<summary class="text-sm font-bold text-ink cursor-pointer list-none flex justify-between gap-4">
-							<h3>{f.q}</h3>
-							<span class="text-accent group-open:rotate-45 transition-transform text-lg leading-none">+</span>
-						</summary>
-						<p class="text-sm text-muted leading-relaxed mt-3">{f.a}</p>
-					</details>
-				{/each}
-			</div>
-		</section>
-
-		<!-- Articles liés -->
-		{#if data.articles.length}
-			<section class="mb-16" aria-labelledby="articles-title">
-				<h2 id="articles-title" class="section-title">Nos guides sur le sujet</h2>
-				<div class="grid gap-4 md:grid-cols-3">
-					{#each data.articles as a (a.slug)}
-						<a href="/blog/{a.slug}" class="glass group block rounded-2xl overflow-hidden">
-							{#if a.cover}<img src={a.cover} alt="" loading="lazy" class="w-full h-32 object-cover" />{/if}
-							<div class="p-4">
-								<h3 class="text-sm font-semibold text-ink leading-snug group-hover:underline">{a.title}</h3>
-							</div>
-						</a>
-					{/each}
-				</div>
-			</section>
-		{/if}
-
-		<!-- CTA -->
-		<section class="cta rounded-3xl p-8 md:p-10 mb-16 text-center">
-			<h2 class="text-2xl font-bold text-ink mb-3">Parlons de votre projet</h2>
-			<p class="text-sm text-muted mb-6 max-w-lg mx-auto">Décrivez votre besoin en quelques lignes : vous recevez une réponse sous 24h avec les prochaines étapes.</p>
-			<a href="/contact" class="btn-pill inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white text-sm">Demander un devis</a>
-		</section>
-
-		<!-- Autres services -->
-		<nav aria-labelledby="others-title">
-			<h2 id="others-title" class="section-title">Nos autres services</h2>
-			<ul class="flex flex-wrap gap-2">
-				{#each others as o}
-					<li><a href="/services/{o.page.slug}" class="tech-pill inline-block px-4 py-2 rounded-full text-sm font-medium text-ink hover:underline">{o.page.h1}</a></li>
-				{/each}
-			</ul>
-		</nav>
+		</aside>
 	</div>
-</div>
+</section>
+
+<section class="sec" aria-labelledby="includes-title">
+	<div class="wrap">
+		<h2 id="includes-title" class="h2" use:reveal>Ce que nous réalisons pour vous</h2>
+		<div class="includes" use:reveal={{ stagger: 70 }}>
+			{#each p.includes as item}
+				<div class="inc" data-reveal-item>
+					<span class="inc-check"><Check class="w-4 h-4" /></span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section class="sec mist" aria-labelledby="process-title">
+	<div class="wrap">
+		<h2 id="process-title" class="h2" use:reveal>Comment se déroule un projet</h2>
+		<ol class="process" use:reveal={{ stagger: 120 }}>
+			{#each process as step, i}
+				<li class="p-step" data-reveal-item>
+					<span class="p-num">{i + 1}</span>
+					<h3>{step.title}</h3>
+					<p>{step.text}</p>
+				</li>
+			{/each}
+		</ol>
+		<div class="techs">
+			<span>Technologies utilisées :</span>
+			{#each service.stack as tech}<span class="tech">{tech}</span>{/each}
+		</div>
+	</div>
+</section>
+
+<section class="sec" aria-labelledby="faq-title">
+	<div class="wrap faq-grid">
+		<h2 id="faq-title" class="h2">Questions fréquentes</h2>
+		<div class="faq">
+			{#each p.faq as f}
+				<details>
+					<summary>
+						<h3>{f.q}</h3>
+						<span class="faq-icon" aria-hidden="true"><Plus class="w-4 h-4" /></span>
+					</summary>
+					<p>{f.a}</p>
+				</details>
+			{/each}
+		</div>
+	</div>
+</section>
+
+{#if data.articles.length}
+	<section class="sec mist" aria-labelledby="articles-title">
+		<div class="wrap">
+			<h2 id="articles-title" class="h2" use:reveal>Nos guides sur le sujet</h2>
+			<div class="posts" use:reveal={{ stagger: 100 }}>
+				{#each data.articles as a (a.slug)}
+					<a href="/blog/{a.slug}" class="post" data-reveal-item>
+						<div class="post-img">{#if a.cover}<img src={a.cover} alt="" loading="lazy" decoding="async" />{/if}</div>
+						<h3>{a.title}</h3>
+					</a>
+				{/each}
+			</div>
+		</div>
+	</section>
+{/if}
+
+<section class="sec others" aria-labelledby="others-title">
+	<div class="wrap">
+		<h2 id="others-title" class="h3">Nos autres services</h2>
+		<ul class="chips">
+			{#each others as o}
+				<li><a href="/services/{o.page.slug}" class="chip">{o.title}</a></li>
+			{/each}
+		</ul>
+	</div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title">
+	<div class="wrap cta-inner" use:reveal>
+		<h2 id="cta-title" class="cta-title">Parlons de votre projet</h2>
+		<p>Décrivez votre besoin en quelques lignes : vous recevez une réponse sous 24h avec les prochaines étapes.</p>
+		<div class="ctas center">
+			<a href="/contact" class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
+			<a href={waLink} target="_blank" rel="noopener" class="btn-line dark">Discuter sur WhatsApp</a>
+		</div>
+	</div>
+</section>
 
 <style>
-	.section-title {
+	.wrap { max-width: 80rem; margin: 0 auto; padding: 0 1.25rem; }
+	@media (min-width: 768px) { .wrap { padding: 0 2rem; } }
+	.sec { padding: 5rem 0; background: rgb(var(--bg)); }
+	.sec.mist { background: rgb(var(--mist)); }
+	@media (max-width: 767px) { .sec { padding: 3.75rem 0; } }
+	.h2 {
 		font-family: 'Space Grotesk', sans-serif;
-		font-size: 1.5rem;
+		font-size: clamp(1.7rem, 3.6vw, 2.6rem);
 		font-weight: 700;
+		letter-spacing: -0.03em;
+		line-height: 1.1;
 		color: rgb(var(--ink));
+		margin: 0 0 2.25rem;
+	}
+	.h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 1rem; }
+
+	/* ── En-tête ── */
+	.head { background: rgb(var(--mist)); padding: 8.5rem 0 4.5rem; }
+	@media (max-width: 767px) { .head { padding-top: 7rem; } }
+	.head-grid { display: grid; gap: 2.5rem; align-items: start; }
+	@media (min-width: 1024px) { .head-grid { grid-template-columns: 1fr 22rem; gap: 4rem; } }
+	.crumbs { display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem; color: rgb(var(--muted)); margin-bottom: 1.5rem; }
+	.crumbs a:hover { color: rgb(var(--ink)); text-decoration: underline; }
+	.crumbs [aria-current] { color: rgb(var(--ink)); font-weight: 500; }
+	.title {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+		font-weight: 700;
+		letter-spacing: -0.035em;
+		line-height: 1.02;
+		color: rgb(var(--ink));
+		margin: 0 0 1.5rem;
+		max-width: 18ch;
+		animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+	}
+	.lead {
+		max-width: 42rem;
+		font-size: 1.05rem;
+		line-height: 1.7;
+		color: rgb(var(--muted));
+		margin: 0 0 1rem;
+		animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+	}
+	.ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+	.ctas.center { justify-content: center; }
+	.btn-lime, .btn-line {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.9rem 1.5rem;
+		border-radius: 999px;
+		font-weight: 600;
+		transition: transform 0.2s, background 0.2s;
+	}
+	.btn-lime { background: rgb(var(--accent)); color: rgb(var(--night)); box-shadow: 0 10px 28px rgb(var(--accent) / 0.3); }
+	.btn-lime:hover { transform: translateY(-2px); }
+	.btn-line { border: 1px solid rgb(var(--line) / 0.2); color: rgb(var(--ink)); }
+	.btn-line:hover { background: rgb(var(--line) / 0.05); }
+	.btn-line.dark { border-color: rgba(255, 255, 255, 0.25); color: #fff; }
+	.btn-line.dark:hover { background: rgba(255, 255, 255, 0.08); }
+
+	.who {
+		background: rgb(var(--bg));
+		border: 1px solid rgb(var(--line) / 0.08);
+		border-radius: 1.5rem;
+		padding: 1.75rem;
+		box-shadow: 0 20px 50px rgba(60, 90, 10, 0.08);
+		animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+	}
+	.who-icon {
+		width: 3rem;
+		height: 3rem;
+		border-radius: 0.9rem;
+		display: grid;
+		place-items: center;
+		background: rgb(var(--accent));
+		color: rgb(var(--night));
 		margin-bottom: 1.25rem;
-		letter-spacing: -0.02em;
 	}
-	.glass {
-		background: var(--glass-bg);
-		backdrop-filter: blur(16px);
-		-webkit-backdrop-filter: blur(16px);
-		border: 1px solid var(--glass-border);
+	.who-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 0.9rem; }
+	.who ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+	.who li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.93rem; color: rgb(var(--ink)); line-height: 1.45; }
+	.who li :global(svg) { color: rgb(var(--accent-2)); margin-top: 0.15rem; }
+
+	/* ── Ce qui est inclus ── */
+	.includes { display: grid; gap: 1rem; }
+	@media (min-width: 640px) { .includes { grid-template-columns: repeat(2, 1fr); } }
+	@media (min-width: 1024px) { .includes { grid-template-columns: repeat(3, 1fr); } }
+	.inc {
+		border: 1px solid rgb(var(--line) / 0.09);
+		border-radius: 1.25rem;
+		padding: 1.5rem;
+		transition: border-color 0.25s, transform 0.25s;
 	}
-	.tech-pill {
-		background: var(--glass-bg-md);
-		border: 1px solid var(--glass-border-xs);
+	.inc:hover { border-color: rgb(var(--accent)); }
+	.inc-check {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		background: rgb(var(--accent) / 0.16);
+		color: rgb(var(--accent-2));
+		margin-bottom: 1rem;
 	}
-	.cta {
-		background: rgba(152,200,22,0.08);
-		border: 1px solid rgba(152,200,22,0.2);
+	.inc h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 0.4rem; }
+	.inc p { font-size: 0.92rem; color: rgb(var(--muted)); line-height: 1.6; margin: 0; }
+	@media (max-width: 639px) {
+		.inc { display: grid; grid-template-columns: auto 1fr; column-gap: 0.9rem; padding: 1.15rem; }
+		.inc-check { margin: 0; grid-row: span 2; }
 	}
-	.btn-pill {
-		background: linear-gradient(150deg, rgb(175,220,25), rgb(152,200,22), rgb(112,160,8));
-		box-shadow: 0 8px 28px rgba(120,175,10,0.42), 0 2px 8px rgba(120,175,10,0.18);
-		transition: opacity 0.2s, transform 0.2s;
+
+	/* ── Méthode ── */
+	.process { list-style: none; margin: 0; padding: 0; display: grid; gap: 2rem; }
+	@media (min-width: 768px) { .process { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+	.p-step { position: relative; padding-top: 3.75rem; }
+	.p-step::before {
+		content: '';
+		position: absolute;
+		top: 1.35rem;
+		left: 2.9rem;
+		right: -1.5rem;
+		height: 2px;
+		background: rgb(var(--accent) / 0.35);
 	}
-	.btn-pill:hover { opacity: 0.88; transform: translateY(-1px); }
-	summary::-webkit-details-marker { display: none; }
+	.p-step:last-child::before { display: none; }
+	@media (max-width: 767px) { .p-step::before { display: none; } .p-step { padding: 0 0 0 4rem; } }
+	.p-num {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		background: rgb(var(--accent));
+		color: rgb(var(--night));
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+	}
+	.p-step h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 0.45rem; }
+	.p-step p { font-size: 0.92rem; color: rgb(var(--muted)); line-height: 1.6; margin: 0; }
+	.techs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 3rem; font-size: 0.88rem; color: rgb(var(--muted)); }
+	.tech { padding: 0.3rem 0.8rem; border-radius: 999px; background: rgb(var(--bg)); border: 1px solid rgb(var(--line) / 0.08); color: rgb(var(--ink)); font-weight: 500; }
+
+	/* ── FAQ ── */
+	.faq-grid { display: grid; gap: 1rem; }
+	@media (min-width: 1024px) { .faq-grid { grid-template-columns: 20rem 1fr; gap: 4rem; } }
+	.faq { border-top: 1px solid rgb(var(--line) / 0.1); }
+	.faq details { border-bottom: 1px solid rgb(var(--line) / 0.1); }
+	.faq summary {
+		list-style: none;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 1.4rem 0.25rem;
+	}
+	.faq summary::-webkit-details-marker { display: none; }
+	.faq summary h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.08rem; font-weight: 600; color: rgb(var(--ink)); margin: 0; }
+	.faq summary:hover h3 { color: rgb(var(--accent-2)); }
+	.faq-icon {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		border: 1px solid rgb(var(--line) / 0.15);
+		color: rgb(var(--ink));
+		transition: transform 0.3s, background 0.3s;
+	}
+	.faq details[open] .faq-icon { transform: rotate(45deg); background: rgb(var(--accent)); border-color: rgb(var(--accent)); color: rgb(var(--night)); }
+	.faq details p { margin: 0; padding: 0 3rem 1.5rem 0.25rem; color: rgb(var(--muted)); line-height: 1.7; font-size: 0.97rem; }
+	.faq details[open] p { animation: open 0.35s ease-out; }
+	@keyframes open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+	/* ── Guides ── */
+	.posts { display: grid; gap: 1.75rem; }
+	@media (min-width: 768px) { .posts { grid-template-columns: repeat(3, 1fr); } }
+	.post-img { aspect-ratio: 3 / 2; border-radius: 1.1rem; overflow: hidden; background: rgb(var(--bg)); margin-bottom: 0.9rem; }
+	.post-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+	.post:hover .post-img img { transform: scale(1.05); }
+	.post h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; line-height: 1.35; color: rgb(var(--ink)); margin: 0; }
+	.post:hover h3 { text-decoration: underline; text-decoration-color: rgb(var(--accent)); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+	/* ── Autres services ── */
+	.others { padding: 3.5rem 0 4.5rem; }
+	.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+	.chip {
+		display: inline-block;
+		padding: 0.5rem 1.05rem;
+		border-radius: 999px;
+		border: 1px solid rgb(var(--line) / 0.14);
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: rgb(var(--ink));
+		transition: background 0.2s, border-color 0.2s;
+	}
+	.chip:hover { background: rgb(var(--accent) / 0.14); border-color: rgb(var(--accent)); }
+
+	/* ── CTA ── */
+	.cta { background: rgb(var(--night)); color: #fff; padding: 5.5rem 0 8rem; position: relative; overflow: hidden; }
+	.cta::before {
+		content: '';
+		position: absolute;
+		width: 600px;
+		height: 600px;
+		left: 50%;
+		top: 20%;
+		transform: translateX(-50%);
+		background: radial-gradient(circle, rgba(152, 200, 22, 0.2), transparent 65%);
+	}
+	.cta-inner { position: relative; text-align: center; }
+	.cta-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.9rem; }
+	.cta-inner p { color: rgba(255, 255, 255, 0.7); max-width: 34rem; margin: 0 auto; line-height: 1.6; }
+
+	@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 </style>

@@ -42,10 +42,10 @@
 					<li><a href="/services/automatisation-n8n" class="footer-link">Automatisation</a></li>
 					<li><a href="/services/marketing-digital-seo" class="footer-link">Marketing Digital</a></li>
 					<li><a href="/services/generation-de-leads" class="footer-link">Génération de Leads</a></li>
-					<li><a href="/services" class="footer-link">Data Engineering</a></li>
-					<li><a href="/services" class="footer-link">Formation</a></li>
-					<li><a href="/services" class="footer-link">Design UI/UX</a></li>
-					<li><a href="/services" class="footer-link">Backend & API</a></li>
+					<li><a href="/services/data-engineering" class="footer-link">Data Engineering</a></li>
+					<li><a href="/services/formation" class="footer-link">Formation</a></li>
+					<li><a href="/services/design-ui-ux" class="footer-link">Design UI/UX</a></li>
+					<li><a href="/services/backend-api" class="footer-link">Backend & API</a></li>
 				</ul>
 			</div>
 
@@ -159,10 +159,14 @@
 
 <style>
 	/* ─── Wave ─── */
+	/* La vague recouvre le bas de la section précédente : transition propre
+	   que la page se termine sur fond clair ou sur un bandeau sombre. */
 	.wave-container {
 		width: 100%;
 		overflow: hidden;
 		line-height: 0;
+		margin-top: -80px;
+		pointer-events: none;
 		margin-bottom: -2px;
 		position: relative;
 		z-index: 1;
@@ -457,6 +461,9 @@
 		}
 		.wave-svg {
 			height: 120px;
+		}
+		.wave-container {
+			margin-top: -120px;
 		}
 	}
 </style>

@@ -272,6 +272,35 @@ export const services: Service[] = [
 		stack: ['PostgreSQL', 'BigQuery', 'dbt', 'Airflow'],
 		accent: false,
 		iconBg: 'linear-gradient(135deg, #10b981, #06b6d4)',
+		page: {
+			slug: 'data-engineering',
+			metaTitle: 'Data engineering : pipelines de données et tableaux de bord',
+			metaDescription: 'Centralisez vos données, automatisez leur collecte et pilotez votre activité avec des tableaux de bord fiables : pipelines, entrepôt de données, extraction et web scraping.',
+			h1: 'Data engineering et tableaux de bord',
+			intro: [
+				'Vos chiffres sont éparpillés entre un CRM, des tableurs, un outil de facturation et des exports qu’il faut recopier à la main. Résultat : des décisions prises trop tard, ou sur des données fausses.',
+				'Nous construisons la chaîne qui rassemble vos données au même endroit, les nettoie et les met à jour automatiquement. Vous obtenez des tableaux de bord fiables pour suivre vos ventes, vos clients et vos opérations sans retraitement manuel.',
+			],
+			includes: [
+				{ title: 'Collecte automatisée', text: 'Connexion à vos outils (CRM, ERP, e-commerce, publicité) via API pour récupérer les données sans export manuel.' },
+				{ title: 'Entrepôt de données', text: 'Une base centrale, PostgreSQL ou BigQuery, où toutes vos données sont rangées et prêtes à être analysées.' },
+				{ title: 'Nettoyage et fiabilité', text: 'Doublons, formats incohérents, valeurs manquantes : les données sont contrôlées avant d’arriver dans vos rapports.' },
+				{ title: 'Tableaux de bord', text: 'Des indicateurs clairs, mis à jour automatiquement, accessibles à vos équipes et à la direction.' },
+				{ title: 'Extraction et web scraping', text: 'Collecte structurée de données publiques (annuaires, catalogues, prix) dans le respect des règles d’utilisation.' },
+				{ title: 'Pipelines planifiés', text: 'Des traitements qui tournent seuls chaque nuit ou chaque heure, avec une alerte en cas de problème.' },
+			],
+			forWho: ['PME qui pilotent encore leur activité sur tableur', 'Directions qui veulent des chiffres fiables', 'E-commerçants multi-canaux', 'Équipes marketing qui suivent plusieurs plateformes'],
+			faq: [
+				{ q: 'Qu’est-ce que le data engineering ?', a: 'C’est la mise en place de l’infrastructure qui collecte, transforme et stocke vos données pour qu’elles soient fiables et exploitables. C’est la base indispensable avant tout tableau de bord ou projet d’IA.' },
+				{ q: 'Faut-il une grosse quantité de données ?', a: 'Non. Même une petite entreprise gagne à centraliser ses données de ventes, de clients et de marketing. On dimensionne la solution selon votre volume réel.' },
+				{ q: 'Le web scraping est-il légal ?', a: 'La collecte de données publiques est possible dans certaines limites : respect des conditions d’utilisation des sites, du RGPD pour les données personnelles et du droit des bases de données. Nous vérifions ces points avant chaque projet.' },
+			],
+			articles: [
+				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
+				'automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine',
+				'rag-chatbots-metier-et-agents-ia-le-guide-complet-pour-integrer-lintelligence-artificielle-en-entreprise-en-2026',
+			],
+		},
 	},
 	{
 		icon: BookOpen,
@@ -280,6 +309,35 @@ export const services: Service[] = [
 		stack: ['Python', 'SvelteKit', 'Flutter', 'FastAPI', 'IA / ML'],
 		accent: false,
 		iconBg: 'linear-gradient(135deg, #059669, #065f46)',
+		page: {
+			slug: 'formation',
+			metaTitle: 'Formation IA, automatisation, développement web et mobile',
+			metaDescription: 'Formations sur mesure pour vos équipes : intelligence artificielle, automatisation n8n, développement web et mobile, Python et data. En présentiel ou à distance.',
+			h1: 'Formations IA, automatisation et développement',
+			intro: [
+				'Les outils évoluent vite : IA générative, automatisation, nouveaux frameworks. Vos équipes ont besoin de comprendre ce qui est possible et de savoir s’en servir dans leur travail de tous les jours.',
+				'Nous proposons des formations pratiques, construites autour de vos cas d’usage réels. Chaque session alterne explications et exercices sur vos propres outils, pour que les participants repartent avec quelque chose qui fonctionne.',
+			],
+			includes: [
+				{ title: 'IA au quotidien', text: 'Utiliser ChatGPT, Gemini et les assistants IA de façon efficace et sûre : rédaction, analyse, recherche, synthèse.' },
+				{ title: 'Automatisation avec n8n', text: 'Créer ses premiers workflows, connecter ses outils et automatiser des tâches simples en autonomie.' },
+				{ title: 'Développement web', text: 'SvelteKit, API, bases de données : des parcours pour développeurs débutants ou confirmés.' },
+				{ title: 'Développement mobile', text: 'Créer une application iOS et Android avec Flutter, de la première interface à la publication.' },
+				{ title: 'Python et data', text: 'Manipuler des données, automatiser des traitements et construire des API avec FastAPI.' },
+				{ title: 'Format adapté', text: 'Présentiel, distanciel ou e-learning, en sessions courtes ou en parcours sur plusieurs semaines.' },
+			],
+			forWho: ['Équipes qui veulent adopter l’IA', 'Dirigeants qui veulent comprendre avant d’investir', 'Développeurs qui montent en compétences', 'Écoles et organismes de formation'],
+			faq: [
+				{ q: 'Les formations sont-elles adaptées aux débutants ?', a: 'Oui. Le niveau est fixé avant la formation avec un court échange sur le profil des participants. Les sessions IA et automatisation ne demandent aucune connaissance technique.' },
+				{ q: 'La formation peut-elle porter sur nos propres outils ?', a: 'C’est même recommandé : les exercices sont construits à partir de vos documents, de vos logiciels et de vos tâches réelles pour un résultat directement utile.' },
+				{ q: 'Combien de temps dure une formation ?', a: 'D’une demi-journée de découverte à un parcours de plusieurs semaines. Le programme et la durée sont proposés selon vos objectifs.' },
+			],
+			articles: [
+				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
+				'automatisation-ia-pour-pme-comment-gagner-dix-heures-par-semaine-avec-n8n-et-lia',
+				'rag-chatbots-metier-et-agents-ia-le-guide-complet-pour-integrer-lintelligence-artificielle-en-entreprise-en-2026',
+			],
+		},
 	},
 	{
 		icon: Layers,
@@ -288,6 +346,35 @@ export const services: Service[] = [
 		stack: ['Figma', 'Framer', 'Storybook', 'Prototypage'],
 		accent: false,
 		iconBg: 'linear-gradient(135deg, #8b5cf6, #a78bfa)',
+		page: {
+			slug: 'design-ui-ux',
+			metaTitle: 'Design UI/UX : maquettes de site et d’application',
+			metaDescription: 'Conception d’interfaces de sites web et d’applications : parcours utilisateur, maquettes Figma, prototypes et design system pensés pour convertir.',
+			h1: 'Design UI/UX de sites et d’applications',
+			intro: [
+				'Un visiteur décide en quelques secondes s’il reste sur votre site ou votre application. Si l’information est difficile à trouver ou le parcours confus, il abandonne, même si votre offre est la bonne.',
+				'Nous concevons des interfaces claires et agréables, en partant de vos utilisateurs : ce qu’ils cherchent, ce qui les bloque, ce qui les fait passer à l’action. Vous validez des maquettes et des prototypes cliquables avant tout développement.',
+			],
+			includes: [
+				{ title: 'Parcours utilisateur', text: 'Analyse de vos visiteurs et de leurs objectifs pour construire un parcours simple jusqu’à la prise de contact ou l’achat.' },
+				{ title: 'Maquettes Figma', text: 'Des écrans détaillés pour ordinateur et mobile, fidèles au rendu final.' },
+				{ title: 'Prototype cliquable', text: 'Testez la navigation avant le développement et corrigez ce qui doit l’être au bon moment.' },
+				{ title: 'Design system', text: 'Couleurs, typographies et composants réutilisables pour garder une image cohérente partout.' },
+				{ title: 'Audit d’interface', text: 'Analyse de votre site ou application existant avec une liste d’améliorations priorisées.' },
+				{ title: 'Accessibilité', text: 'Contrastes, tailles de texte et navigation au clavier pour une interface utilisable par tous.' },
+			],
+			forWho: ['Startups qui préparent leur produit', 'Entreprises dont le site convertit mal', 'Équipes produit qui ont besoin de maquettes', 'Marques qui veulent une image cohérente'],
+			faq: [
+				{ q: 'Quelle différence entre UI et UX ?', a: 'L’UX (expérience utilisateur) concerne le parcours et la facilité d’utilisation. L’UI (interface utilisateur) concerne l’aspect visuel : couleurs, typographies, boutons. Un bon design travaille les deux ensemble.' },
+				{ q: 'Pouvez-vous seulement faire le design, sans le développement ?', a: 'Oui. Nous livrons les maquettes et le design system à votre équipe technique, ou nous assurons aussi le développement si vous le souhaitez.' },
+				{ q: 'Combien d’allers-retours sont prévus ?', a: 'Le nombre de cycles de corrections est fixé dans la proposition. Le prototype cliquable permet de valider tôt et d’éviter les surprises.' },
+			],
+			articles: [
+				'pourquoi-votre-site-web-vous-fait-perdre-des-clients-en-2026-et-comment-y-remedier',
+				'application-mobile-ou-site-web-responsive-pwa-comment-choisir-le-bon-format-pour-votre-projet',
+				'comment-rediger-un-cahier-des-charges-pour-votre-site-web-ou-application-modele-et-checklist',
+			],
+		},
 	},
 	{
 		icon: Server,
@@ -296,6 +383,35 @@ export const services: Service[] = [
 		stack: ['Node.js', 'Django', 'PostgreSQL', 'Docker'],
 		accent: false,
 		iconBg: 'linear-gradient(135deg, #6366f1, #06b6d4)',
+		page: {
+			slug: 'backend-api',
+			metaTitle: 'Développement backend et API sur mesure',
+			metaDescription: 'Développement d’API REST et GraphQL, backends et bases de données sur mesure avec Node.js, Django et FastAPI : sécurisés, documentés et prêts pour la production.',
+			h1: 'Développement backend et API',
+			intro: [
+				'Derrière chaque application, site e-commerce ou outil métier, il y a un serveur qui gère les données, les comptes utilisateurs, les paiements et la connexion avec d’autres logiciels. S’il est mal conçu, tout le reste en souffre.',
+				'Nous développons des backends et des API solides, sécurisés et documentés, avec Node.js, Django ou FastAPI. Ils sont pensés pour évoluer avec votre activité et se connecter facilement à vos outils.',
+			],
+			includes: [
+				{ title: 'API REST et GraphQL', text: 'Des interfaces claires et documentées pour vos applications web, mobiles et vos partenaires.' },
+				{ title: 'Bases de données', text: 'Conception et optimisation de bases PostgreSQL ou MongoDB adaptées à vos données.' },
+				{ title: 'Authentification et sécurité', text: 'Comptes utilisateurs, rôles, chiffrement et bonnes pratiques de sécurité dès la conception.' },
+				{ title: 'Intégrations tierces', text: 'Paiement, e-mail, CRM, ERP, WhatsApp : connexion de votre système aux services dont vous avez besoin.' },
+				{ title: 'Déploiement et hébergement', text: 'Mise en production avec Docker, surveillance et sauvegardes automatiques.' },
+				{ title: 'Reprise de l’existant', text: 'Audit, correction et modernisation d’un backend devenu lent ou difficile à maintenir.' },
+			],
+			forWho: ['Startups qui construisent leur produit', 'Entreprises qui connectent plusieurs logiciels', 'Équipes front-end qui ont besoin d’une API', 'Projets mobiles qui ont besoin d’un serveur'],
+			faq: [
+				{ q: 'Qu’est-ce qu’une API ?', a: 'Une API est une porte d’entrée qui permet à deux logiciels d’échanger des données de façon sécurisée. C’est ce qui permet par exemple à votre application mobile de récupérer les informations de votre base de données.' },
+				{ q: 'Node.js, Django ou FastAPI : que choisir ?', a: 'Le choix dépend de votre projet et de votre équipe : FastAPI pour les API rapides et l’IA, Django pour les applications complètes avec back-office, Node.js pour les applications temps réel. Nous recommandons la technologie la plus adaptée.' },
+				{ q: 'Pouvez-vous reprendre un projet existant ?', a: 'Oui. Nous commençons par un audit du code et de l’architecture, puis proposons un plan de correction et d’amélioration.' },
+			],
+			articles: [
+				'cybersecurite-pour-pme-10-reflexes-pour-proteger-votre-site-web-et-vos-donnees-en-2026',
+				'comment-rediger-un-cahier-des-charges-pour-votre-site-web-ou-application-modele-et-checklist',
+				'combien-coute-vraiment-une-application-mobile-en-2026-le-vrai-prix-selon-votre-besoin',
+			],
+		},
 	},
 ];
 

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import ServiceList from '$lib/components/ServiceList.svelte';
+	import ServiceScroller from '$lib/components/ServiceScroller.svelte';
+	import JourneyDemo from '$lib/components/JourneyDemo.svelte';
 	import { ArrowRight, BookOpen } from 'lucide-svelte';
 	import { servicePages, process } from '$lib/data/services';
 	import { reveal } from '$lib/actions/motion';
@@ -9,9 +10,8 @@
 
 	let { data }: { data: PageData } = $props();
 
-	/* Les 6 offres principales en grand, les autres expertises en lien simple */
+	/* Les 6 offres principales en grandes cartes ; la dernière carte mène à tous les services */
 	const main = servicePages.slice(0, 6);
-	const more = servicePages.slice(6);
 
 	const partners = [
 		{ name: 'ICS Innovations', logo: '/images/ics.png', bgColor: '' },
@@ -30,22 +30,21 @@
 
 <Hero />
 
-<!-- ═════════ Services ═════════ -->
-<section class="sec" aria-labelledby="services-title">
-	<div class="wrap">
-		<header class="sec-head split" use:reveal>
-			<h2 id="services-title" class="h2">Ce que nous faisons pour vous</h2>
-			<p class="sub">Un seul interlocuteur pour votre site, votre application, l’IA et le marketing : tout est pensé pour fonctionner ensemble.</p>
-		</header>
+<!-- ═════════ Services : cartes à défilement horizontal ═════════ -->
+<ServiceScroller items={main} />
 
-		<ServiceList items={main} />
-
-		<div class="more" use:reveal>
-			<span class="more-label">Et aussi :</span>
-			{#each more as s (s.page.slug)}
-				<a href="/services/{s.page.slug}" class="chip">{s.title}</a>
-			{/each}
+<!-- ═════════ Exemple concret : le parcours client ═════════ -->
+<section class="journey" aria-labelledby="journey-title">
+	<div class="wrap journey-grid">
+		<div use:reveal>
+			<h2 id="journey-title" class="h2 light">Un exemple concret</h2>
+			<p class="sub light">
+				Voici ce qui se passe quand tout est relié : votre site attire le visiteur, le formulaire le transforme en
+				contact, l’automatisation l’enregistre et l’IA lui répond aussitôt. Vous n’avez plus qu’à honorer le rendez-vous.
+			</p>
+			<a href="/services/automatisation-n8n" class="link light">Découvrir l’automatisation <ArrowRight class="w-4 h-4" /></a>
 		</div>
+		<JourneyDemo />
 	</div>
 </section>
 
@@ -195,19 +194,23 @@
 	.link :global(svg) { transition: transform 0.2s; }
 	.link:hover :global(svg) { transform: translateX(3px); }
 
-	/* ── Autres expertises ── */
-	.more { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 1.75rem; }
-	.more-label { font-size: 0.9rem; color: rgb(var(--muted)); margin-right: 0.25rem; }
-	.chip {
-		padding: 0.45rem 1rem;
-		border-radius: 999px;
-		border: 1px solid rgb(var(--line) / 0.14);
-		font-size: 0.88rem;
-		font-weight: 500;
-		color: rgb(var(--ink));
-		transition: background 0.2s, border-color 0.2s;
+	/* ── Exemple concret ── */
+	.journey { background: rgb(var(--night)); color: #fff; padding: 6rem 0; position: relative; overflow: hidden; }
+	.journey::before {
+		content: '';
+		position: absolute;
+		width: 700px;
+		height: 700px;
+		right: -200px;
+		top: -150px;
+		background: radial-gradient(circle, rgba(152, 200, 22, 0.18), transparent 62%);
 	}
-	.chip:hover { background: rgb(var(--accent) / 0.14); border-color: rgb(var(--accent)); }
+	.journey-grid { position: relative; display: grid; gap: 3rem; align-items: center; }
+	@media (min-width: 1024px) { .journey-grid { grid-template-columns: 0.9fr 1.1fr; gap: 5rem; } }
+	.h2.light { color: #fff; }
+	.sub.light { color: rgba(255, 255, 255, 0.7); margin-bottom: 1.75rem; max-width: 32rem; }
+	.link.light { color: #fff; }
+	@media (max-width: 767px) { .journey { padding: 4rem 0; } }
 
 	/* ── Méthode ── */
 	.process {

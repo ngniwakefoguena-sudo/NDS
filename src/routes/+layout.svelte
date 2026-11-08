@@ -4,6 +4,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import SplashScreen from '$lib/components/SplashScreen.svelte';
+	import Chaya from '$lib/components/Chaya.svelte';
 	import { site } from '$lib/data/site';
 
 	let { children } = $props();
@@ -107,3 +108,5 @@
 	</main>
 	<Footer />
 </div>
+
+<Chaya />

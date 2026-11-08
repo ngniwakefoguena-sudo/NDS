@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import { ArrowRight } from 'lucide-svelte';
+	import { ArrowRight, TrendingUp, Bot, Star, Rocket } from 'lucide-svelte';
 	import { countUp } from '$lib/actions/motion';
 
 	/* Le mot qui change dans le titre : ce que l'agence crée pour le client */
@@ -10,337 +10,290 @@
 	let index = $state(0);
 	let reduced = $state(false);
 
-	const stats = [
-		{ value: '15+', label: 'projets livrés' },
-		{ value: '5 ans', label: 'd’expertise' },
-		{ value: '98%', label: 'de clients satisfaits' },
-		{ value: '+40%', label: 'de croissance moyenne' }
-	];
-
-	let hero: HTMLElement;
-
 	onMount(() => {
 		reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		if (reduced) return;
-
-		const timer = setInterval(() => (index = (index + 1) % words.length), 2400);
-
-		/* Halo lumineux qui suit la souris (ordinateur uniquement) */
-		const fine = window.matchMedia('(pointer: fine)').matches;
-		const move = (e: PointerEvent) => {
-			const r = hero.getBoundingClientRect();
-			hero.style.setProperty('--mx', `${e.clientX - r.left}px`);
-			hero.style.setProperty('--my', `${e.clientY - r.top}px`);
-		};
-		if (fine) hero.addEventListener('pointermove', move);
-
-		return () => {
-			clearInterval(timer);
-			hero.removeEventListener('pointermove', move);
-		};
+		const timer = setInterval(() => (index = (index + 1) % words.length), 2600);
+		return () => clearInterval(timer);
 	});
 </script>
 
-<section class="hero" bind:this={hero} aria-labelledby="hero-title">
-	<div class="bg" aria-hidden="true">
-		<span class="blob b1"></span>
-		<span class="blob b2"></span>
-		<span class="blob b3"></span>
-		<span class="grid"></span>
-		<span class="spot"></span>
-	</div>
+<section class="hero" aria-labelledby="hero-title">
+	<div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="dots"></span></div>
 
 	<div class="inner">
-		<p class="kicker"><span class="dot"></span>Agence web, mobile et IA à Paris</p>
-
-		<h1 id="hero-title" class="title">
-			<span class="l l1">Nous créons votre</span>
-			<span class="l rot" aria-live="off">
-				<span class="sr-only">site web, application mobile, automatisation ou assistant IA</span>
-				<span class="rot-stack" aria-hidden="true">
-					{#key index}
-						<span
-							class="word"
-							in:fly={{ y: reduced ? 0 : 60, duration: reduced ? 0 : 650, easing: cubicOut }}
-							out:fly={{ y: reduced ? 0 : -60, duration: reduced ? 0 : 450, easing: cubicOut }}
-						>{words[index]}</span>
-					{/key}
+		<!-- Texte -->
+		<div class="copy">
+			<p class="kicker"><span class="dot"></span>Agence web, mobile et IA à Paris</p>
+			<h1 id="hero-title" class="title">
+				<span class="l l1">Nous créons votre</span>
+				<span class="l rot">
+					<span class="sr-only">site web, application mobile, automatisation ou assistant IA</span>
+					<span class="rot-stack" aria-hidden="true">
+						{#key index}
+							<span
+								class="word"
+								in:fly={{ y: reduced ? 0 : 40, duration: reduced ? 0 : 600, easing: cubicOut }}
+								out:fly={{ y: reduced ? 0 : -40, duration: reduced ? 0 : 400, easing: cubicOut }}
+							>{words[index]}</span>
+						{/key}
+					</span>
 				</span>
-			</span>
-			<span class="l l3">qui vous ramène des clients.</span>
-		</h1>
-
-		<p class="lead">
-			Site, application, automatisations et intelligence artificielle : on conçoit tout ce qui transforme vos
-			visiteurs en demandes de contact, puis en clients. Un seul interlocuteur, réponse sous 24h.
-		</p>
-
-		<div class="ctas">
-			<a href="/contact" class="btn-primary">
-				Démarrer un projet
-				<ArrowRight class="w-4 h-4" />
-			</a>
-			<a href="/services" class="btn-ghost">Découvrir nos services</a>
+				<span class="l l3">qui vous ramène des clients.</span>
+			</h1>
+			<p class="lead">
+				Site, application, automatisations et intelligence artificielle : nous concevons tout ce qui transforme vos
+				visiteurs en clients. Un seul interlocuteur, une réponse sous 24h.
+			</p>
+			<div class="ctas">
+				<a href="/contact" class="btn-primary">Démarrer un projet <ArrowRight class="w-4 h-4" /></a>
+				<a href="/services" class="btn-ghost">Nos services</a>
+			</div>
+			<div class="trust">
+				<span class="stars" aria-hidden="true">{#each [0, 1, 2, 3, 4] as _}<Star class="w-3.5 h-3.5" />{/each}</span>
+				<span><strong>+14 avis clients</strong>, plus de 300 clients accompagnés</span>
+			</div>
 		</div>
 
-		<dl class="stats">
-			{#each stats as s, i}
-				<div class="stat" style="--i: {i}">
-					<dt class="sr-only">{s.label}</dt>
-					<dd>
-						<span class="stat-value" use:countUp>{s.value}</span>
-						<span class="stat-label">{s.label}</span>
-					</dd>
-				</div>
-			{/each}
-		</dl>
+		<!-- Visuel : photo + cartes flottantes -->
+		<div class="visual" aria-hidden="true">
+			<div class="photo">
+				<img src="/images/hero-bg.webp" alt="" width="1200" height="1200" fetchpriority="high" decoding="async" />
+			</div>
+			<div class="float f1">
+				<span class="ico"><TrendingUp class="w-4 h-4" /></span>
+				<div><strong use:countUp>+40%</strong><small>de croissance moyenne</small></div>
+			</div>
+			<div class="float f2">
+				<span class="ico dark"><Bot class="w-4 h-4" /></span>
+				<div><strong>Réponse en 1 min</strong><small>grâce à l’IA, même la nuit</small></div>
+			</div>
+			<div class="float f3">
+				<span class="ico"><Rocket class="w-4 h-4" /></span>
+				<div><strong><span use:countUp>15+</span> projets</strong><small><span use:countUp>98%</span> de clients satisfaits</small></div>
+			</div>
+		</div>
 	</div>
-
 </section>
 
 <style>
 	.hero {
-		--mx: 50%;
-		--my: 40%;
 		position: relative;
 		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		background: rgb(var(--night));
-		color: #fff;
-		padding: 7.5rem 0 3.5rem;
+		background: rgb(var(--bg));
+		padding: 8rem 0 4rem;
 		isolation: isolate;
 	}
-
-	/* ── Fond animé ── */
 	.bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-	.blob {
-		position: absolute;
-		border-radius: 50%;
-		filter: blur(70px);
-		opacity: 0.55;
-		will-change: transform;
-	}
+	.blob { position: absolute; border-radius: 50%; filter: blur(60px); }
 	.b1 {
-		width: 46vw; height: 46vw; min-width: 340px; min-height: 340px;
-		left: -10vw; top: -14vw;
-		background: radial-gradient(circle, rgb(152 200 22 / 0.75), transparent 65%);
-		animation: drift1 18s ease-in-out infinite alternate;
+		width: 520px; height: 520px; right: -120px; top: -80px;
+		background: radial-gradient(circle, rgb(152 200 22 / 0.28), transparent 65%);
+		animation: drift 16s ease-in-out infinite alternate;
 	}
 	.b2 {
-		width: 40vw; height: 40vw; min-width: 300px; min-height: 300px;
-		right: -12vw; top: 10vh;
-		background: radial-gradient(circle, rgb(112 160 8 / 0.8), transparent 65%);
-		animation: drift2 22s ease-in-out infinite alternate;
+		width: 420px; height: 420px; left: -160px; bottom: -160px;
+		background: radial-gradient(circle, rgb(152 200 22 / 0.16), transparent 65%);
+		animation: drift 20s ease-in-out infinite alternate-reverse;
 	}
-	.b3 {
-		width: 34vw; height: 34vw; min-width: 260px; min-height: 260px;
-		left: 30vw; bottom: -18vw;
-		background: radial-gradient(circle, rgb(196 236 52 / 0.45), transparent 65%);
-		animation: drift3 26s ease-in-out infinite alternate;
-	}
-	.grid {
+	.dots {
 		position: absolute;
 		inset: 0;
-		background-image:
-			linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-		background-size: 64px 64px;
-		mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 20%, transparent 75%);
-		animation: gridMove 30s linear infinite;
-	}
-	.spot {
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(500px circle at var(--mx) var(--my), rgba(196, 236, 52, 0.12), transparent 60%);
+		background-image: radial-gradient(rgb(var(--line) / 0.07) 1px, transparent 1px);
+		background-size: 26px 26px;
+		mask-image: linear-gradient(180deg, #000, transparent 85%);
 	}
 
-	/* ── Contenu centré ── */
 	.inner {
-		max-width: 76rem;
+		max-width: 80rem;
 		margin: 0 auto;
 		padding: 0 1.25rem;
-		text-align: center;
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		gap: 3rem;
 		align-items: center;
 	}
+	@media (min-width: 768px) { .inner { padding: 0 2rem; } }
+	@media (min-width: 1024px) { .inner { grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; } }
+
+	/* ── Texte ── */
 	.kicker {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.55rem;
-		padding: 0.45rem 1rem;
+		gap: 0.5rem;
+		padding: 0.4rem 0.9rem;
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		backdrop-filter: blur(8px);
-		font-size: 0.78rem;
-		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 1.4rem;
-		animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+		background: rgb(var(--accent) / 0.12);
+		color: rgb(var(--ink));
+		font-size: 0.8rem;
+		font-weight: 500;
+		margin: 0 0 1.25rem;
+		animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 	}
-	.dot { width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--accent)); box-shadow: 0 0 10px rgb(var(--accent)); }
-
+	.dot { width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--accent-2)); }
 	.title {
 		font-family: 'Space Grotesk', sans-serif;
 		font-weight: 700;
-		letter-spacing: -0.04em;
-		line-height: 1.02;
-		margin: 0 0 1.25rem;
-		font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+		letter-spacing: -0.035em;
+		line-height: 1.08;
+		color: rgb(var(--ink));
+		font-size: clamp(2rem, 3.6vw, 3.2rem);
+		margin: 0 0 1.1rem;
 	}
 	.l { display: block; }
-	.l1 { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
-	.l3 { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
-	.rot { animation: pop 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
-	.rot-stack {
-		display: inline-grid;
-		overflow: hidden;
-		padding: 0.02em 0.25em 0.1em;
-		vertical-align: bottom;
-	}
+	.l1 { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both; }
+	.rot { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both; }
+	.l3 { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; }
+	.rot-stack { display: inline-grid; overflow: hidden; vertical-align: bottom; padding-bottom: 0.08em; }
 	.word {
 		grid-area: 1 / 1;
 		white-space: nowrap;
-		background: linear-gradient(100deg, rgb(196 236 52), rgb(152 200 22) 45%, rgb(112 160 8) 90%);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
+		color: rgb(var(--accent-2));
+		position: relative;
 	}
-
+	/* trait vert sous le mot */
+	.word::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0.02em;
+		height: 0.14em;
+		border-radius: 1em;
+		background: rgb(var(--accent) / 0.45);
+		transform-origin: left;
+		animation: underline 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+	}
 	.lead {
-		max-width: 38rem;
+		max-width: 34rem;
 		font-size: 1rem;
 		line-height: 1.65;
-		color: rgba(255, 255, 255, 0.72);
-		margin: 0 0 1.75rem;
-		animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+		color: rgb(var(--muted));
+		margin: 0 0 1.6rem;
+		animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
 	}
-	.ctas {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 0.8rem;
-		animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
-	}
+	.ctas { display: flex; flex-wrap: wrap; gap: 0.7rem; animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
 	.btn-primary,
 	.btn-ghost {
 		position: relative;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.4rem;
+		gap: 0.45rem;
+		padding: 0.8rem 1.4rem;
 		border-radius: 999px;
 		font-weight: 600;
-		font-size: 0.92rem;
+		font-size: 0.93rem;
 		transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
 	}
 	.btn-primary {
-		background: rgb(var(--accent));
-		color: rgb(var(--night));
-		box-shadow: 0 0 0 0 rgb(152 200 22 / 0.5), 0 12px 34px rgb(152 200 22 / 0.35);
-		animation: glow 2.8s ease-in-out 2s infinite;
+		background: rgb(var(--ink));
+		color: #fff;
+		box-shadow: 0 10px 26px rgb(var(--ink) / 0.22);
 		overflow: hidden;
 	}
-	/* reflet qui traverse le bouton */
 	.btn-primary::after {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+		background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
 		transform: translateX(-120%);
-		animation: shine 3.5s ease-in-out 1.5s infinite;
+		animation: shine 4s ease-in-out 1.5s infinite;
 	}
-	.btn-primary:hover { transform: translateY(-3px) scale(1.02); }
+	.btn-primary:hover { transform: translateY(-2px); background: rgb(var(--accent-2)); }
 	.btn-primary :global(svg) { transition: transform 0.25s; }
-	.btn-primary:hover :global(svg) { transform: translateX(4px); }
-	.btn-ghost {
-		color: #fff;
-		border: 1px solid rgba(255, 255, 255, 0.25);
-		background: rgba(255, 255, 255, 0.04);
-		backdrop-filter: blur(8px);
+	.btn-primary:hover :global(svg) { transform: translateX(3px); }
+	.btn-ghost { color: rgb(var(--ink)); border: 1px solid rgb(var(--line) / 0.15); background: rgb(var(--bg)); }
+	.btn-ghost:hover { border-color: rgb(var(--accent)); background: rgb(var(--accent) / 0.1); transform: translateY(-2px); }
+	.trust {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+		font-size: 0.85rem;
+		color: rgb(var(--muted));
+		animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s both;
 	}
-	.btn-ghost:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
+	.trust strong { color: rgb(var(--ink)); }
+	.stars { display: inline-flex; gap: 0.1rem; color: #f5b301; }
+	.stars :global(svg) { fill: currentColor; }
 
-	/* ── Chiffres ── */
-	.stats {
-		display: grid;
-		grid-template-columns: repeat(4, auto);
-		gap: 0 2.75rem;
-		margin: 2.75rem 0 0;
-	}
-	.stat { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(0.75s + var(--i) * 0.1s) both; }
-	.stat dd { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
-	.stat-value {
-		font-family: 'Space Grotesk', sans-serif;
-		font-size: clamp(1.35rem, 2vw, 1.75rem);
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		font-variant-numeric: tabular-nums;
-	}
-	.stat-label { font-size: 0.78rem; color: rgba(255, 255, 255, 0.55); white-space: nowrap; }
-
-	/* ── Indicateur de défilement ── */
-	.scroll {
-		position: absolute;
-		left: 50%;
-		bottom: 1.75rem;
-		transform: translateX(-50%);
-		opacity: 0.6;
-		animation: rise 1s ease 1.4s both;
-	}
-	.scroll:hover { opacity: 1; }
-	.mouse {
-		display: block;
-		width: 24px;
-		height: 38px;
-		border: 2px solid rgba(255, 255, 255, 0.6);
-		border-radius: 14px;
+	/* ── Visuel ── */
+	.visual { position: relative; padding: 1.5rem 1.5rem 2rem; }
+	.photo {
 		position: relative;
+		aspect-ratio: 5 / 4;
+		border-radius: 2rem;
+		overflow: hidden;
+		box-shadow: 0 30px 70px rgba(30, 50, 5, 0.18);
+		animation: reveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 	}
-	.wheel {
+	.photo::after {
+		content: '';
 		position: absolute;
-		left: 50%;
-		top: 7px;
-		width: 4px;
-		height: 8px;
-		margin-left: -2px;
-		border-radius: 2px;
-		background: rgb(var(--accent));
-		animation: wheel 1.8s ease-in-out infinite;
+		inset: 0;
+		background: linear-gradient(180deg, transparent 55%, rgb(var(--night) / 0.35));
 	}
+	.photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transform: scale(1.08); animation: zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; }
 
-	/* ── Tailles d'écran ── */
-	@media (max-width: 900px) {
-		.stats { grid-template-columns: repeat(2, auto); gap: 1.5rem 3rem; }
-		.scroll { display: none; }
+	.float {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		padding: 0.7rem 0.95rem;
+		border-radius: 1rem;
+		background: rgb(var(--bg) / 0.92);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgb(var(--line) / 0.06);
+		box-shadow: 0 16px 40px rgba(30, 50, 5, 0.16);
+		font-size: 0.8rem;
+		color: rgb(var(--ink));
+	}
+	.float div { display: flex; flex-direction: column; line-height: 1.25; }
+	.float strong { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
+	.float small { color: rgb(var(--muted)); font-size: 0.74rem; }
+	.ico {
+		width: 2.2rem;
+		height: 2.2rem;
+		border-radius: 0.7rem;
+		display: grid;
+		place-items: center;
+		background: rgb(var(--accent));
+		color: rgb(var(--night));
+		flex-shrink: 0;
+	}
+	.ico.dark { background: rgb(var(--night)); color: rgb(var(--accent)); }
+	.f1 { left: 0; top: 12%; animation: pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both, bob 6s ease-in-out 1.4s infinite; }
+	.f2 { right: 0; top: 46%; animation: pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both, bob 7s ease-in-out 1.6s infinite reverse; }
+	.f3 { left: 8%; bottom: 0; animation: pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.1s both, bob 6.5s ease-in-out 1.8s infinite; }
+
+	@media (max-width: 1023px) {
+		.visual { max-width: 34rem; margin: 0 auto; width: 100%; }
 	}
 	@media (max-width: 639px) {
 		.hero { padding: 6.5rem 0 3rem; }
-		.kicker { font-size: 0.78rem; margin-bottom: 1.5rem; }
-		.title { font-size: clamp(1.7rem, 8vw, 2.2rem); }
-		.ctas { flex-direction: column; width: 100%; }
+		.title { font-size: clamp(1.75rem, 8vw, 2.2rem); }
+		.ctas { flex-direction: column; }
 		.btn-primary, .btn-ghost { width: 100%; }
-		.stats { width: 100%; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; margin-top: 2.75rem; }
+		.visual { padding: 1rem 0.5rem 1.5rem; }
+		.float { padding: 0.55rem 0.75rem; }
+		.float strong { font-size: 0.9rem; }
+		.f1 { left: -0.25rem; }
+		.f2 { right: -0.25rem; }
 	}
 
-	/* ── Animations ── */
-	@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-	@keyframes pop { from { opacity: 0; transform: translateY(26px) scale(0.92); } to { opacity: 1; transform: none; } }
-	@keyframes drift1 { to { transform: translate(14vw, 10vh) scale(1.15); } }
-	@keyframes drift2 { to { transform: translate(-12vw, 14vh) scale(0.9); } }
-	@keyframes drift3 { to { transform: translate(-10vw, -16vh) scale(1.2); } }
-	@keyframes gridMove { to { background-position: 64px 64px; } }
+	@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+	@keyframes reveal { from { clip-path: inset(12% 12% 12% 12% round 2rem); opacity: 0; } to { clip-path: inset(0 0 0 0 round 2rem); opacity: 1; } }
+	@keyframes zoom { to { transform: scale(1); } }
+	@keyframes pop { from { opacity: 0; transform: translateY(14px) scale(0.85); } to { opacity: 1; transform: none; } }
+	@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+	@keyframes drift { to { transform: translate(-60px, 50px) scale(1.1); } }
+	@keyframes underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 	@keyframes shine { 0% { transform: translateX(-120%); } 35%, 100% { transform: translateX(120%); } }
-	@keyframes glow {
-		0%, 100% { box-shadow: 0 0 0 0 rgb(152 200 22 / 0.45), 0 12px 34px rgb(152 200 22 / 0.35); }
-		50% { box-shadow: 0 0 0 10px rgb(152 200 22 / 0), 0 12px 34px rgb(152 200 22 / 0.35); }
-	}
-	@keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
 
 	@media (prefers-reduced-motion: reduce) {
-		.blob, .grid, .btn-primary, .btn-primary::after, .wheel { animation: none; }
+		.blob, .float, .btn-primary::after { animation: none; }
+		.photo img { transform: none; animation: none; }
 	}
 </style>

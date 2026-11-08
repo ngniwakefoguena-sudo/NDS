@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import ServiceScroller from '$lib/components/ServiceScroller.svelte';
+	import ServiceBento from '$lib/components/ServiceBento.svelte';
 	import JourneyDemo from '$lib/components/JourneyDemo.svelte';
 	import { ArrowRight, BookOpen } from 'lucide-svelte';
 	import { servicePages, process } from '$lib/data/services';
@@ -10,7 +10,7 @@
 
 	let { data }: { data: PageData } = $props();
 
-	/* Les 6 offres principales en grandes cartes ; la dernière carte mène à tous les services */
+	/* Les 6 offres principales en mosaïque ; une tuile mène à tous les services */
 	const main = servicePages.slice(0, 6);
 
 	const partners = [
@@ -30,8 +30,8 @@
 
 <Hero />
 
-<!-- ═════════ Services : cartes à défilement horizontal ═════════ -->
-<ServiceScroller items={main} />
+<!-- ═════════ Services en mosaïque ═════════ -->
+<ServiceBento items={main} />
 
 <!-- ═════════ Exemple concret : le parcours client ═════════ -->
 <section class="journey" aria-labelledby="journey-title">
@@ -49,7 +49,7 @@
 </section>
 
 <!-- ═════════ Méthode ═════════ -->
-<section class="sec mist" aria-labelledby="process-title">
+<section class="sec" aria-labelledby="process-title">
 	<div class="wrap">
 		<header class="sec-head" use:reveal>
 			<h2 id="process-title" class="h2">Comment on travaille ensemble</h2>
@@ -69,7 +69,7 @@
 
 <!-- ═════════ Réalisations ═════════ -->
 {#if data.featured.length}
-	<section class="sec" aria-labelledby="work-title">
+	<section class="sec mist" aria-labelledby="work-title">
 		<div class="wrap">
 			<header class="sec-head split" use:reveal>
 				<h2 id="work-title" class="h2">Quelques réalisations</h2>
@@ -91,7 +91,7 @@
 {/if}
 
 <!-- ═════════ Partenaires ═════════ -->
-<section class="sec mist partners" aria-labelledby="partners-title">
+<section class="sec partners" aria-labelledby="partners-title">
 	<div class="wrap">
 		<header class="sec-head center" use:reveal>
 			<h2 id="partners-title" class="h2">Ils nous font confiance</h2>
@@ -115,7 +115,7 @@
 </section>
 
 <!-- ═════════ Blog ═════════ -->
-<section class="sec" aria-labelledby="blog-title">
+<section class="sec mist" aria-labelledby="blog-title">
 	<div class="wrap">
 		<header class="sec-head split" use:reveal>
 			<h2 id="blog-title" class="h2">Nos derniers conseils</h2>
@@ -328,17 +328,15 @@
 		overflow: hidden;
 	}
 
-	/* ── CTA final ── */
-	.cta { background: rgb(var(--night)); color: #fff; padding: 4.5rem 0 7rem; position: relative; overflow: hidden; }
+	/* ── CTA final (vert citron) ── */
+	.cta { background: rgb(var(--accent)); color: rgb(var(--night)); padding: 4.5rem 0 7.5rem; position: relative; overflow: hidden; }
 	.cta::before {
 		content: '';
 		position: absolute;
-		width: 640px;
-		height: 640px;
-		left: 50%;
-		top: 30%;
-		transform: translateX(-50%);
-		background: radial-gradient(circle, rgba(152, 200, 22, 0.2), transparent 65%);
+		inset: 0;
+		background-image: radial-gradient(rgb(var(--night) / 0.12) 1px, transparent 1px);
+		background-size: 22px 22px;
+		mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, #000, transparent 75%);
 	}
 	.cta-inner { position: relative; text-align: center; }
 	.cta-title {
@@ -346,23 +344,23 @@
 		font-size: clamp(1.7rem, 3.2vw, 2.5rem);
 		font-weight: 700;
 		letter-spacing: -0.035em;
-		line-height: 1.05;
-		margin: 0 auto 1rem;
-		max-width: 18ch;
+		line-height: 1.1;
+		margin: 0 auto 0.8rem;
+		max-width: 20ch;
 	}
-	.cta-text { color: rgba(255, 255, 255, 0.7); max-width: 36rem; margin: 0 auto 2rem; line-height: 1.6; }
-	.cta-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+	.cta-text { color: rgb(var(--night) / 0.75); max-width: 34rem; margin: 0 auto 1.75rem; line-height: 1.6; }
+	.cta-btns { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
 	.btn-lime, .btn-line {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.75rem 1.4rem;
+		padding: 0.8rem 1.4rem;
 		border-radius: 999px;
 		font-weight: 600;
 		transition: transform 0.2s, background 0.2s;
 	}
-	.btn-lime { background: rgb(var(--accent)); color: rgb(var(--night)); box-shadow: 0 10px 30px rgba(152, 200, 22, 0.3); }
+	.btn-lime { background: rgb(var(--night)); color: #fff; box-shadow: 0 10px 26px rgb(var(--night) / 0.25); }
 	.btn-lime:hover { transform: translateY(-2px); }
-	.btn-line { border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; }
-	.btn-line:hover { background: rgba(255, 255, 255, 0.08); }
+	.btn-line { border: 1.5px solid rgb(var(--night) / 0.35); color: rgb(var(--night)); }
+	.btn-line:hover { background: rgb(var(--night) / 0.08); }
 </style>

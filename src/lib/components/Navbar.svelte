@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { Moon, Sun, Menu, X } from 'lucide-svelte';
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 
 	let isDark = $state(false);
 	let menuOpen = $state(false);
 	let scrolled = $state(false);
-	// White text only on homepage hero (dark background)
-	let heroMode = $derived(!scrolled && $page.url.pathname === '/');
+	// L'accueil a désormais un haut de page clair : texte sombre partout
+	const heroMode = false;
 
 	onMount(() => {
 		isDark = document.documentElement.getAttribute('data-theme') === 'dark';

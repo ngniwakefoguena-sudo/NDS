@@ -1,3 +1,5 @@
+import { redirects } from '$lib/data/redirects';
+
 /**
  * Supprime automatiquement tous les accents d'une URL.
  * é→e, è→e, ê→e, ë→e, ô→o, ù→u, ç→c, etc.
@@ -8,7 +10,18 @@ function stripAccents(str: string): string {
 }
 
 export async function handle({ event, resolve }) {
-	const decodedPath = decodeURI(event.url.pathname);
+	// Anciennes URLs renommées → redirection 301 vers la nouvelle adresse
+	const moved = redirects[event.url.pathname.replace(/\/$/, '')];
+	if (moved) {
+		return Response.redirect(new URL(moved + event.url.search, event.url.origin), 301);
+	}
+
+	let decodedPath = event.url.pathname;
+	try {
+		decodedPath = decodeURI(event.url.pathname);
+	} catch {
+		// URL mal encodée : on la laisse passer telle quelle (404 propre plutôt qu'une erreur 500)
+	}
 	const cleanPath = stripAccents(decodedPath);
 
 	// Si l'URL contient des accents → redirection 301 vers la version propre

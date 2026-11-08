@@ -93,6 +93,29 @@
 			</div>
 		</article>
 
+		{#if data.related.length}
+			<!-- À lire aussi : maillage interne entre articles -->
+			<section class="mt-16" aria-labelledby="related-title">
+				<h2 id="related-title" class="text-xl font-bold text-ink mb-6">À lire aussi</h2>
+				<div class="grid gap-4 md:grid-cols-3">
+					{#each data.related as r (r.slug)}
+						<a href="/blog/{r.slug}" class="related-card group block rounded-2xl overflow-hidden">
+							{#if r.cover}
+								<img src={r.cover} alt="" loading="lazy" class="w-full h-32 object-cover" />
+							{/if}
+							<div class="p-4">
+								<h3 class="text-sm font-semibold text-ink leading-snug group-hover:underline">{r.title}</h3>
+							</div>
+						</a>
+					{/each}
+				</div>
+				<p class="text-sm text-muted mt-6">
+					Besoin d'aide pour passer à l'action ? Découvrez <a href="/services" class="underline font-semibold text-ink">nos services</a>
+					ou <a href="/blog" class="underline font-semibold text-ink">tous nos articles</a>.
+				</p>
+			</section>
+		{/if}
+
 		<!-- CTA Demander un devis -->
 		<div class="devis-card rounded-3xl p-8 md:p-10 mt-16 relative overflow-hidden">
 			<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 30% 50%, rgba(152,200,22,0.13) 0%, transparent 65%);"></div>
@@ -123,6 +146,10 @@
 </div>
 
 <style>
+	.related-card {
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+	}
 	.back-link {
 		background: var(--glass-bg);
 		border: 1px solid var(--glass-border);

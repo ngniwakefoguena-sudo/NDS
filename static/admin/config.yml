@@ -10,6 +10,7 @@ logo_url: https://norbertdigitalservice.fr/images/logo.jpg
 
 slug:
   encoding: "ascii"
+  clean_accents: true
   clean_replacement: "-"
   sanitize_replacement: "-"
 

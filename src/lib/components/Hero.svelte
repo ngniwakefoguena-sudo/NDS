@@ -2,6 +2,21 @@
 	import { ArrowRight, Search, FileText, Zap, Bot, CalendarCheck, Check } from 'lucide-svelte';
 	import { countUp } from '$lib/actions/motion';
 
+	/* L'animation du parcours démarre quand il est visible (sur mobile, il est plus bas dans la page). */
+	function playWhenVisible(node: HTMLElement) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					node.classList.add('play');
+					io.disconnect();
+				}
+			},
+			{ threshold: 0.5 }
+		);
+		io.observe(node);
+		return { destroy: () => io.disconnect() };
+	}
+
 	/* Le parcours d'un client, de Google au rendez-vous : c'est exactement ce que l'agence met en place. */
 	const flow = [
 		{ icon: Search, time: '10:02', title: 'Un visiteur trouve votre site sur Google', tag: 'Site web + SEO' },
@@ -45,7 +60,7 @@
 		</div>
 
 		<!-- Démonstration : le parcours client automatisé -->
-		<div class="flow" role="img" aria-label="Exemple de parcours : un visiteur trouve votre site sur Google, remplit le formulaire, le contact arrive dans votre CRM, l’IA lui répond et un rendez-vous est ajouté à votre agenda.">
+		<div class="flow" use:playWhenVisible role="img" aria-label="Exemple de parcours : un visiteur trouve votre site sur Google, remplit le formulaire, le contact arrive dans votre CRM, l’IA lui répond et un rendez-vous est ajouté à votre agenda.">
 			<p class="flow-head" aria-hidden="true">
 				<span class="live"></span>
 				Un nouveau client, sans rien faire de votre côté
@@ -115,8 +130,13 @@
 		gap: 3rem;
 		align-items: center;
 	}
-	@media (min-width: 1024px) {
+	@media (min-width: 1200px) {
 		.inner { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; }
+		.inner .title { font-size: min(4.2vw, 4.4rem); }
+	}
+	/* Tablette : le parcours passe sous le texte, centré et moins large */
+	@media (min-width: 640px) and (max-width: 1199px) {
+		.flow { max-width: 40rem; }
 	}
 
 	/* ── Texte ── */
@@ -210,8 +230,11 @@
 		animation: ping 2s ease-out infinite;
 	}
 	.steps { list-style: none; margin: 0; padding: 0; }
+	/* En pause tant que le parcours n'est pas à l'écran */
+	.flow:not(.play) .steps :global(*),
+	.flow:not(.play) .step::after { animation-play-state: paused; }
 	.step {
-		--d: calc(0.9s + var(--i) * 0.55s);
+		--d: calc(0.5s + var(--i) * 0.55s);
 		position: relative;
 		display: grid;
 		grid-template-columns: 2.25rem 1fr auto;
@@ -306,7 +329,21 @@
 	@media (max-width: 767px) {
 		.hero { padding-top: 6.5rem; }
 		.stats { margin-top: 3rem; }
-		.card-title { font-size: 0.82rem; }
+	}
+	/* Téléphone : boutons pleine largeur, parcours plus compact */
+	@media (max-width: 639px) {
+		.lead { font-size: 1rem; }
+		.ctas { flex-direction: column; }
+		.btn-primary, .btn-ghost { justify-content: center; width: 100%; }
+		.flow { padding: 1.1rem 0.9rem 1rem; border-radius: 1.25rem; }
+		.flow-head { font-size: 0.75rem; margin-bottom: 1rem; }
+		.step { grid-template-columns: 2rem 1fr; gap: 0.7rem; padding-bottom: 0.7rem; }
+		.step:not(.last)::before, .step:not(.last)::after { left: calc(1rem - 1px); top: 2rem; }
+		.node { width: 2rem; height: 2rem; border-radius: 0.65rem; }
+		.done, .time { display: none; }
+		.card { padding: 0.55rem 0.75rem; }
+		.card-title { font-size: 0.85rem; }
+		.stat { padding: 1.25rem 0.25rem 1.4rem; }
 	}
 
 	/* ── Animations ── */

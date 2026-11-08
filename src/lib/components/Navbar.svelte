@@ -58,9 +58,9 @@
 		</a>
 
 		<!-- Desktop links -->
-		<div class="hidden md:flex items-center gap-5">
+		<div class="hidden xl:flex items-center gap-5">
 			{#each links as link}
-				<a href={link.href} class="text-[14px] font-medium transition-colors duration-200" style="font-family: 'Space Grotesk', sans-serif; {heroMode ? 'color: rgba(255,255,255,0.85);' : 'color: rgb(var(--muted));'}" onmouseenter={(e) => e.currentTarget.style.color = heroMode ? '#ffffff' : 'rgb(var(--ink))'} onmouseleave={(e) => e.currentTarget.style.color = heroMode ? 'rgba(255,255,255,0.85)' : 'rgb(var(--muted))'}>{link.label}</a>
+				<a href={link.href} class="text-[14px] font-medium whitespace-nowrap transition-colors duration-200" style="font-family: 'Space Grotesk', sans-serif; {heroMode ? 'color: rgba(255,255,255,0.85);' : 'color: rgb(var(--muted));'}" onmouseenter={(e) => e.currentTarget.style.color = heroMode ? '#ffffff' : 'rgb(var(--ink))'} onmouseleave={(e) => e.currentTarget.style.color = heroMode ? 'rgba(255,255,255,0.85)' : 'rgb(var(--muted))'}>{link.label}</a>
 			{/each}
 
 			<div class="h-4 w-px" style="background: var(--glass-border);"></div>
@@ -94,7 +94,7 @@
 
 			<a
 				href="/contact"
-				class="px-5 py-2 rounded-lg text-[14px] font-semibold text-white transition-opacity hover:opacity-85"
+				class="px-5 py-2 rounded-lg text-[14px] font-semibold text-white whitespace-nowrap transition-opacity hover:opacity-85"
 				style="background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-2))); box-shadow: 0 6px 20px rgba(120,175,10,0.40);"
 			>
 				Démarrer un projet
@@ -102,7 +102,7 @@
 		</div>
 
 		<!-- Mobile burger -->
-		<button class="md:hidden p-2 transition-colors" style="{heroMode ? 'color: #ffffff;' : 'color: rgb(var(--muted));'}" onclick={() => (menuOpen = !menuOpen)} aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}>
+		<button class="xl:hidden p-2 transition-colors" style="{heroMode ? 'color: #ffffff;' : 'color: rgb(var(--muted));'}" onclick={() => (menuOpen = !menuOpen)} aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}>
 			{#if menuOpen}<X class="w-6 h-6" />{:else}<Menu class="w-6 h-6" />{/if}
 		</button>
 	</div>
@@ -110,7 +110,7 @@
 	<!-- Mobile menu -->
 	{#if menuOpen}
 		<div
-			class="md:hidden absolute left-0 w-full flex flex-col gap-1 p-4 mobile-menu"
+			class="xl:hidden absolute left-0 w-full flex flex-col gap-1 p-4 mobile-menu"
 			style="background: rgb(var(--surface)); border-bottom: 1px solid var(--glass-border); box-shadow: 0 8px 32px rgba(80,110,20,0.15);"
 		>
 			{#each links as link}

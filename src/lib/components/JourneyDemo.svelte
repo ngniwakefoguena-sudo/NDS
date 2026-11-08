@@ -132,7 +132,7 @@
 	.card-top { display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.15rem; }
 	.tag { font-size: 0.7rem; font-weight: 600; color: rgb(var(--accent)); }
 	.time { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); font-variant-numeric: tabular-nums; }
-	.card-title { font-size: 0.88rem; font-weight: 500; color: #fff; line-height: 1.35; margin: 0; }
+	.card-title { font-size: 0.84rem; font-weight: 500; color: #fff; line-height: 1.35; margin: 0; }
 	.done {
 		width: 1.25rem;
 		height: 1.25rem;

@@ -96,9 +96,6 @@
 		</dl>
 	</div>
 
-	<a href="#services" class="scroll" aria-label="Voir la suite">
-		<span class="mouse"><span class="wheel"></span></span>
-	</a>
 </section>
 
 <style>
@@ -107,13 +104,12 @@
 		--my: 40%;
 		position: relative;
 		overflow: hidden;
-		min-height: 100svh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		background: rgb(var(--night));
 		color: #fff;
-		padding: 8rem 0 5rem;
+		padding: 7.5rem 0 3.5rem;
 		isolation: isolate;
 	}
 
@@ -179,9 +175,9 @@
 		background: rgba(255, 255, 255, 0.06);
 		border: 1px solid rgba(255, 255, 255, 0.12);
 		backdrop-filter: blur(8px);
-		font-size: 0.85rem;
+		font-size: 0.78rem;
 		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 2rem;
+		margin: 0 0 1.4rem;
 		animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 	}
 	.dot { width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--accent)); box-shadow: 0 0 10px rgb(var(--accent)); }
@@ -191,8 +187,8 @@
 		font-weight: 700;
 		letter-spacing: -0.04em;
 		line-height: 1.02;
-		margin: 0 0 1.75rem;
-		font-size: clamp(2.2rem, 5.6vw, 4.5rem);
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.9rem, 3.6vw, 3.2rem);
 	}
 	.l { display: block; }
 	.l1 { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
@@ -214,11 +210,11 @@
 	}
 
 	.lead {
-		max-width: 42rem;
-		font-size: clamp(1rem, 1.6vw, 1.15rem);
+		max-width: 38rem;
+		font-size: 1rem;
 		line-height: 1.65;
 		color: rgba(255, 255, 255, 0.72);
-		margin: 0 0 2.25rem;
+		margin: 0 0 1.75rem;
 		animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 	}
 	.ctas {
@@ -235,10 +231,10 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.5rem;
-		padding: 1rem 1.75rem;
+		padding: 0.75rem 1.4rem;
 		border-radius: 999px;
 		font-weight: 600;
-		font-size: 1rem;
+		font-size: 0.92rem;
 		transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
 	}
 	.btn-primary {
@@ -272,19 +268,19 @@
 	.stats {
 		display: grid;
 		grid-template-columns: repeat(4, auto);
-		gap: 0 3.5rem;
-		margin: 4rem 0 0;
+		gap: 0 2.75rem;
+		margin: 2.75rem 0 0;
 	}
 	.stat { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(0.75s + var(--i) * 0.1s) both; }
 	.stat dd { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
 	.stat-value {
 		font-family: 'Space Grotesk', sans-serif;
-		font-size: clamp(1.7rem, 3vw, 2.4rem);
+		font-size: clamp(1.35rem, 2vw, 1.75rem);
 		font-weight: 700;
 		letter-spacing: -0.03em;
 		font-variant-numeric: tabular-nums;
 	}
-	.stat-label { font-size: 0.82rem; color: rgba(255, 255, 255, 0.55); white-space: nowrap; }
+	.stat-label { font-size: 0.78rem; color: rgba(255, 255, 255, 0.55); white-space: nowrap; }
 
 	/* ── Indicateur de défilement ── */
 	.scroll {
@@ -322,9 +318,9 @@
 		.scroll { display: none; }
 	}
 	@media (max-width: 639px) {
-		.hero { min-height: auto; padding: 7rem 0 3.5rem; }
+		.hero { padding: 6.5rem 0 3rem; }
 		.kicker { font-size: 0.78rem; margin-bottom: 1.5rem; }
-		.title { font-size: clamp(2rem, 9.5vw, 2.8rem); }
+		.title { font-size: clamp(1.7rem, 8vw, 2.2rem); }
 		.ctas { flex-direction: column; width: 100%; }
 		.btn-primary, .btn-ghost { width: 100%; }
 		.stats { width: 100%; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; margin-top: 2.75rem; }

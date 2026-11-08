@@ -2,7 +2,8 @@
 	import { onMount, tick } from 'svelte';
 	import { fly, fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import { X, Send, Sparkles, MessageCircle } from 'lucide-svelte';
+	import { X, Send, Sparkles, MessageCircle, RotateCcw } from 'lucide-svelte';
+	import { servicePages } from '$lib/data/services';
 
 	type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -32,6 +33,7 @@
 		try {
 			const saved = sessionStorage.getItem(STORE);
 			if (saved) messages = JSON.parse(saved);
+			leadSent = sessionStorage.getItem('chaya-lead') === '1';
 		} catch { /* stockage indisponible : on garde la conversation en mémoire */ }
 
 		// Petite bulle d'invitation après quelques secondes (une fois par visite)
@@ -65,33 +67,87 @@
 		if (list) list.scrollTo({ top: list.scrollHeight, behavior: 'smooth' });
 	}
 
+	/* Repère la ligne <<LEAD {...}>> que Chaya ajoute quand le visiteur laisse ses coordonnées */
+	const LEAD = /<<LEAD\s*(\{[\s\S]*?\})\s*>>/;
+	const visible = (t: string) => t.replace(/<<LEAD[\s\S]*$/, '').trimEnd();
+	let leadSent = false;
+
+	/* Transmet la demande à l'équipe via le formulaire « contact » de Netlify (mêmes champs que /contact) */
+	async function sendLead(raw: string) {
+		if (leadSent) return;
+		try {
+			const lead = JSON.parse(raw);
+			if (!lead.email && !lead.telephone) return;
+			leadSent = true;
+			try { sessionStorage.setItem('chaya-lead', '1'); } catch {}
+			const params = new URLSearchParams({
+				'form-name': 'contact',
+				entreprise: lead.entreprise || 'Visiteur (via Chaya)',
+				email: lead.email || '',
+				telephone: lead.telephone || '',
+				service: lead.service || 'Autre',
+				budget: '',
+				besoin: `[Demande reçue via Chaya] ${lead.besoin || ''}`
+			});
+			await fetch('/__forms.html', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: params.toString()
+			});
+		} catch {
+			leadSent = false;
+		}
+	}
+
 	async function send(text = input) {
 		const content = text.trim();
 		if (!content || loading) return;
 		input = '';
+		const history = messages.filter((m) => m.content !== greeting.content);
 		messages = [...messages, { role: 'user', content }];
 		loading = true;
 		save();
 		await tick();
 		scrollDown();
 
-		let reply: string;
+		const fallback = (why: 'limit' | 'error' | 'network') =>
+			why === 'limit'
+				? 'Vous avez envoyé beaucoup de messages. Pour aller plus vite, écrivez-nous directement sur WhatsApp : ' + WHATSAPP
+				: why === 'network'
+					? `La connexion a échoué. Réessayez dans un instant, ou contactez-nous sur WhatsApp : ${WHATSAPP}`
+					: `Je ne peux pas répondre pour le moment. L'équipe vous répond sous 24h via le formulaire https://norbertdigitalservice.fr/contact ou tout de suite sur WhatsApp : ${WHATSAPP}`;
+
 		try {
 			const res = await fetch('/api/chaya', {
 				method: 'POST',
 				headers: { 'content-type': 'application/json' },
-				// le message d'accueil n'est pas envoyé : la conversation commence par le visiteur
-				body: JSON.stringify({ messages: messages.filter((m) => m !== greeting && m.content !== greeting.content) })
+				body: JSON.stringify({ messages: [...history, { role: 'user', content }] })
 			});
-			const data = await res.json().catch(() => ({}));
-			if (res.ok && data.reply) reply = data.reply;
-			else if (res.status === 429) reply = 'Vous avez envoyé beaucoup de messages. Pour aller plus vite, écrivez-nous directement sur WhatsApp : ' + WHATSAPP;
-			else reply = `Je ne peux pas répondre pour le moment. L'équipe vous répond sous 24h via le formulaire https://norbertdigitalservice.fr/contact ou tout de suite sur WhatsApp : ${WHATSAPP}`;
+			if (!res.ok || !res.body) {
+				messages = [...messages, { role: 'assistant', content: fallback(res.status === 429 ? 'limit' : 'error') }];
+			} else {
+				// Réponse affichée au fur et à mesure
+				const reader = res.body.getReader();
+				const decoder = new TextDecoder();
+				let full = '';
+				messages = [...messages, { role: 'assistant', content: '' }];
+				const idx = messages.length - 1;
+				while (true) {
+					const { value, done } = await reader.read();
+					if (done) break;
+					full += decoder.decode(value, { stream: true });
+					messages[idx] = { role: 'assistant', content: visible(full) };
+					if (loading && messages[idx].content) loading = false; // le texte arrive : on retire « Chaya écrit »
+					scrollDown();
+				}
+				const lead = full.match(LEAD);
+				if (lead) sendLead(lead[1]);
+				messages[idx] = { role: 'assistant', content: visible(full) || "Je n'ai pas bien compris, pouvez-vous reformuler ?" };
+			}
 		} catch {
-			reply = `La connexion a échoué. Réessayez dans un instant, ou contactez-nous sur WhatsApp : ${WHATSAPP}`;
+			messages = [...messages, { role: 'assistant', content: fallback('network') }];
 		}
 
-		messages = [...messages, { role: 'assistant', content: reply }];
 		loading = false;
 		save();
 		await tick();
@@ -107,7 +163,27 @@
 
 	function reset() {
 		messages = [greeting];
+		leadSent = false;
 		save();
+	}
+
+	/* Nom lisible d'une page du site pour les liens dans les réponses */
+	function pageLabel(path: string) {
+		const clean = path.split(/[?#]/)[0].replace(/\/$/, '') || '/';
+		const service = servicePages.find((sp) => clean === `/services/${sp.page.slug}`);
+		if (service) return service.title;
+		const named: Record<string, string> = {
+			'/': 'Accueil',
+			'/services': 'Nos services',
+			'/contact': 'Formulaire de contact',
+			'/projects': 'Nos réalisations',
+			'/blog': 'Le blog',
+			'/about': 'À propos'
+		};
+		if (named[clean]) return named[clean];
+		if (clean.startsWith('/blog/')) return 'Lire l’article';
+		if (clean.startsWith('/projects/')) return 'Voir la réalisation';
+		return clean;
 	}
 
 	/* Texte → HTML sûr : échappement, gras, listes, liens cliquables */
@@ -116,7 +192,7 @@
 		const withLinks = esc.replace(/https?:\/\/[^\s<)]+[^\s<).,;:!?]/g, (url) => {
 			const internal = url.startsWith('https://norbertdigitalservice.fr');
 			const href = internal ? url.replace('https://norbertdigitalservice.fr', '') || '/' : url;
-			const label = internal ? (href === '/' ? 'Accueil' : href) : url.replace(/^https?:\/\//, '').split('?')[0];
+			const label = internal ? pageLabel(href) : url.includes('wa.me') ? 'WhatsApp' : url.replace(/^https?:\/\//, '').split('?')[0];
 			return `<a href="${href}"${internal ? '' : ' target="_blank" rel="noopener"'}>${label}</a>`;
 		});
 		const bold = withLinks.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
@@ -153,13 +229,13 @@
 					<span><i class="online"></i>Assistante de Norbert Digital Service</span>
 				</div>
 				{#if messages.length > 1}
-					<button class="reset" onclick={reset} type="button">Nouvelle discussion</button>
+					<button class="reset" onclick={reset} type="button" aria-label="Nouvelle discussion" title="Nouvelle discussion"><RotateCcw class="w-4 h-4" /></button>
 				{/if}
 				<button class="close" onclick={toggle} aria-label="Fermer la discussion" type="button"><X class="w-5 h-5" /></button>
 			</header>
 
 			<div class="list" bind:this={list} aria-live="polite">
-				{#each messages as m, i (i)}
+				{#each messages.filter((m) => m.content) as m, i (i)}
 					<div class="msg {m.role}" in:fly={{ y: 10, duration: 260 }}>
 						{#if m.role === 'assistant'}
 							<div class="bubble">{@html render(m.content)}</div>
@@ -312,7 +388,7 @@
 	.who strong { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
 	.who span { font-size: 0.72rem; color: rgba(255, 255, 255, 0.65); display: flex; align-items: center; gap: 0.35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 	.online { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; display: inline-block; flex-shrink: 0; }
-	.reset { font-size: 0.7rem; color: rgba(255, 255, 255, 0.7); padding: 0.3rem 0.55rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); white-space: nowrap; }
+	.reset { color: rgba(255, 255, 255, 0.7); padding: 0.4rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); display: grid; place-items: center; }
 	.reset:hover { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
 	.close { color: rgba(255, 255, 255, 0.8); padding: 0.25rem; }
 	.close:hover { color: #fff; }
@@ -341,7 +417,7 @@
 	.bubble :global(p) { margin: 0 0 0.45rem; }
 	.bubble :global(p:last-child) { margin-bottom: 0; }
 	.bubble :global(ul) { margin: 0.2rem 0 0.45rem; padding-left: 1.1rem; list-style: disc; }
-	.bubble :global(a) { color: rgb(var(--accent-2)); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; word-break: break-all; }
+	.bubble :global(a) { color: rgb(var(--accent-2)); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
 
 	.typing { display: flex; gap: 0.3rem; padding: 0.85rem 1rem; }
 	.typing span { width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--muted)); animation: bounce 1.2s infinite; }

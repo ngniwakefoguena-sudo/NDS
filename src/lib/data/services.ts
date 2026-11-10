@@ -73,6 +73,7 @@ export const services: Service[] = [
 				{ q: 'Pourrai-je modifier mon site moi-même ?', a: 'Oui. Vous disposez d’un espace d’administration pour mettre à jour vos textes, vos images et publier des articles, sans connaissances techniques.' },
 			],
 			articles: [
+				'creation-de-site-internet-dans-les-yvelines-et-lessonne-le-guide-pour-les-tpe-et-pme',
 				'combien-coute-un-site-vitrine-professionnel-en-2026-les-vrais-prix-et-ce-quils-incluent',
 				'pourquoi-votre-site-web-vous-fait-perdre-des-clients-en-2026-et-comment-y-remedier',
 				'refonte-de-site-web-comment-refaire-son-site-sans-perdre-son-referencement-google',
@@ -148,6 +149,7 @@ export const services: Service[] = [
 				{ q: 'Mes données sont-elles en sécurité ?', a: 'Le choix du modèle et de l’hébergement se fait selon vos contraintes. Les données sensibles peuvent rester sur des services hébergés en Europe ou être exclues du traitement.' },
 			],
 			articles: [
+				'chatbot-ia-sur-votre-site-web-comment-transformer-vos-visiteurs-en-clients-24h-sur-24',
 				'rag-chatbots-metier-et-agents-ia-le-guide-complet-pour-integrer-lintelligence-artificielle-en-entreprise-en-2026',
 				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
 				'chatbot-whatsapp-business-pour-pme-automatiser-le-service-client-sans-perdre-le-contact-humain',
@@ -222,6 +224,7 @@ export const services: Service[] = [
 				{ q: 'Qu’est-ce que le GEO ?', a: 'Le GEO (Generative Engine Optimization) consiste à rendre votre entreprise compréhensible et citée par les assistants IA comme ChatGPT ou Gemini, en complément du référencement Google classique.' },
 			],
 			articles: [
+				'fiche-google-business-profile-12-optimisations-pour-apparaitre-dans-le-pack-local-en-2026',
 				'seo-local-2026-la-strategie-complete-pour-dominer-google',
 				'le-geo-le-nouveau-referencement-pour-apparaitre-dans-chatgpt-et-gemini',
 				'vitesse-de-site-web-et-core-web-vitals-comment-gagner-des-positions-et-des-clients-en-2026',
@@ -259,6 +262,7 @@ export const services: Service[] = [
 				{ q: 'Faut-il déjà avoir un CRM ?', a: 'Non. Nous pouvons mettre en place un CRM adapté à votre taille ou connecter celui que vous utilisez déjà.' },
 			],
 			articles: [
+				'landing-page-qui-convertit-la-methode-en-9-etapes-pour-generer-plus-de-demandes-de-devis',
 				'agence-growth-hacking-paris-accelerez-votre-croissance-en-2026',
 				'chatbot-whatsapp-business-pour-pme-automatiser-le-service-client-sans-perdre-le-contact-humain',
 				'pourquoi-un-logiciel-comme-vendia-est-devenu-indispensable-pour-votre-entreprise',

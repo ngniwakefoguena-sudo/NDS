@@ -91,6 +91,9 @@
 
 	let sending = $state(false);
 	let success = $state(false);
+	/* Message WhatsApp pré-rempli avec la demande, proposé après l'envoi */
+	let waText = $state('');
+	const waLink = $derived(`https://wa.me/${site.phone.replace(/\D/g, '')}?text=${encodeURIComponent(waText)}`);
 	let hasError = $state(false);
 
 	let indicatif = $state('+33');
@@ -135,6 +138,17 @@
 				body: params.toString(),
 			});
 			if (res.ok) {
+				const v = (k: string) => (data.get(k)?.toString() ?? '').trim();
+				waText = [
+					'Bonjour Norbert Digital Service, je viens de vous envoyer une demande depuis votre site :',
+					v('entreprise') && `• Entreprise / nom : ${v('entreprise')}`,
+					v('email') && `• E-mail : ${v('email')}`,
+					v('telephone') && `• Téléphone : ${v('telephone')}`,
+					v('service') && `• Service : ${v('service')}`,
+					v('budget') && `• Budget : ${v('budget')}`,
+					v('besoin') && `• Besoin : ${v('besoin')}`,
+					v('reunion_date') && `• Réunion souhaitée : ${v('reunion_date')} ${v('reunion_creneau')}`
+				].filter(Boolean).join('\n');
 				success = true;
 				form.reset();
 				telNumber = '';
@@ -221,6 +235,17 @@
 						</div>
 						<h2 class="text-lg font-bold text-ink">Message envoyé !</h2>
 						<p class="text-sm text-muted max-w-xs">Nous reviendrons vers vous sous 24h ouvrées avec une proposition adaptée à votre besoin.</p>
+						<a
+							href={waLink}
+							target="_blank"
+							rel="noopener"
+							class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white"
+							style="background:#25D366;"
+						>
+							<svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+							Envoyer aussi ma demande sur WhatsApp
+						</a>
+						<p class="text-xs text-muted">Pour une réponse encore plus rapide.</p>
 						<button
 							onclick={() => (success = false)}
 							class="mt-2 text-xs font-semibold text-accent underline underline-offset-2"

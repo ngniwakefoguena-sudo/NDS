@@ -13,7 +13,7 @@ const config = {
 	kit: { 
 		adapter: adapter(),
 		prerender: {
-			crawl: false,
+			crawl: true,
 			handleUnseenRoutes: 'ignore',
 			handleHttpError: ({ path, referrer, message }) => {
 				if (path.startsWith('/cv/') || path.startsWith('/images/')) return;

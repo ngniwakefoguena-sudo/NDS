@@ -28,3 +28,17 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+
+# Les adresses techniques Netlify renvoient vers le vrai domaine (évite le contenu dupliqué dans Google,
+# maintenant que les pages sont statiques et ne passent plus par le serveur qui ajoutait « noindex »).
+[[redirects]]
+  from = "https://darling-dasik-bbfae6.netlify.app/*"
+  to = "https://norbertdigitalservice.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://main--darling-dasik-bbfae6.netlify.app/*"
+  to = "https://norbertdigitalservice.fr/:splat"
+  status = 301
+  force = true

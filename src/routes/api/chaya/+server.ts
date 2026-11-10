@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { json } from '@sveltejs/kit';
 import { streamChaya, isConfigured, type ChatMessage } from '$lib/server/chaya';
 

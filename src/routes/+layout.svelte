@@ -6,8 +6,13 @@
 	import SplashScreen from '$lib/components/SplashScreen.svelte';
 	import Chaya from '$lib/components/Chaya.svelte';
 	import { site } from '$lib/data/site';
+	import { onMount } from 'svelte';
+	import { trackContactClicks } from '$utils/track';
 
 	let { children } = $props();
+
+	// Mesure des clics WhatsApp / téléphone / e-mail (conversions dans Google Analytics)
+	onMount(() => trackContactClicks());
 
 	const description = site.description;
 </script>
@@ -33,9 +38,9 @@
 
 	<!-- GEO méta tags -->
 	<meta name="geo.region" content="FR-IDF" />
-	<meta name="geo.placename" content="Paris, France" />
-	<meta name="geo.position" content="48.8566;2.3522" />
-	<meta name="ICBM" content="48.8566, 2.3522" />
+	<meta name="geo.placename" content="Palaiseau, Île-de-France, France" />
+	<meta name="geo.position" content="48.7145;2.2457" />
+	<meta name="ICBM" content="48.7145, 2.2457" />
 
 	<!-- JSON-LD structured data -->
 	{@html `<script type="application/ld+json">${JSON.stringify({
@@ -53,16 +58,22 @@
 		"priceRange": "€€",
 		"address": {
 			"@type": "PostalAddress",
-			"addressLocality": "Paris",
+			"addressLocality": "Palaiseau",
+			"postalCode": "91120",
 			"addressRegion": "Île-de-France",
 			"addressCountry": "FR"
 		},
 		"geo": {
 			"@type": "GeoCoordinates",
-			"latitude": "48.8566",
-			"longitude": "2.3522"
+			"latitude": "48.7145",
+			"longitude": "2.2457"
 		},
 		"areaServed": [
+			{ "@type": "City", "name": "Paris" },
+			{ "@type": "City", "name": "Palaiseau" },
+			{ "@type": "AdministrativeArea", "name": "Essonne" },
+			{ "@type": "AdministrativeArea", "name": "Yvelines" },
+			{ "@type": "AdministrativeArea", "name": "Île-de-France" },
 			{ "@type": "Country", "name": "France" },
 			{ "@type": "Country", "name": "Belgique" },
 			{ "@type": "Country", "name": "Suisse" },
@@ -95,6 +106,7 @@
 			"areaServed": "FR",
 			"availableLanguage": ["French", "English"]
 		},
+		"hasMap": "https://www.google.com/maps/search/?api=1&query=Norbert+Digital+Service",
 		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook]
 	})}</script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify({

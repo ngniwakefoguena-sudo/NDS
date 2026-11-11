@@ -24,8 +24,8 @@
 </script>
 
 <Seo
-	title="Agence web, mobile & IA à Paris"
-	description="Norbert Digital Service crée sites web, applications mobiles et automatisations IA (n8n) pour les PME en France et en Afrique. Réponse sous 24h."
+	title="Agence web à Paris, Palaiseau et en Île-de-France"
+	description="Agence web à Paris, Palaiseau, Essonne et Yvelines : création de sites internet, applications mobiles et automatisations IA pour les TPE et PME. Devis gratuit, réponse sous 24h."
 />
 
 <Hero />

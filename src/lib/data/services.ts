@@ -50,8 +50,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, rgb(152,200,22), rgb(112,160,8))',
 		page: {
 			slug: 'creation-site-web',
-			metaTitle: 'Création de site web professionnel à Paris',
-			metaDescription: 'Création de sites vitrines, e-commerce et applications web sur mesure : rapides, bien référencés sur Google et pensés pour transformer vos visiteurs en clients.',
+			metaTitle: 'Création de site internet à Paris, Essonne et Yvelines',
+			metaDescription: 'Création de site internet à Paris, Palaiseau, Essonne et Yvelines : sites vitrines et e-commerce rapides, bien référencés sur Google et pensés pour vous apporter des clients. Devis gratuit.',
 			h1: 'Création de site web professionnel',
 			intro: [
 				'Votre site est souvent le premier contact entre votre entreprise et un futur client. S’il est lent, difficile à lire sur mobile ou introuvable sur Google, ce client part chez un concurrent sans même vous avoir appelé.',

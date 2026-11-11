@@ -2,6 +2,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import { Send, Mail, Clock, CircleCheck, Phone, CalendarDays } from 'lucide-svelte';
 	import { site } from '$lib/data/site';
+	import { track } from '$utils/track';
 
 	const countryCodes = [
 		// Europe francophone
@@ -150,6 +151,7 @@
 					v('reunion_date') && `• Réunion souhaitée : ${v('reunion_date')} ${v('reunion_creneau')}`
 				].filter(Boolean).join('\n');
 				success = true;
+				track('generate_lead', { lead_source: 'formulaire_contact', service: v('service') || undefined });
 				form.reset();
 				telNumber = '';
 				wantsMeeting = false;

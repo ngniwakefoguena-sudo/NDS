@@ -4,6 +4,7 @@
 	import { cubicOut } from 'svelte/easing';
 	import { X, Send, Sparkles, MessageCircle, RotateCcw } from 'lucide-svelte';
 	import { servicePages } from '$lib/data/services';
+	import { track } from '$utils/track';
 
 	type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -54,6 +55,7 @@
 
 	async function toggle() {
 		open = !open;
+		if (open) track('chaya_open');
 		teaser = false;
 		try { sessionStorage.setItem('chaya-teaser', '1'); } catch {}
 		if (open) {
@@ -94,6 +96,7 @@
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: params.toString()
 			});
+			track('generate_lead', { lead_source: 'chaya', service: lead.service || undefined });
 		} catch {
 			leadSent = false;
 		}

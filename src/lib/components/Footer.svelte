@@ -46,6 +46,7 @@
 					<li><a href="/services/formation" class="footer-link">Formation</a></li>
 					<li><a href="/services/design-ui-ux" class="footer-link">Design UI/UX</a></li>
 					<li><a href="/services/backend-api" class="footer-link">Backend & API</a></li>
+					<li><a href="/vendia" class="footer-link">Vendia · Agent WhatsApp</a></li>
 				</ul>
 			</div>
 

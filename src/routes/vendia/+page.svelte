@@ -54,6 +54,15 @@
 		{ icon: Lock, title: 'Données protégées', text: 'Aucune donnée bancaire stockée : chaque paiement passe par une passerelle sécurisée.' }
 	];
 
+	const faq = [
+		{ q: 'Qu’est-ce que Vendia ?', a: 'Vendia est un chatbot WhatsApp intelligent, un véritable agent commercial automatisé. Il répond à vos clients sur WhatsApp Business, calcule des devis à partir de vos tarifs, envoie un lien de paiement et livre le contrat, la facture ou le reçu en PDF, 24h/24 et 7j/7.' },
+		{ q: 'Quelle différence avec un chatbot WhatsApp classique ?', a: 'Un chatbot classique se limite souvent à des réponses toutes faites. Vendia combine l’intelligence artificielle pour comprendre les demandes avec vos barèmes officiels pour les prix : il vend de bout en bout, du premier message jusqu’au paiement et au document officiel, sans jamais inventer un montant.' },
+		{ q: 'Quels moyens de paiement sont acceptés ?', a: 'Mobile Money (MTN Mobile Money, Orange Money) et carte bancaire (Visa, Mastercard). Le même lien de paiement sécurisé fonctionne aussi pour vos clients de la diaspora, depuis l’étranger.' },
+		{ q: 'Dans quels pays Vendia est-il disponible ?', a: 'Vendia s’adresse aux entreprises en France et en Afrique francophone, notamment au Cameroun, en Côte d’Ivoire, au Sénégal ou au Gabon. Il fonctionne aussi pour vos clients de la diaspora, et l’assistant détecte la langue de chaque client.' },
+		{ q: 'Pour quels secteurs d’activité ?', a: 'Assurance et courtage, banque et microfinance, cliniques et cabinets médicaux, écoles et centres de formation, immobilier, transport et agences de voyage, e-commerce et boutiques, restaurants, artisans et prestataires de services. Le moteur est le même, personnalisé à votre métier.' },
+		{ q: 'Combien de temps pour mettre en place Vendia ?', a: 'Quelques jours suffisent pour personnaliser l’assistant à votre marque, vos offres et vos tarifs. Nous commençons par un pilote sans engagement sur votre activité réelle.' }
+	];
+
 	const sectorOptions = [...sectors.map((s) => s.title), 'Autre secteur'];
 
 	let sending = $state(false);
@@ -88,7 +97,7 @@
 
 <Seo
 	title="Vendia : chatbot WhatsApp Business qui vend 24h/24"
-	description="Vendia répond à vos clients sur WhatsApp 24h/24, calcule des devis exacts, encaisse par Mobile Money ou carte et envoie le contrat en PDF. Demandez votre démonstration gratuite."
+	description="Chatbot WhatsApp intelligent pour entreprises : Vendia répond 24h/24, calcule vos devis, encaisse par Mobile Money (MTN, Orange) ou carte et envoie le contrat en PDF. Assurance, microfinance, santé, commerce. Démo gratuite."
 	jsonLd={[
 		{
 			'@context': 'https://schema.org',
@@ -96,9 +105,17 @@
 			name: 'Vendia',
 			applicationCategory: 'BusinessApplication',
 			operatingSystem: 'WhatsApp',
-			description: 'Agent commercial intelligent sur WhatsApp : accueil, devis, paiement Mobile Money ou carte et document officiel en PDF, adaptable à tous les secteurs.',
+			description: 'Chatbot IA et agent commercial intelligent sur WhatsApp Business : accueil, devis, paiement Mobile Money ou carte et document officiel en PDF, adaptable à tous les secteurs.',
+			keywords: 'chatbot WhatsApp, WhatsApp Business API, automatisation WhatsApp, agent conversationnel IA, assistant virtuel, vente sur WhatsApp, paiement Mobile Money, Orange Money, MTN MoMo, chatbot assurance, service client automatisé',
+			areaServed: ['France', 'Cameroun', 'Côte d’Ivoire', 'Sénégal', 'Gabon'],
+			offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: 'Démonstration gratuite et pilote sans engagement' },
 			url,
 			publisher: { '@id': `${site.url}/#organisation` }
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'FAQPage',
+			mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
 		},
 		{
 			'@context': 'https://schema.org',
@@ -119,7 +136,7 @@
 			<span class="badge"><span class="dot"></span> Nouveau · Une solution Norbert Digital Service</span>
 			<h1 class="title">Vendia, votre <span class="hl">meilleur commercial</span> sur WhatsApp</h1>
 			<p class="lead">
-				L’agent intelligent qui accueille vos clients, calcule un devis exact, encaisse le paiement et envoie le contrat en PDF.
+				Le chatbot WhatsApp intelligent qui accueille vos clients, calcule un devis exact, encaisse le paiement et envoie le contrat en PDF.
 				Automatiquement, 24h/24, dans l’application qu’ils ouvrent déjà tous les jours.
 			</p>
 			<div class="ctas">
@@ -346,6 +363,25 @@
 	</div>
 </section>
 
+<!-- ───────────── FAQ ───────────── -->
+<section class="sec mist">
+	<div class="wrap faq-grid">
+		<div use:reveal>
+			<span class="kicker">Questions fréquentes</span>
+			<h2 class="h2">Tout savoir sur le chatbot WhatsApp Vendia</h2>
+			<p class="sub">Automatisation WhatsApp Business, paiement Mobile Money, pays et secteurs couverts : les réponses aux questions qu’on nous pose le plus.</p>
+		</div>
+		<div class="faq">
+			{#each faq as f}
+				<details>
+					<summary><h3>{f.q}</h3><span class="faq-plus" aria-hidden="true">+</span></summary>
+					<p>{f.a}</p>
+				</details>
+			{/each}
+		</div>
+	</div>
+</section>
+
 <!-- ───────────── Démo ───────────── -->
 <section id="demo" class="demo">
 	<div class="wrap demo-grid">
@@ -559,6 +595,20 @@
 	@media (min-width: 768px) { .trust { grid-template-columns: repeat(2, 1fr); } }
 	.trust-item { display: flex; gap: 1rem; padding: 1.4rem; border-radius: 1.3rem; border: 1px solid rgb(var(--line) / 0.08); }
 	.trust-icon { flex-shrink: 0; width: 2.8rem; height: 2.8rem; border-radius: 50%; display: grid; place-items: center; background: rgb(var(--accent) / 0.16); color: rgb(var(--accent-2)); }
+
+
+	/* FAQ */
+	.faq-grid { display: grid; gap: 2rem; }
+	@media (min-width: 1024px) { .faq-grid { grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; } }
+	.faq { display: grid; gap: 0.7rem; }
+	.faq details { background: rgb(var(--bg)); border: 1px solid rgb(var(--line) / 0.08); border-radius: 1.1rem; padding: 0 1.3rem; transition: border-color 0.2s; }
+	.faq details[open] { border-color: rgb(var(--accent)); }
+	.faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; }
+	.faq summary::-webkit-details-marker { display: none; }
+	.faq summary h3 { margin: 0; font-size: 1rem; font-weight: 600; color: rgb(var(--ink)); }
+	.faq-plus { flex-shrink: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: grid; place-items: center; background: rgb(var(--accent) / 0.16); color: rgb(var(--accent-2)); font-weight: 700; transition: transform 0.25s; }
+	.faq details[open] .faq-plus { transform: rotate(45deg); }
+	.faq details p { margin: 0 0 1.15rem; font-size: 0.93rem; color: rgb(var(--muted)); line-height: 1.7; }
 
 	/* Démo */
 	.demo { position: relative; background: rgb(var(--night)); padding: 6rem 0; overflow: hidden; scroll-margin-top: 4rem; }

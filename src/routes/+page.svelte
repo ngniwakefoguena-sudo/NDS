@@ -2,9 +2,8 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import ServiceBento from '$lib/components/ServiceBento.svelte';
-	import JourneyDemo from '$lib/components/JourneyDemo.svelte';
-	import { ArrowRight, BookOpen, Check } from 'lucide-svelte';
-	import { servicePages, process } from '$lib/data/services';
+	import { ArrowRight, Check } from 'lucide-svelte';
+	import { servicePages } from '$lib/data/services';
 	import { reveal } from '$lib/actions/motion';
 	import type { PageData } from './$types';
 
@@ -14,13 +13,12 @@
 	const main = servicePages.slice(0, 6);
 
 	const partners = [
-		{ name: 'ICS Innovations', logo: '/images/ics.png', bgColor: '' },
-		{ name: 'Afrilife Insurance', logo: '/images/Afri_insurance.png', bgColor: '#E8551B' },
+		{ name: 'ICS Innovations', logo: '/images/ics.webp', bgColor: '' },
+		{ name: 'Afrilife Insurance', logo: '/images/Afri_insurance.webp', bgColor: '#E8551B' },
 		{ name: 'Mahkong', logo: '/images/mahkong.avif', bgColor: '' },
-		{ name: 'Puol', logo: '/images/puol.png', bgColor: '#000000' }
+		{ name: 'Puol', logo: '/images/puol.webp', bgColor: '#000000' }
 	];
 
-	const fmt = (d: string) => new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 </script>
 
 <Seo
@@ -53,40 +51,6 @@
 		<a href="/vendia" class="v-shot" use:reveal={{ delay: 120 }} aria-label="Découvrir Vendia">
 			<img src="/images/vendia/vendia-contrat-reprise.webp" alt="Vendia : conversation WhatsApp avec paiement mobile et tableau de suivi des contrats" width="1376" height="768" loading="lazy" decoding="async" />
 		</a>
-	</div>
-</section>
-
-<!-- ═════════ Exemple concret : le parcours client ═════════ -->
-<section class="journey" aria-labelledby="journey-title">
-	<div class="wrap journey-grid">
-		<div use:reveal>
-			<h2 id="journey-title" class="h2 light">Un exemple concret</h2>
-			<p class="sub light">
-				Voici ce qui se passe quand tout est relié : votre site attire le visiteur, le formulaire le transforme en
-				contact, l’automatisation l’enregistre et l’IA lui répond aussitôt. Vous n’avez plus qu’à honorer le rendez-vous.
-			</p>
-			<a href="/services/automatisation-n8n" class="link light">Découvrir l’automatisation <ArrowRight class="w-4 h-4" /></a>
-		</div>
-		<JourneyDemo />
-	</div>
-</section>
-
-<!-- ═════════ Méthode ═════════ -->
-<section class="sec" aria-labelledby="process-title">
-	<div class="wrap">
-		<header class="sec-head" use:reveal>
-			<h2 id="process-title" class="h2">Comment on travaille ensemble</h2>
-			<p class="sub">Une méthode simple, avec un point d’étape à chaque phase : vous savez toujours où en est votre projet.</p>
-		</header>
-		<ol class="process" use:reveal={{ stagger: 140 }}>
-			{#each process as step, i}
-				<li class="p-step" data-reveal-item>
-					<span class="p-num">{i + 1}</span>
-					<h3 class="p-title">{step.title}</h3>
-					<p class="p-text">{step.text}</p>
-				</li>
-			{/each}
-		</ol>
 	</div>
 </section>
 
@@ -132,32 +96,6 @@
 						<span class="partner-name">{partner.name}</span>
 					</div>
 				{/each}
-			{/each}
-		</div>
-	</div>
-</section>
-
-<!-- ═════════ Blog ═════════ -->
-<section class="sec mist" aria-labelledby="blog-title">
-	<div class="wrap">
-		<header class="sec-head split" use:reveal>
-			<h2 id="blog-title" class="h2">Nos derniers conseils</h2>
-			<a href="/blog" class="link">Tous les articles <ArrowRight class="w-4 h-4" /></a>
-		</header>
-		<div class="posts" use:reveal={{ stagger: 100 }}>
-			{#each data.posts as post (post.slug)}
-				<a href="/blog/{post.slug}" class="post" data-reveal-item>
-					<div class="post-img">
-						{#if post.cover}
-							<img src={post.cover} alt="" loading="lazy" decoding="async" width="600" height="400" />
-						{:else}
-							<BookOpen class="w-8 h-8 text-accent opacity-40" />
-						{/if}
-					</div>
-					<time class="post-date" datetime={post.date}>{fmt(post.date)}</time>
-					<h3 class="post-title">{post.title}</h3>
-					<p class="post-sum">{post.summary}</p>
-				</a>
 			{/each}
 		</div>
 	</div>

@@ -3,8 +3,6 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
-	import SplashScreen from '$lib/components/SplashScreen.svelte';
-	import Chaya from '$lib/components/Chaya.svelte';
 	import { site } from '$lib/data/site';
 	import { onMount } from 'svelte';
 	import { trackContactClicks } from '$utils/track';
@@ -13,6 +11,14 @@
 
 	// Mesure des clics WhatsApp / téléphone / e-mail (conversions dans Google Analytics)
 	onMount(() => trackContactClicks());
+
+	// Chaya (assistant) chargé après l'affichage de la page, pour ne pas ralentir le premier rendu
+	let ChayaComp: any = $state(null);
+	onMount(() => {
+		const load = () => import('$lib/components/Chaya.svelte').then((m) => (ChayaComp = m.default));
+		if ('requestIdleCallback' in window) (window as any).requestIdleCallback(load, { timeout: 3000 });
+		else setTimeout(load, 1500);
+	});
 
 	const description = site.description;
 </script>
@@ -138,7 +144,6 @@
 	})}</script>`}
 </svelte:head>
 
-<SplashScreen />
 
 <div class="min-h-screen flex flex-col">
 	<TopBar />
@@ -149,4 +154,4 @@
 	<Footer />
 </div>
 
-<Chaya />
+{#if ChayaComp}<ChayaComp />{/if}

@@ -71,6 +71,9 @@ export const services: Service[] = [
 				{ q: 'Combien de temps faut-il pour créer un site ?', a: 'Un site vitrine prend généralement quelques semaines, une boutique en ligne ou une application sur mesure davantage. Le planning est fixé ensemble dès le cadrage.' },
 				{ q: 'Mon site sera-t-il bien référencé sur Google ?', a: 'Oui, les bases du SEO technique sont intégrées dès la conception : vitesse de chargement, structure des pages, balises et données structurées. Nous pouvons aussi vous accompagner sur le contenu et le référencement local.' },
 				{ q: 'Pourrai-je modifier mon site moi-même ?', a: 'Oui. Vous disposez d’un espace d’administration pour mettre à jour vos textes, vos images et publier des articles, sans connaissances techniques.' },
+				{ q: 'Comment créer un site internet pour mon entreprise ?', a: 'Le plus simple est de confier le projet à une agence web : nous définissons ensemble vos objectifs, rédigeons ou optimisons les textes, concevons le design puis développons le site. Vous recevez un site vitrine ou e-commerce prêt à attirer des clients, bien référencé sur Google, sans rien gérer techniquement.' },
+				{ q: 'Où trouver une agence web ou un créateur de site près de chez moi ?', a: 'Norbert Digital Service est une agence web basée en Île-de-France, qui intervient à Paris, Palaiseau, Massy, Versailles, Saint-Quentin-en-Yvelines, en Essonne et dans les Yvelines, et partout en France à distance. Nous accompagnons aussi des entreprises en Afrique francophone.' },
+				{ q: 'Faut-il passer par un freelance, une agence ou WordPress ?', a: 'Un outil à faire soi-même convient pour démarrer, mais demande du temps et limite le référencement. Un freelance ou une agence vous fait gagner du temps et livre un site plus rapide et mieux positionné sur Google. Nous développons des sites sur mesure ou sous WordPress, Shopify et WooCommerce selon votre besoin et votre budget.' },
 			],
 			articles: [
 				'creation-de-site-internet-dans-les-yvelines-et-lessonne-le-guide-pour-les-tpe-et-pme',
@@ -110,6 +113,9 @@ export const services: Service[] = [
 				{ q: 'Faut-il une application mobile ou un site web ?', a: 'Tout dépend de l’usage : notifications, utilisation hors ligne, fréquence d’utilisation. Une PWA (site web installable) suffit parfois. On vous aide à choisir le bon format dès le premier échange.' },
 				{ q: 'Combien coûte une application mobile ?', a: 'Le budget dépend du nombre d’écrans, des fonctionnalités et du back-office nécessaire. Un MVP permet de démarrer avec un budget réduit. Vous recevez un devis détaillé après le cadrage.' },
 				{ q: 'Pourquoi Flutter ou React Native ?', a: 'Ces technologies permettent de produire une application iOS et Android à partir d’un seul code, avec des performances proches du natif, ce qui réduit les coûts de développement et de maintenance.' },
+				{ q: 'Comment créer une application mobile pour mon entreprise ?', a: 'Tout commence par la définition des fonctionnalités essentielles, puis viennent les maquettes, le développement, les tests et la publication sur l’App Store et Google Play. Nous développons des applications iOS et Android avec Flutter, ce qui permet d’avoir une seule base de code pour les deux plateformes.' },
+				{ q: 'Combien coûte le développement d’une application mobile ?', a: 'Le prix dépend du nombre d’écrans, des fonctionnalités (paiement, géolocalisation, notifications, espace client) et des connexions à vos outils. Après un premier échange, nous vous proposons un devis détaillé, avec souvent une première version simple pour lancer rapidement.' },
+				{ q: 'Pouvez-vous transformer mon site en application ?', a: 'Oui. Selon votre besoin, nous créons une application mobile complète ou une application web installable (PWA) à partir de votre site existant, avec notifications et accès hors connexion.' },
 			],
 			articles: [
 				'combien-coute-vraiment-une-application-mobile-en-2026-le-vrai-prix-selon-votre-besoin',
@@ -147,6 +153,9 @@ export const services: Service[] = [
 				{ q: 'Par où commencer avec l’IA dans une PME ?', a: 'On commence par identifier une tâche répétitive ou une question fréquente qui coûte du temps. Un premier projet ciblé permet de mesurer le gain avant d’aller plus loin.' },
 				{ q: 'Qu’est-ce que le RAG ?', a: 'Le RAG (génération augmentée par la recherche) permet à une IA de répondre à partir de vos propres documents plutôt que de ses seules connaissances générales. Les réponses sont plus fiables et peuvent citer leurs sources.' },
 				{ q: 'Mes données sont-elles en sécurité ?', a: 'Le choix du modèle et de l’hébergement se fait selon vos contraintes. Les données sensibles peuvent rester sur des services hébergés en Europe ou être exclues du traitement.' },
+				{ q: 'Comment intégrer l’intelligence artificielle dans mon entreprise ?', a: 'Nous identifions d’abord les tâches répétitives ou chronophages : réponses aux clients, rédaction, tri de documents, analyse de données. Puis nous mettons en place l’outil adapté, par exemple un chatbot IA sur votre site, un assistant connecté à vos documents ou une automatisation avec ChatGPT.' },
+				{ q: 'Pouvez-vous créer un chatbot IA pour mon site ou WhatsApp ?', a: 'Oui. Nous concevons des chatbots et assistants IA alimentés avec les informations de votre entreprise, sur votre site web ou sur WhatsApp. Notre propre produit, Vendia, est un agent commercial IA sur WhatsApp qui gère devis, paiement et documents.' },
+				{ q: 'L’IA est-elle accessible à une petite entreprise ?', a: 'Oui. Les outils d’IA sont devenus abordables : un premier assistant ou une première automatisation peut être mis en place rapidement, avec un budget maîtrisé et des gains de temps visibles dès les premières semaines.' },
 			],
 			articles: [
 				'chatbot-ia-sur-votre-site-web-comment-transformer-vos-visiteurs-en-clients-24h-sur-24',
@@ -185,6 +194,9 @@ export const services: Service[] = [
 				{ q: 'Qu’est-ce que n8n ?', a: 'n8n est un outil d’automatisation qui connecte vos logiciels entre eux (CRM, e-mail, agenda, facturation, tableurs) pour faire circuler l’information automatiquement. Il peut être hébergé chez vous, ce qui limite les coûts et garde vos données sous contrôle.' },
 				{ q: 'n8n, Make ou Zapier : que choisir ?', a: 'Zapier est simple mais devient vite coûteux, Make est très visuel, n8n est le plus flexible et peut être auto-hébergé. Nous recommandons l’outil adapté à votre volume et à votre budget.' },
 				{ q: 'Combien de temps peut-on gagner ?', a: 'Cela dépend de vos processus. L’audit de départ chiffre le temps passé sur chaque tâche pour estimer le gain avant de lancer le projet.' },
+				{ q: 'Comment automatiser les tâches répétitives de mon entreprise ?', a: 'Nous relions vos outils entre eux (formulaires, e-mails, CRM, facturation, agenda, WhatsApp) pour que les informations circulent automatiquement. Avec n8n, Make ou Zapier, une demande de contact peut par exemple créer un contact, envoyer un devis et prévenir votre équipe sans intervention.' },
+				{ q: 'n8n, Make ou Zapier : lequel choisir ?', a: 'Zapier et Make sont simples à prendre en main, n8n est plus flexible et peut être hébergé chez vous pour maîtriser vos données et vos coûts. Nous vous conseillons l’outil le plus adapté à vos volumes et à votre budget.' },
+				{ q: 'Pouvez-vous automatiser ma facturation et mes relances ?', a: 'Oui : génération des factures et devis, relances automatiques des impayés, rappels de rendez-vous et suivi des paiements font partie des automatisations les plus demandées par nos clients.' },
 			],
 			articles: [
 				'automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine',
@@ -222,6 +234,9 @@ export const services: Service[] = [
 				{ q: 'Combien de temps pour voir les résultats du SEO ?', a: 'Les premiers effets du référencement naturel apparaissent généralement après quelques semaines à quelques mois, selon la concurrence. La publicité en ligne peut apporter des contacts dès son lancement en parallèle.' },
 				{ q: 'Qu’est-ce que le SEO local ?', a: 'C’est l’ensemble des actions qui vous font apparaître quand un client cherche un service près de chez lui : fiche Google Business, avis, pages dédiées à votre zone et cohérence de vos informations en ligne.' },
 				{ q: 'Qu’est-ce que le GEO ?', a: 'Le GEO (Generative Engine Optimization) consiste à rendre votre entreprise compréhensible et citée par les assistants IA comme ChatGPT ou Gemini, en complément du référencement Google classique.' },
+				{ q: 'Comment apparaître en premier sur Google ?', a: 'Il faut combiner un site rapide et bien structuré, des contenus qui répondent aux recherches de vos clients, une fiche Google Business Profile optimisée et des liens vers votre site. Nous travaillons ces quatre leviers pour améliorer durablement votre position sur Google.' },
+				{ q: 'Comment avoir plus de clients grâce à internet ?', a: 'En étant visible là où vos clients cherchent : Google, Google Maps, réseaux sociaux et publicité en ligne. Nous mettons en place une stratégie complète : référencement naturel (SEO), SEO local, réseaux sociaux, Google Ads et Meta Ads, avec un suivi des résultats.' },
+				{ q: 'Proposez-vous la gestion des réseaux sociaux et de la publicité ?', a: 'Oui : création de contenus, planification des publications sur Facebook, Instagram, LinkedIn et TikTok, et gestion de campagnes publicitaires Google Ads et Meta Ads pour générer des contacts et des ventes.' },
 			],
 			articles: [
 				'fiche-google-business-profile-12-optimisations-pour-apparaitre-dans-le-pack-local-en-2026',
@@ -260,6 +275,9 @@ export const services: Service[] = [
 				{ q: 'Qu’est-ce qu’un lead qualifié ?', a: 'C’est un contact qui correspond à votre client idéal et qui a montré un intérêt réel pour votre offre. Le système de génération de leads vise ces contacts plutôt que le volume.' },
 				{ q: 'La prospection par e-mail est-elle légale ?', a: 'En B2B, la prospection par e-mail est encadrée par le RGPD : le message doit concerner l’activité du destinataire et permettre de se désinscrire facilement. Nos campagnes respectent ces règles.' },
 				{ q: 'Faut-il déjà avoir un CRM ?', a: 'Non. Nous pouvons mettre en place un CRM adapté à votre taille ou connecter celui que vous utilisez déjà.' },
+				{ q: 'Comment trouver de nouveaux clients rapidement ?', a: 'Nous combinons plusieurs canaux : prospection ciblée par e-mail et LinkedIn, landing pages optimisées, publicité en ligne et relances automatiques. L’objectif est de vous apporter des prospects qualifiés, prêts à échanger avec vous.' },
+				{ q: 'Comment faire de la prospection B2B efficace ?', a: 'En ciblant précisément les bonnes entreprises et les bons interlocuteurs, avec des messages personnalisés et un suivi régulier. Nous construisons les listes de prospects, rédigeons les séquences et automatisons les relances.' },
+				{ q: 'Qu’est-ce qu’une landing page et en ai-je besoin ?', a: 'Une landing page est une page conçue pour un seul objectif, comme obtenir une demande de devis. Elle convertit bien mieux qu’une page d’accueil pour vos campagnes publicitaires et vos offres spécifiques.' },
 			],
 			articles: [
 				'landing-page-qui-convertit-la-methode-en-9-etapes-pour-generer-plus-de-demandes-de-devis',
@@ -298,6 +316,9 @@ export const services: Service[] = [
 				{ q: 'Qu’est-ce que le data engineering ?', a: 'C’est la mise en place de l’infrastructure qui collecte, transforme et stocke vos données pour qu’elles soient fiables et exploitables. C’est la base indispensable avant tout tableau de bord ou projet d’IA.' },
 				{ q: 'Faut-il une grosse quantité de données ?', a: 'Non. Même une petite entreprise gagne à centraliser ses données de ventes, de clients et de marketing. On dimensionne la solution selon votre volume réel.' },
 				{ q: 'Le web scraping est-il légal ?', a: 'La collecte de données publiques est possible dans certaines limites : respect des conditions d’utilisation des sites, du RGPD pour les données personnelles et du droit des bases de données. Nous vérifions ces points avant chaque projet.' },
+				{ q: 'Comment centraliser les données de mon entreprise ?', a: 'Nous connectons vos sources (site, CRM, comptabilité, fichiers Excel, outils métier) dans une base de données unique, puis construisons des tableaux de bord clairs pour suivre vos chiffres en temps réel.' },
+				{ q: 'Pouvez-vous créer un tableau de bord pour suivre mon activité ?', a: 'Oui : chiffre d’affaires, ventes, prospects, stocks ou performance marketing, nous créons des tableaux de bord sur mesure (Looker Studio, Power BI ou applications web) mis à jour automatiquement.' },
+				{ q: 'Qu’est-ce que le web scraping et est-ce légal ?', a: 'Le web scraping consiste à collecter automatiquement des données publiques sur des sites web, par exemple des prix ou des annonces. Il doit respecter les conditions des sites et le RGPD : nous vous conseillons sur ce qui est autorisé.' },
 			],
 			articles: [
 				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
@@ -335,6 +356,9 @@ export const services: Service[] = [
 				{ q: 'Les formations sont-elles adaptées aux débutants ?', a: 'Oui. Le niveau est fixé avant la formation avec un court échange sur le profil des participants. Les sessions IA et automatisation ne demandent aucune connaissance technique.' },
 				{ q: 'La formation peut-elle porter sur nos propres outils ?', a: 'C’est même recommandé : les exercices sont construits à partir de vos documents, de vos logiciels et de vos tâches réelles pour un résultat directement utile.' },
 				{ q: 'Combien de temps dure une formation ?', a: 'D’une demi-journée de découverte à un parcours de plusieurs semaines. Le programme et la durée sont proposés selon vos objectifs.' },
+				{ q: 'Où suivre une formation à l’intelligence artificielle ou à ChatGPT ?', a: 'Nous proposons des formations pratiques à l’IA générative, à ChatGPT et à l’automatisation, en présentiel en Île-de-France ou à distance, adaptées à votre métier et à votre niveau.' },
+				{ q: 'Proposez-vous des formations pour les équipes en entreprise ?', a: 'Oui. Nos formations peuvent être organisées pour vos équipes, avec des cas concrets tirés de votre activité, afin que chacun reparte avec des outils utilisables dès le lendemain.' },
+				{ q: 'Peut-on apprendre à créer son propre site ou ses automatisations ?', a: 'Oui : nous formons aussi à la création et à la mise à jour de sites web, au référencement de base et à la mise en place d’automatisations avec n8n, pour gagner en autonomie.' },
 			],
 			articles: [
 				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
@@ -372,6 +396,9 @@ export const services: Service[] = [
 				{ q: 'Quelle différence entre UI et UX ?', a: 'L’UX (expérience utilisateur) concerne le parcours et la facilité d’utilisation. L’UI (interface utilisateur) concerne l’aspect visuel : couleurs, typographies, boutons. Un bon design travaille les deux ensemble.' },
 				{ q: 'Pouvez-vous seulement faire le design, sans le développement ?', a: 'Oui. Nous livrons les maquettes et le design system à votre équipe technique, ou nous assurons aussi le développement si vous le souhaitez.' },
 				{ q: 'Combien d’allers-retours sont prévus ?', a: 'Le nombre de cycles de corrections est fixé dans la proposition. Le prototype cliquable permet de valider tôt et d’éviter les surprises.' },
+				{ q: 'Qu’est-ce que le design UI/UX et pourquoi est-ce important ?', a: 'L’UI concerne l’apparence de votre site ou application, l’UX la facilité d’utilisation. Un bon design rend votre offre claire, inspire confiance et augmente le nombre de visiteurs qui deviennent clients.' },
+				{ q: 'Pouvez-vous refaire le design de mon site ou de mon application ?', a: 'Oui. Nous analysons ce qui freine vos utilisateurs, puis proposons une nouvelle maquette moderne, adaptée au mobile, avant de passer au développement.' },
+				{ q: 'Créez-vous aussi des logos et une identité visuelle ?', a: 'Nous concevons l’univers visuel de vos interfaces : couleurs, typographies, icônes et composants, en cohérence avec votre logo et votre marque.' },
 			],
 			articles: [
 				'pourquoi-votre-site-web-vous-fait-perdre-des-clients-en-2026-et-comment-y-remedier',
@@ -409,6 +436,9 @@ export const services: Service[] = [
 				{ q: 'Qu’est-ce qu’une API ?', a: 'Une API est une porte d’entrée qui permet à deux logiciels d’échanger des données de façon sécurisée. C’est ce qui permet par exemple à votre application mobile de récupérer les informations de votre base de données.' },
 				{ q: 'Node.js, Django ou FastAPI : que choisir ?', a: 'Le choix dépend de votre projet et de votre équipe : FastAPI pour les API rapides et l’IA, Django pour les applications complètes avec back-office, Node.js pour les applications temps réel. Nous recommandons la technologie la plus adaptée.' },
 				{ q: 'Pouvez-vous reprendre un projet existant ?', a: 'Oui. Nous commençons par un audit du code et de l’architecture, puis proposons un plan de correction et d’amélioration.' },
+				{ q: 'Pouvez-vous connecter mes logiciels entre eux avec une API ?', a: 'Oui. Nous développons des API et des connecteurs sur mesure pour faire communiquer votre site, votre application, votre CRM, votre outil de paiement ou votre ERP, sans double saisie.' },
+				{ q: 'Pouvez-vous développer un logiciel ou un outil métier sur mesure ?', a: 'Oui : espace client, outil de gestion, plateforme de réservation ou back-office, nous développons des applications web sur mesure avec Python, Django, FastAPI et des bases de données PostgreSQL ou MongoDB.' },
+				{ q: 'Comment intégrer le paiement en ligne ou Mobile Money ?', a: 'Nous intégrons les solutions de paiement adaptées à votre marché : carte bancaire (Stripe, PayPal) et Mobile Money (Orange Money, MTN Mobile Money), avec confirmation automatique et génération des reçus.' },
 			],
 			articles: [
 				'cybersecurite-pour-pme-10-reflexes-pour-proteger-votre-site-web-et-vos-donnees-en-2026',

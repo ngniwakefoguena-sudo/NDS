@@ -11,7 +11,7 @@
 </script>
 
 <Seo
-	title="Blog : conseils web, IA et automatisation pour PME"
+	title="Blog : conseils site web, SEO, IA et automatisation"
 	description="Guides pratiques sur la création de site web, les applications mobiles, l'IA et l'automatisation n8n pour aider les PME à gagner du temps et des clients."
 />
 

@@ -31,10 +31,12 @@ export async function handle({ event, resolve }) {
 
 	const response = await resolve(event);
 
-	// Les copies techniques du site (*.vercel.app, *.netlify.app, aperçus) ne doivent pas être indexées :
-	// seul norbertdigitalservice.fr doit apparaître dans Google, sinon c'est du contenu dupliqué.
+	// Seules les anciennes copies *.vercel.app reçoivent « noindex ».
+	// Les adresses *.netlify.app sont déjà redirigées en 301 vers norbertdigitalservice.fr (netlify.toml) :
+	// on ne les marque plus en « noindex », car derrière Netlify le nom d'hôte vu par le serveur peut être
+	// l'adresse technique, ce qui faisait exclure de Google les pages du vrai domaine.
 	const host = event.url.hostname;
-	if (host.endsWith('.vercel.app') || host.endsWith('.netlify.app')) {
+	if (host.endsWith('.vercel.app')) {
 		response.headers.set('X-Robots-Tag', 'noindex');
 	}
 

@@ -58,6 +58,7 @@
 		"priceRange": "€€",
 		"address": {
 			"@type": "PostalAddress",
+			"streetAddress": "4 Rue Maurice Berteaux",
 			"addressLocality": "Palaiseau",
 			"postalCode": "91120",
 			"addressRegion": "Île-de-France",
@@ -96,6 +97,7 @@
 				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Engineering", "description": "Pipelines de données, PostgreSQL, MongoDB, traitement et visualisation" } },
 				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Digital & Génération de Leads B2B B2C", "description": "Stratégies de génération de leads, SEO, campagnes digitales" } },
 				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design UI/UX", "description": "Conception d'interfaces modernes et expériences utilisateur optimisées" } },
+				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vendia : agent commercial WhatsApp", "url": `${site.url}/vendia`, "description": "Chatbot WhatsApp Business qui répond aux clients 24h/24, établit des devis et encaisse les paiements" } },
 				{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carte de fidélité digitale", "description": "Création de cartes de fidélité dématérialisées Apple Wallet et Google Wallet pour fidéliser vos clients" } }
 			]
 		},
@@ -106,6 +108,21 @@
 			"areaServed": "FR",
 			"availableLanguage": ["French", "English"]
 		},
+		"openingHoursSpecification": [{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+			"opens": "09:00",
+			"closes": "18:00"
+		}],
+		"knowsAbout": [
+			"Création de site internet", "Site vitrine", "Site e-commerce", "Refonte de site web",
+			"Application mobile iOS et Android", "Flutter", "SvelteKit",
+			"Intelligence artificielle pour PME", "Chatbot IA", "Chatbot WhatsApp Business", "RAG", "Agents IA",
+			"Automatisation n8n", "Make", "Automatisation des processus",
+			"Référencement naturel SEO", "SEO local", "Google Business Profile", "GEO (ChatGPT, Gemini)",
+			"Google Ads", "Meta Ads", "Marketing digital multicanal", "Génération de leads B2B et B2C",
+			"Data engineering", "Web scraping", "Design UI/UX", "Carte de fidélité digitale"
+		],
 		"hasMap": "https://www.google.com/maps/search/?api=1&query=Norbert+Digital+Service",
 		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook]
 	})}</script>`}

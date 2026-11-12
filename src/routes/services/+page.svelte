@@ -8,7 +8,7 @@
 </script>
 
 <Seo
-	title="Services : sites web, apps mobiles, IA et automatisation"
+	title="Services digitaux : site web, app mobile, IA, SEO"
 	description="Création de sites web, applications mobiles, intégration IA, automatisation n8n, marketing digital et génération de leads pour les PME. Découvrez nos prestations."
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -24,7 +24,7 @@
 
 <section class="head">
 	<div class="wrap">
-		<h1 class="title">Nos services</h1>
+		<h1 class="title">Nos services digitaux</h1>
 		<p class="lead">
 			De la stratégie à la mise en ligne : site web, application mobile, intelligence artificielle, automatisation et
 			marketing. Choisissez un service pour découvrir ce qu’il comprend, pour qui il est fait et comment on travaille.

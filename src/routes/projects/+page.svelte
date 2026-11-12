@@ -27,8 +27,8 @@
 </script>
 
 <Seo
-	title="Réalisations : projets web, mobile et IA"
-	description="Découvrez les sites web, applications mobiles et solutions d'intelligence artificielle réalisés par Norbert Digital Service pour ses clients."
+	title="Réalisations : sites web, applications et projets IA"
+	description="Portfolio de Norbert Digital Service : sites internet, applications mobiles, automatisations, web scraping et solutions d'intelligence artificielle réalisés pour des entreprises."
 />
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">

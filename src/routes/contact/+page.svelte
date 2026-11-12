@@ -167,8 +167,8 @@
 </script>
 
 <Seo
-	title="Contact : parlons de votre projet"
-	description="Contactez Norbert Digital Service pour votre projet de site web, d'application mobile ou d'IA. Réponse sous 24h, par formulaire, téléphone ou WhatsApp."
+	title="Contact et devis gratuit : site web, app, IA"
+	description="Demandez un devis gratuit pour votre site internet, application mobile, chatbot IA ou automatisation. Agence basée à Palaiseau (91), réponse sous 24h par formulaire, téléphone ou WhatsApp."
 />
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden">

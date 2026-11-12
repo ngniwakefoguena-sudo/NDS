@@ -51,8 +51,8 @@
 </script>
 
 <Seo
-	title="À propos : agence web, mobile et IA"
-	description="Découvrez Norbert Digital Service, agence digitale française spécialisée en développement web, mobile, intelligence artificielle et automatisation."
+	title="À propos : consultant digital et agence web à Palaiseau"
+	description="Norbert Digital Service, agence digitale indépendante basée à Palaiseau (Essonne) : stratégie marketing multicanale, création de sites web, IA et automatisation pour les PME en Île-de-France."
 />
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden" style="background: rgb(var(--bg));">

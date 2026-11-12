@@ -90,8 +90,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
 		page: {
 			slug: 'application-mobile',
-			metaTitle: 'Développement d’application mobile iOS et Android',
-			metaDescription: 'Développement d’applications mobiles iOS et Android avec Flutter et React Native : de la maquette à la publication sur l’App Store et Google Play.',
+			metaTitle: 'Création d’application mobile iOS et Android – Paris',
+			metaDescription: 'Création d’application mobile iOS et Android à Paris et en Île-de-France avec Flutter et React Native : MVP, maquette, développement et publication sur l’App Store et Google Play. Devis gratuit.',
 			h1: 'Développement d’application mobile iOS et Android',
 			intro: [
 				'Une application mobile permet de rester dans la poche de vos clients : réservation, commande, fidélité, suivi de service ou outil interne pour vos équipes.',
@@ -127,8 +127,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #a855f7, #ec4899)',
 		page: {
 			slug: 'intelligence-artificielle',
-			metaTitle: 'Intégration de l’intelligence artificielle pour PME',
-			metaDescription: 'Chatbots métier, assistants RAG connectés à vos documents, agents IA : intégrez l’intelligence artificielle dans votre entreprise de façon concrète et sécurisée.',
+			metaTitle: 'Intégration IA et chatbot pour PME – Île-de-France',
+			metaDescription: 'Chatbot IA pour site web et WhatsApp, assistants RAG connectés à vos documents, agents IA : intégrez l’intelligence artificielle dans votre PME de façon concrète, sécurisée et conforme RGPD.',
 			h1: 'Intelligence artificielle pour les entreprises',
 			intro: [
 				'L’intelligence artificielle n’est plus réservée aux grands groupes. Une PME peut aujourd’hui répondre plus vite à ses clients, retrouver une information dans ses documents en quelques secondes ou automatiser l’analyse de ses données.',
@@ -165,8 +165,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #f59e0b, #ef4444)',
 		page: {
 			slug: 'automatisation-n8n',
-			metaTitle: 'Automatisation n8n pour PME : gagnez des heures chaque semaine',
-			metaDescription: 'Automatisation de vos tâches répétitives avec n8n, Make et Python : relances, facturation, CRM, e-mails et rapports. Gagnez du temps chaque semaine.',
+			metaTitle: 'Automatisation n8n et IA pour PME : gagnez du temps',
+			metaDescription: 'Expert n8n en Île-de-France : automatisation de vos tâches répétitives avec n8n, Make, Python et l’IA (relances, facturation, CRM, e-mails, rapports). Gagnez des heures chaque semaine.',
 			h1: 'Automatisation des processus avec n8n',
 			intro: [
 				'Relancer un prospect, copier une commande dans un tableur, envoyer une facture, mettre à jour le CRM : ces petites tâches prennent des heures chaque semaine et sont une source d’erreurs.',
@@ -202,8 +202,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #3b82f6, #6366f1)',
 		page: {
 			slug: 'marketing-digital-seo',
-			metaTitle: 'Marketing digital et référencement SEO',
-			metaDescription: 'Référencement naturel, SEO local, Google Ads, Meta Ads et réseaux sociaux : une stratégie de marketing digital pour être visible et attirer des clients.',
+			metaTitle: 'Agence SEO et marketing digital – Paris, Essonne',
+			metaDescription: 'Référencement naturel, SEO local et fiche Google Business, GEO (ChatGPT, Gemini), Google Ads, Meta Ads et réseaux sociaux : une stratégie marketing multicanale pour attirer des clients en Île-de-France.',
 			h1: 'Marketing digital et référencement SEO',
 			intro: [
 				'Un bon site ne suffit pas : il faut que vos clients le trouvent. Le marketing digital rassemble tout ce qui vous rend visible au bon moment, sur Google, sur les réseaux sociaux et désormais dans les assistants IA comme ChatGPT.',
@@ -240,7 +240,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #ec4899, #f97316)',
 		page: {
 			slug: 'generation-de-leads',
-			metaTitle: 'Génération de leads B2B et B2C',
+			metaTitle: 'Génération de leads B2B et B2C : prospects qualifiés',
 			metaDescription: 'Landing pages, campagnes e-mail et LinkedIn, tunnels de conversion et CRM automatisé : un système d’acquisition qui vous apporte des prospects qualifiés.',
 			h1: 'Génération de leads B2B et B2C',
 			intro: [
@@ -278,7 +278,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #10b981, #06b6d4)',
 		page: {
 			slug: 'data-engineering',
-			metaTitle: 'Data engineering : pipelines de données et tableaux de bord',
+			metaTitle: 'Data engineering, web scraping et tableaux de bord',
 			metaDescription: 'Centralisez vos données, automatisez leur collecte et pilotez votre activité avec des tableaux de bord fiables : pipelines, entrepôt de données, extraction et web scraping.',
 			h1: 'Data engineering et tableaux de bord',
 			intro: [

@@ -36,11 +36,11 @@
 			<div class="footer-col col-services">
 				<h3 class="col-heading">Nos services</h3>
 				<ul class="link-list">
-					<li><a href="/services/creation-site-web" class="footer-link">Développement Web</a></li>
-					<li><a href="/services/application-mobile" class="footer-link">Application Mobile</a></li>
+					<li><a href="/services/creation-site-web" class="footer-link">Création de site internet</a></li>
+					<li><a href="/services/application-mobile" class="footer-link">Création d’application mobile</a></li>
 					<li><a href="/services/intelligence-artificielle" class="footer-link">Intelligence Artificielle</a></li>
 					<li><a href="/services/automatisation-n8n" class="footer-link">Automatisation</a></li>
-					<li><a href="/services/marketing-digital-seo" class="footer-link">Marketing Digital</a></li>
+					<li><a href="/services/marketing-digital-seo" class="footer-link">SEO et marketing digital</a></li>
 					<li><a href="/services/generation-de-leads" class="footer-link">Génération de Leads</a></li>
 					<li><a href="/services/data-engineering" class="footer-link">Data Engineering</a></li>
 					<li><a href="/services/formation" class="footer-link">Formation</a></li>
@@ -140,6 +140,7 @@
 			<div class="footer-col col-about">
 				<h3 class="col-heading">En savoir plus</h3>
 				<ul class="link-list">
+					<li><a href="/agence-web" class="footer-link">Agence web</a></li>
 					<li><a href="/about" class="footer-link">À Propos</a></li>
 					<li><a href="/projects" class="footer-link">Réalisations</a></li>
 					<li><a href="/blog" class="footer-link">Blog</a></li>

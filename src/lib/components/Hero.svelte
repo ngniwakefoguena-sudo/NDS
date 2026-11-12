@@ -24,8 +24,8 @@
 	<div class="inner">
 		<!-- Texte -->
 		<div class="copy">
-			<p class="kicker"><span class="dot"></span>Agence web, mobile et IA · France, Afrique et international</p>
 			<h1 id="hero-title" class="title">
+				<span class="kicker"><span class="dot"></span>Agence web, mobile et IA · France, Afrique et international</span>
 				<span class="l l1">Nous créons votre</span>
 				<span class="l rot">
 					<span class="sr-only">site web, application mobile, automatisation ou assistant IA</span>
@@ -117,7 +117,11 @@
 
 	/* ── Texte ── */
 	.kicker {
-		display: inline-flex;
+		display: flex;
+		width: fit-content;
+		font-family: inherit;
+		letter-spacing: normal;
+		line-height: 1.4;
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.4rem 0.9rem;

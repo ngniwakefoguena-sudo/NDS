@@ -284,7 +284,7 @@
 	}
 
 	@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-	@keyframes reveal { from { clip-path: inset(12% 12% 12% 12% round 2rem); opacity: 0; } to { clip-path: inset(0 0 0 0 round 2rem); opacity: 1; } }
+	@keyframes reveal { from { clip-path: inset(12% 12% 12% 12% round 2rem); } to { clip-path: inset(0 0 0 0 round 2rem); } }
 	@keyframes zoom { to { transform: scale(1); } }
 	@keyframes pop { from { opacity: 0; transform: translateY(14px) scale(0.85); } to { opacity: 1; transform: none; } }
 	@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }

@@ -12,6 +12,8 @@ const config = {
 	},
 	kit: { 
 		adapter: adapter(),
+		// Petites feuilles de style intégrées à la page : moins de fichiers à télécharger (utile sur les connexions lentes).
+		inlineStyleThreshold: 12000,
 		prerender: {
 			crawl: true,
 			handleUnseenRoutes: 'ignore',

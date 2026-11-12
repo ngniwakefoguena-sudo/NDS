@@ -13,6 +13,25 @@
   to = "/admin/index.html"
   status = 200
 
+# Anciennes adresses d'articles (signalées en 404 par la Search Console) → articles actuels
+[[redirects]]
+  from = "/blog/agence-growth-hacking-paris-acc-l-rez-votre-croissance-en-2026"
+  to = "/blog/agence-growth-hacking-paris-accelerez-votre-croissance-en-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/ia-pour-pme"
+  to = "/blog/intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/d-veloppeur-web-freelance-paris-freelance-ou-agence-que-choisir-en-2026"
+  to = "/blog/developpeur-web-freelance-paris-freelance-ou-agence-que-choisir-en-2026"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/admin/*"
   [headers.values]

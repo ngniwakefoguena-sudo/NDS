@@ -30,7 +30,7 @@
 			description: p.metaDescription,
 			url,
 			provider: { '@id': `${site.url}/#organisation` },
-			areaServed: { '@type': 'Country', name: 'France' }
+			areaServed: [{ '@type': 'Place', name: 'Monde entier' }, { '@type': 'Country', name: 'France' }, { '@type': 'Place', name: 'Afrique' }]
 		},
 		{
 			'@context': 'https://schema.org',

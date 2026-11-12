@@ -51,8 +51,8 @@
 </script>
 
 <Seo
-	title="À propos : consultant digital et agence web à Palaiseau"
-	description="Norbert Digital Service, agence digitale indépendante basée à Palaiseau (Essonne) : stratégie marketing multicanale, création de sites web, IA et automatisation pour les PME en Île-de-France."
+	title="À propos : agence digitale et consultant web international"
+	description="Norbert Digital Service, agence digitale indépendante : stratégie marketing multicanale, création de sites web, IA et automatisation pour les entreprises en France, en Afrique et à l’international."
 />
 
 <div class="relative min-h-screen pt-32 pb-24 overflow-hidden" style="background: rgb(var(--bg));">

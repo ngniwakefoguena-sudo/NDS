@@ -76,6 +76,10 @@
 			"longitude": "2.2457"
 		},
 		"areaServed": [
+			{ "@type": "Place", "name": "Monde entier" },
+			{ "@type": "Country", "name": "Canada" },
+			{ "@type": "Country", "name": "États-Unis" },
+			{ "@type": "Country", "name": "Royaume-Uni" },
 			{ "@type": "City", "name": "Paris" },
 			{ "@type": "City", "name": "Palaiseau" },
 			{ "@type": "AdministrativeArea", "name": "Essonne" },
@@ -111,7 +115,7 @@
 			"@type": "ContactPoint",
 			"telephone": site.phone,
 			"contactType": "customer service",
-			"areaServed": "FR",
+			"areaServed": "Worldwide",
 			"availableLanguage": ["French", "English"]
 		},
 		"openingHoursSpecification": [{

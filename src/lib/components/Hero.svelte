@@ -24,7 +24,7 @@
 	<div class="inner">
 		<!-- Texte -->
 		<div class="copy">
-			<p class="kicker"><span class="dot"></span>Agence web, mobile et IA à Paris</p>
+			<p class="kicker"><span class="dot"></span>Agence web, mobile et IA · France, Afrique et international</p>
 			<h1 id="hero-title" class="title">
 				<span class="l l1">Nous créons votre</span>
 				<span class="l rot">

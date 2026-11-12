@@ -22,8 +22,8 @@
 </script>
 
 <Seo
-	title="Agence web Paris & Île-de-France : site internet, app, IA"
-	description="Agence web et consultant digital à Palaiseau (Essonne), Paris et Yvelines : création de site internet, application mobile, chatbot IA, automatisation n8n et SEO pour TPE et PME. Devis gratuit sous 24h."
+	title="Agence web, mobile et IA : site internet, application et chatbot"
+	description="Agence digitale internationale : création de site internet, application mobile, chatbot IA, automatisation et SEO pour les entreprises en France, en Afrique et partout dans le monde, à distance. Devis gratuit sous 24h."
 />
 
 <Hero />

@@ -50,8 +50,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, rgb(152,200,22), rgb(112,160,8))',
 		page: {
 			slug: 'creation-site-web',
-			metaTitle: 'Création de site internet à Paris, Essonne et Yvelines',
-			metaDescription: 'Création de site internet à Paris, Palaiseau, Essonne et Yvelines : sites vitrines et e-commerce rapides, bien référencés sur Google et pensés pour vous apporter des clients. Devis gratuit.',
+			metaTitle: 'Création de site internet professionnel : vitrine et e-commerce',
+			metaDescription: 'Création de site internet pour les entreprises en France, en Afrique et dans le monde entier : sites vitrines et e-commerce rapides, bien référencés sur Google et pensés pour vous apporter des clients. Devis gratuit.',
 			h1: 'Création de site web professionnel',
 			intro: [
 				'Votre site est souvent le premier contact entre votre entreprise et un futur client. S’il est lent, difficile à lire sur mobile ou introuvable sur Google, ce client part chez un concurrent sans même vous avoir appelé.',
@@ -72,7 +72,7 @@ export const services: Service[] = [
 				{ q: 'Mon site sera-t-il bien référencé sur Google ?', a: 'Oui, les bases du SEO technique sont intégrées dès la conception : vitesse de chargement, structure des pages, balises et données structurées. Nous pouvons aussi vous accompagner sur le contenu et le référencement local.' },
 				{ q: 'Pourrai-je modifier mon site moi-même ?', a: 'Oui. Vous disposez d’un espace d’administration pour mettre à jour vos textes, vos images et publier des articles, sans connaissances techniques.' },
 				{ q: 'Comment créer un site internet pour mon entreprise ?', a: 'Le plus simple est de confier le projet à une agence web : nous définissons ensemble vos objectifs, rédigeons ou optimisons les textes, concevons le design puis développons le site. Vous recevez un site vitrine ou e-commerce prêt à attirer des clients, bien référencé sur Google, sans rien gérer techniquement.' },
-				{ q: 'Où trouver une agence web ou un créateur de site près de chez moi ?', a: 'Norbert Digital Service est une agence web basée en Île-de-France, qui intervient à Paris, Palaiseau, Massy, Versailles, Saint-Quentin-en-Yvelines, en Essonne et dans les Yvelines, et partout en France à distance. Nous accompagnons aussi des entreprises en Afrique francophone.' },
+				{ q: 'Où trouver une agence web ou un créateur de site près de chez moi ?', a: 'Norbert Digital Service est une agence web basée en Île-de-France, qui intervient à Paris, Palaiseau, Massy, Versailles, Saint-Quentin-en-Yvelines, en Essonne et dans les Yvelines, et partout dans le monde à distance : France, Belgique, Suisse, Canada, Afrique francophone (Cameroun, Côte d’Ivoire, Sénégal…) et au-delà.' },
 				{ q: 'Faut-il passer par un freelance, une agence ou WordPress ?', a: 'Un outil à faire soi-même convient pour démarrer, mais demande du temps et limite le référencement. Un freelance ou une agence vous fait gagner du temps et livre un site plus rapide et mieux positionné sur Google. Nous développons des sites sur mesure ou sous WordPress, Shopify et WooCommerce selon votre besoin et votre budget.' },
 			],
 			articles: [
@@ -93,8 +93,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
 		page: {
 			slug: 'application-mobile',
-			metaTitle: 'Création d’application mobile iOS et Android – Paris',
-			metaDescription: 'Création d’application mobile iOS et Android à Paris et en Île-de-France avec Flutter et React Native : MVP, maquette, développement et publication sur l’App Store et Google Play. Devis gratuit.',
+			metaTitle: 'Création d’application mobile iOS et Android sur mesure',
+			metaDescription: 'Création d’application mobile iOS et Android pour les entreprises en France, en Afrique et à l’international, avec Flutter et React Native : MVP, maquette, développement et publication sur l’App Store et Google Play. Devis gratuit.',
 			h1: 'Développement d’application mobile iOS et Android',
 			intro: [
 				'Une application mobile permet de rester dans la poche de vos clients : réservation, commande, fidélité, suivi de service ou outil interne pour vos équipes.',
@@ -133,7 +133,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #a855f7, #ec4899)',
 		page: {
 			slug: 'intelligence-artificielle',
-			metaTitle: 'Intégration IA et chatbot pour PME – Île-de-France',
+			metaTitle: 'Intégration IA et chatbot pour entreprises et PME',
 			metaDescription: 'Chatbot IA pour site web et WhatsApp, assistants RAG connectés à vos documents, agents IA : intégrez l’intelligence artificielle dans votre PME de façon concrète, sécurisée et conforme RGPD.',
 			h1: 'Intelligence artificielle pour les entreprises',
 			intro: [
@@ -175,7 +175,7 @@ export const services: Service[] = [
 		page: {
 			slug: 'automatisation-n8n',
 			metaTitle: 'Automatisation n8n et IA pour PME : gagnez du temps',
-			metaDescription: 'Expert n8n en Île-de-France : automatisation de vos tâches répétitives avec n8n, Make, Python et l’IA (relances, facturation, CRM, e-mails, rapports). Gagnez des heures chaque semaine.',
+			metaDescription: 'Expert n8n, à distance partout dans le monde : automatisation de vos tâches répétitives avec n8n, Make, Python et l’IA (relances, facturation, CRM, e-mails, rapports). Gagnez des heures chaque semaine.',
 			h1: 'Automatisation des processus avec n8n',
 			intro: [
 				'Relancer un prospect, copier une commande dans un tableur, envoyer une facture, mettre à jour le CRM : ces petites tâches prennent des heures chaque semaine et sont une source d’erreurs.',
@@ -214,8 +214,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #3b82f6, #6366f1)',
 		page: {
 			slug: 'marketing-digital-seo',
-			metaTitle: 'Agence SEO et marketing digital – Paris, Essonne',
-			metaDescription: 'Référencement naturel, SEO local et fiche Google Business, GEO (ChatGPT, Gemini), Google Ads, Meta Ads et réseaux sociaux : une stratégie marketing multicanale pour attirer des clients en Île-de-France.',
+			metaTitle: 'Agence SEO et marketing digital : plus de visibilité sur Google',
+			metaDescription: 'Référencement naturel, SEO local et fiche Google Business, GEO (ChatGPT, Gemini), Google Ads, Meta Ads et réseaux sociaux : une stratégie marketing multicanale pour attirer des clients en France, en Afrique et à l’international.',
 			h1: 'Marketing digital et référencement SEO',
 			intro: [
 				'Un bon site ne suffit pas : il faut que vos clients le trouvent. Le marketing digital rassemble tout ce qui vous rend visible au bon moment, sur Google, sur les réseaux sociaux et désormais dans les assistants IA comme ChatGPT.',

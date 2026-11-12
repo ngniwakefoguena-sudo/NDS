@@ -3,7 +3,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import ServiceBento from '$lib/components/ServiceBento.svelte';
 	import JourneyDemo from '$lib/components/JourneyDemo.svelte';
-	import { ArrowRight, BookOpen } from 'lucide-svelte';
+	import { ArrowRight, BookOpen, Check } from 'lucide-svelte';
 	import { servicePages, process } from '$lib/data/services';
 	import { reveal } from '$lib/actions/motion';
 	import type { PageData } from './$types';
@@ -32,6 +32,29 @@
 
 <!-- ═════════ Services en mosaïque ═════════ -->
 <ServiceBento items={main} />
+
+<!-- ═════════ Produit : Vendia ═════════ -->
+<section class="vendia" aria-labelledby="vendia-title">
+	<div class="wrap vendia-grid">
+		<div use:reveal>
+			<span class="v-badge"><span class="v-dot"></span> Notre produit · Nouveau</span>
+			<h2 id="vendia-title" class="h2">Vendia, l’agent commercial intelligent sur WhatsApp</h2>
+			<p class="sub">Il accueille vos clients, calcule un devis exact, encaisse par Mobile Money ou carte et envoie le contrat en PDF. Automatiquement, 24h/24, pour tous les secteurs : assurance, microfinance, santé, écoles, commerce…</p>
+			<ul class="v-points">
+				<li><Check class="w-4 h-4" /> Réponse immédiate, jour et nuit</li>
+				<li><Check class="w-4 h-4" /> Prix issus de vos barèmes officiels</li>
+				<li><Check class="w-4 h-4" /> Tableau de bord en temps réel</li>
+			</ul>
+			<div class="v-ctas">
+				<a href="/vendia" class="btn-lime">Découvrir Vendia <ArrowRight class="w-4 h-4" /></a>
+				<a href="/vendia#demo" class="btn-line">Demander une démo</a>
+			</div>
+		</div>
+		<a href="/vendia" class="v-shot" use:reveal={{ delay: 120 }} aria-label="Découvrir Vendia">
+			<img src="/images/vendia/vendia-contrat-reprise.webp" alt="Vendia : conversation WhatsApp avec paiement mobile et tableau de suivi des contrats" width="1376" height="768" loading="lazy" decoding="async" />
+		</a>
+	</div>
+</section>
 
 <!-- ═════════ Exemple concret : le parcours client ═════════ -->
 <section class="journey" aria-labelledby="journey-title">
@@ -155,6 +178,21 @@
 <style>
 	.wrap { max-width: 80rem; margin: 0 auto; padding: 0 1.25rem; }
 	@media (min-width: 768px) { .wrap { padding: 0 2rem; } }
+
+
+	/* Vendia */
+	.vendia { background: rgb(var(--mist)); padding: 4.5rem 0; overflow: hidden; }
+	.vendia-grid { display: grid; gap: 2.5rem; align-items: center; }
+	@media (min-width: 1024px) { .vendia-grid { grid-template-columns: 0.9fr 1.1fr; gap: 3.5rem; } }
+	.v-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: rgb(var(--bg)); border: 1px solid rgb(var(--accent) / 0.45); font-size: 0.8rem; font-weight: 600; color: rgb(var(--ink)); margin-bottom: 1.1rem; }
+	.v-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgb(var(--accent)); box-shadow: 0 0 0 4px rgb(var(--accent) / 0.25); }
+	.v-points { list-style: none; padding: 0; margin: 1.3rem 0 0; display: grid; gap: 0.55rem; font-size: 0.95rem; color: rgb(var(--ink)); }
+	.v-points li { display: flex; align-items: center; gap: 0.5rem; }
+	.v-points :global(svg) { color: rgb(var(--accent-2)); }
+	.v-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
+	.v-shot { display: block; border-radius: 1.4rem; overflow: hidden; box-shadow: 0 30px 70px rgba(40, 70, 10, 0.18); border: 1px solid rgb(var(--line) / 0.08); transition: transform 0.35s; }
+	.v-shot:hover { transform: translateY(-4px); }
+	.v-shot img { display: block; width: 100%; height: auto; }
 
 	.sec { padding: 4rem 0; background: rgb(var(--bg)); }
 	.sec.mist { background: rgb(var(--mist)); }

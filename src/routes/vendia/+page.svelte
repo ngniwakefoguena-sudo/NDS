@@ -204,6 +204,37 @@
 	</div>
 </section>
 
+<!-- ───────────── En images ───────────── -->
+<section class="sec">
+	<div class="wrap">
+		<header class="sec-head" use:reveal>
+			<span class="kicker">Vendia en images</span>
+			<h2 class="h2">Ce que voit votre client, et ce que vous pilotez</h2>
+			<p class="sub">Exemple d’une compagnie d’assurance : à gauche la conversation WhatsApp du client, à droite l’espace de gestion de l’entreprise.</p>
+		</header>
+		<div class="gallery" use:reveal={{ stagger: 120 }}>
+			<figure class="shot wide" data-reveal-item>
+				<a href="/images/vendia/vendia-contrat-reprise.webp" target="_blank" rel="noopener" aria-label="Agrandir l’image : contrat et reprise">
+					<img src="/images/vendia/vendia-contrat-reprise.webp" alt="Vendia : conversation WhatsApp avec paiement Orange Money intégré et tableau de suivi des contrats et des primes en FCFA" width="1376" height="768" loading="lazy" decoding="async" />
+				</a>
+				<figcaption><b>Contrat et reprise</b> Suivi des primes en FCFA, numéro de contrat unique pour reprendre un dossier et paiement mobile intégré.</figcaption>
+			</figure>
+			<figure class="shot" data-reveal-item>
+				<a href="/images/vendia/vendia-whatsapp-back-office.webp" target="_blank" rel="noopener" aria-label="Agrandir l’image : expérience client et espace de pilotage">
+					<img src="/images/vendia/vendia-whatsapp-back-office.webp" alt="Vendia : expérience client sur WhatsApp et accès sécurisé à l’espace de pilotage de l’entreprise" width="1290" height="814" loading="lazy" decoding="async" />
+				</a>
+				<figcaption><b>Expérience client et pilotage</b> Le client échange sur WhatsApp ; votre équipe accède à un back-office sécurisé.</figcaption>
+			</figure>
+			<figure class="shot" data-reveal-item>
+				<a href="/images/vendia/vendia-contrats-suivi.webp" target="_blank" rel="noopener" aria-label="Agrandir l’image : suivi de trésorerie">
+					<img src="/images/vendia/vendia-contrats-suivi.webp" alt="Vendia : suivi de trésorerie en temps réel et identifiant de reprise d’un contrat" width="704" height="823" loading="lazy" decoding="async" />
+				</a>
+				<figcaption><b>Suivi en temps réel</b> Trésorerie, contrats actifs et identifiant de reprise, synchronisés avec WhatsApp.</figcaption>
+			</figure>
+		</div>
+	</div>
+</section>
+
 <!-- ───────────── Bénéfices ───────────── -->
 <section class="sec">
 	<div class="wrap">
@@ -458,6 +489,18 @@
 	.step p, .card p, .sector p, .pay-card p, .trust-item p { font-size: 0.92rem; color: rgb(var(--muted)); line-height: 1.6; margin: 0; }
 	.note { display: flex; align-items: center; gap: 0.55rem; margin: 1.8rem 0 0; font-size: 0.92rem; color: rgb(var(--ink)); }
 	.note :global(svg) { color: rgb(var(--accent-2)); flex-shrink: 0; }
+
+
+	/* Galerie */
+	.gallery { display: grid; gap: 1.25rem; align-items: start; }
+	@media (min-width: 900px) { .gallery { grid-template-columns: 1.35fr 0.65fr; } .shot.wide { grid-column: 1 / -1; } }
+	.shot { margin: 0; border-radius: 1.4rem; overflow: hidden; background: rgb(var(--mist)); border: 1px solid rgb(var(--line) / 0.08); box-shadow: 0 24px 60px rgba(40, 70, 10, 0.1); }
+	.shot a { display: block; overflow: hidden; }
+	.shot img { display: block; width: 100%; height: auto; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+	.shot:not(.wide) img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top left; }
+	.shot a:hover img { transform: scale(1.03); }
+	.shot figcaption { padding: 1rem 1.25rem 1.2rem; font-size: 0.9rem; color: rgb(var(--muted)); line-height: 1.55; }
+	.shot figcaption b { display: block; font-family: 'Space Grotesk', sans-serif; color: rgb(var(--ink)); font-size: 1rem; margin-bottom: 0.2rem; }
 
 	/* Bénéfices */
 	.benefits { display: grid; gap: 1rem; }

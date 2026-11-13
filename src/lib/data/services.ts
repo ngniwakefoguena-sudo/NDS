@@ -50,7 +50,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, rgb(152,200,22), rgb(112,160,8))',
 		page: {
 			slug: 'creation-site-web',
-			metaTitle: 'Création de site internet professionnel : vitrine et e-commerce',
+			metaTitle: 'Création site internet professionnel : prix, vitrine, e-commerce',
 			metaDescription: 'Création de site internet pour les entreprises en France, en Afrique et dans le monde entier : sites vitrines et e-commerce rapides, bien référencés sur Google et pensés pour vous apporter des clients. Devis gratuit.',
 			h1: 'Création de site web professionnel',
 			intro: [
@@ -74,6 +74,11 @@ export const services: Service[] = [
 				{ q: 'Comment créer un site internet pour mon entreprise ?', a: 'Le plus simple est de confier le projet à une agence web : nous définissons ensemble vos objectifs, rédigeons ou optimisons les textes, concevons le design puis développons le site. Vous recevez un site vitrine ou e-commerce prêt à attirer des clients, bien référencé sur Google, sans rien gérer techniquement.' },
 				{ q: 'Où trouver une agence web ou un créateur de site près de chez moi ?', a: 'Norbert Digital Service est une agence web basée en Île-de-France, qui intervient à Paris, Palaiseau, Massy, Versailles, Saint-Quentin-en-Yvelines, en Essonne et dans les Yvelines, et partout dans le monde à distance : France, Belgique, Suisse, Canada, Afrique francophone (Cameroun, Côte d’Ivoire, Sénégal…) et au-delà.' },
 				{ q: 'Faut-il passer par un freelance, une agence ou WordPress ?', a: 'Un outil à faire soi-même convient pour démarrer, mais demande du temps et limite le référencement. Un freelance ou une agence vous fait gagner du temps et livre un site plus rapide et mieux positionné sur Google. Nous développons des sites sur mesure ou sous WordPress, Shopify et WooCommerce selon votre besoin et votre budget.' },
+				{ q: 'Quel est le prix pour créer un site internet ?', a: 'Le tarif de création d’un site internet professionnel dépend du type de site : un site vitrine de quelques pages coûte bien moins cher qu’un site e-commerce ou un site de vente en ligne avec paiement. Nous proposons des formules adaptées aux petits budgets comme aux projets plus ambitieux, avec un devis gratuit et détaillé sous 24h.' },
+				{ q: 'Est-il possible de créer un site internet gratuitement ?', a: 'Oui, des outils comme Wix, Canva, Google Sites ou WordPress.com permettent de créer un site gratuit, mais avec des limites : nom de domaine imposé, publicités, référencement faible et design générique. Pour une entreprise, un site internet professionnel pas cher mais sur mesure rapporte en général bien plus de clients.' },
+				{ q: 'Peut-on créer un site internet avec l’IA ?', a: 'L’intelligence artificielle accélère la création d’un site (textes, images, maquettes), et nous l’utilisons dans nos projets. Mais un site qui se positionne sur Google et convertit demande encore une vraie stratégie : structure, référencement, vitesse et contenus adaptés à vos clients.' },
+				{ q: 'Quel est le meilleur site pour créer son site : Wix, WordPress ou Shopify ?', a: 'Wix et Canva conviennent pour un site très simple, WordPress pour un site de contenu, Shopify pour une boutique en ligne. Pour un site rapide, bien référencé et sans abonnement coûteux, un site sur mesure reste souvent le meilleur choix. Nous vous conseillons la solution la plus adaptée à votre projet.' },
+				{ q: 'Agence web ou développeur web freelance : que choisir ?', a: 'Un développeur web freelance est souvent moins cher mais couvre rarement le design, le SEO et le marketing. Norbert Digital Service combine la souplesse et les tarifs d’un freelance avec les compétences d’une agence : site, référencement, publicité et IA avec un seul interlocuteur.' },
 			],
 			articles: [
 				'creation-de-site-internet-dans-les-yvelines-et-lessonne-le-guide-pour-les-tpe-et-pme',
@@ -93,7 +98,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
 		page: {
 			slug: 'application-mobile',
-			metaTitle: 'Création d’application mobile iOS et Android sur mesure',
+			metaTitle: 'Création application mobile Android et iOS : prix et devis',
 			metaDescription: 'Création d’application mobile iOS et Android pour les entreprises en France, en Afrique et à l’international, avec Flutter et React Native : MVP, maquette, développement et publication sur l’App Store et Google Play. Devis gratuit.',
 			h1: 'Développement d’application mobile iOS et Android',
 			intro: [
@@ -116,6 +121,8 @@ export const services: Service[] = [
 				{ q: 'Comment créer une application mobile pour mon entreprise ?', a: 'Tout commence par la définition des fonctionnalités essentielles, puis viennent les maquettes, le développement, les tests et la publication sur l’App Store et Google Play. Nous développons des applications iOS et Android avec Flutter, ce qui permet d’avoir une seule base de code pour les deux plateformes.' },
 				{ q: 'Combien coûte le développement d’une application mobile ?', a: 'Le prix dépend du nombre d’écrans, des fonctionnalités (paiement, géolocalisation, notifications, espace client) et des connexions à vos outils. Après un premier échange, nous vous proposons un devis détaillé, avec souvent une première version simple pour lancer rapidement.' },
 				{ q: 'Pouvez-vous transformer mon site en application ?', a: 'Oui. Selon votre besoin, nous créons une application mobile complète ou une application web installable (PWA) à partir de votre site existant, avec notifications et accès hors connexion.' },
+				{ q: 'Quel est le prix d’une application mobile ?', a: 'Le prix d’une création d’application mobile varie selon le nombre d’écrans et de fonctionnalités : une application simple ou un MVP coûte beaucoup moins qu’une application avec paiement, comptes clients et back-office. Vous recevez un devis gratuit et détaillé sous 24h.' },
+				{ q: 'Peut-on créer une application gratuitement ou avec l’IA ?', a: 'Des outils no code et d’IA permettent de créer une application gratuite très basique. Pour une application Android et iOS publiée sur les stores, fiable et évolutive, un développement d’application mobile sur mesure reste nécessaire.' },
 			],
 			articles: [
 				'combien-coute-vraiment-une-application-mobile-en-2026-le-vrai-prix-selon-votre-besoin',
@@ -133,7 +140,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #a855f7, #ec4899)',
 		page: {
 			slug: 'intelligence-artificielle',
-			metaTitle: 'Intégration IA et chatbot pour entreprises et PME',
+			metaTitle: 'Chatbot IA pour site web et WhatsApp Business, IA en entreprise',
 			metaDescription: 'Chatbot IA pour site web et WhatsApp, assistants RAG connectés à vos documents, agents IA : intégrez l’intelligence artificielle dans votre PME de façon concrète, sécurisée et conforme RGPD.',
 			h1: 'Intelligence artificielle pour les entreprises',
 			intro: [
@@ -156,6 +163,8 @@ export const services: Service[] = [
 				{ q: 'Comment intégrer l’intelligence artificielle dans mon entreprise ?', a: 'Nous identifions d’abord les tâches répétitives ou chronophages : réponses aux clients, rédaction, tri de documents, analyse de données. Puis nous mettons en place l’outil adapté, par exemple un chatbot IA sur votre site, un assistant connecté à vos documents ou une automatisation avec ChatGPT.' },
 				{ q: 'Pouvez-vous créer un chatbot IA pour mon site ou WhatsApp ?', a: 'Oui. Nous concevons des chatbots et assistants IA alimentés avec les informations de votre entreprise, sur votre site web ou sur WhatsApp. Notre propre produit, Vendia, est un agent commercial IA sur WhatsApp qui gère devis, paiement et documents.' },
 				{ q: 'L’IA est-elle accessible à une petite entreprise ?', a: 'Oui. Les outils d’IA sont devenus abordables : un premier assistant ou une première automatisation peut être mis en place rapidement, avec un budget maîtrisé et des gains de temps visibles dès les premières semaines.' },
+				{ q: 'Comment créer un chatbot WhatsApp Business ?', a: 'Un chatbot WhatsApp Business se branche sur l’API officielle de WhatsApp. Nous le configurons avec vos informations (produits, prix, horaires, FAQ) et une IA qui répond à vos clients 24h/24, prend les commandes et transmet les demandes complexes à un humain. Découvrez aussi Vendia, notre agent commercial WhatsApp.' },
+				{ q: 'Quels sont des exemples d’intelligence artificielle en entreprise ?', a: 'Chatbot sur le site ou sur WhatsApp, tri automatique des e-mails, rédaction de devis et de comptes rendus, recherche dans les documents internes, analyse des ventes ou qualification des prospects : l’IA en entreprise sert d’abord à gagner du temps sur les tâches répétitives.' },
 			],
 			articles: [
 				'chatbot-ia-sur-votre-site-web-comment-transformer-vos-visiteurs-en-clients-24h-sur-24',
@@ -197,6 +206,7 @@ export const services: Service[] = [
 				{ q: 'Comment automatiser les tâches répétitives de mon entreprise ?', a: 'Nous relions vos outils entre eux (formulaires, e-mails, CRM, facturation, agenda, WhatsApp) pour que les informations circulent automatiquement. Avec n8n, Make ou Zapier, une demande de contact peut par exemple créer un contact, envoyer un devis et prévenir votre équipe sans intervention.' },
 				{ q: 'n8n, Make ou Zapier : lequel choisir ?', a: 'Zapier et Make sont simples à prendre en main, n8n est plus flexible et peut être hébergé chez vous pour maîtriser vos données et vos coûts. Nous vous conseillons l’outil le plus adapté à vos volumes et à votre budget.' },
 				{ q: 'Pouvez-vous automatiser ma facturation et mes relances ?', a: 'Oui : génération des factures et devis, relances automatiques des impayés, rappels de rendez-vous et suivi des paiements font partie des automatisations les plus demandées par nos clients.' },
+				{ q: 'Avez-vous des exemples d’automatisation n8n avec l’IA ?', a: 'Oui : réponse automatique aux demandes de devis, création de factures et relances, synchronisation du CRM, résumé des e-mails par l’IA, publication sur les réseaux sociaux ou alertes WhatsApp à chaque nouveau client. Chaque workflow n8n est construit sur mesure à partir de vos outils.' },
 			],
 			articles: [
 				'automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine',
@@ -214,9 +224,9 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #3b82f6, #6366f1)',
 		page: {
 			slug: 'marketing-digital-seo',
-			metaTitle: 'Agence SEO et marketing digital : plus de visibilité sur Google',
+			metaTitle: 'Agence SEO, référencement Google et marketing digital',
 			metaDescription: 'Référencement naturel, SEO local et fiche Google Business, GEO (ChatGPT, Gemini), Google Ads, Meta Ads et réseaux sociaux : une stratégie marketing multicanale pour attirer des clients en France, en Afrique et à l’international.',
-			h1: 'Marketing digital et référencement SEO',
+			h1: 'Agence SEO et marketing digital',
 			intro: [
 				'Un bon site ne suffit pas : il faut que vos clients le trouvent. Le marketing digital rassemble tout ce qui vous rend visible au bon moment, sur Google, sur les réseaux sociaux et désormais dans les assistants IA comme ChatGPT.',
 				'Nous construisons une stratégie adaptée à votre budget : référencement naturel et local, contenus de blog, campagnes Google Ads et Meta Ads, suivi des résultats. L’objectif est simple : plus de demandes de contact qualifiées.',
@@ -237,6 +247,10 @@ export const services: Service[] = [
 				{ q: 'Comment apparaître en premier sur Google ?', a: 'Il faut combiner un site rapide et bien structuré, des contenus qui répondent aux recherches de vos clients, une fiche Google Business Profile optimisée et des liens vers votre site. Nous travaillons ces quatre leviers pour améliorer durablement votre position sur Google.' },
 				{ q: 'Comment avoir plus de clients grâce à internet ?', a: 'En étant visible là où vos clients cherchent : Google, Google Maps, réseaux sociaux et publicité en ligne. Nous mettons en place une stratégie complète : référencement naturel (SEO), SEO local, réseaux sociaux, Google Ads et Meta Ads, avec un suivi des résultats.' },
 				{ q: 'Proposez-vous la gestion des réseaux sociaux et de la publicité ?', a: 'Oui : création de contenus, planification des publications sur Facebook, Instagram, LinkedIn et TikTok, et gestion de campagnes publicitaires Google Ads et Meta Ads pour générer des contacts et des ventes.' },
+				{ q: 'Quel est le prix du référencement Google ?', a: 'Le référencement naturel (SEO) ne se paie pas à Google : vous investissez dans l’optimisation du site et les contenus. Le référencement payant (Google Ads) se paie au clic, avec un budget que vous fixez. Nous proposons un audit puis un accompagnement mensuel adapté à votre budget.' },
+				{ q: 'Comment apparaître sur Google Maps ?', a: 'Il faut créer et optimiser votre fiche Google Business Profile : catégorie, description, photos, horaires, avis clients et publications régulières. Nous nous en occupons pour que votre entreprise apparaisse dans le pack local quand on cherche votre activité près de chez soi.' },
+				{ q: 'Agence SEO, agence marketing digital ou agence de communication digitale : quelle différence ?', a: 'Une agence SEO travaille votre visibilité sur Google, une agence marketing digital couvre aussi la publicité (Google Ads, Facebook Ads, Meta) et l’acquisition, une agence de communication digitale s’occupe surtout de l’image et des réseaux sociaux. Nous réunissons les trois, avec en plus le GEO pour apparaître dans ChatGPT et Gemini.' },
+				{ q: 'Proposez-vous un community manager ?', a: 'Oui : création de contenus, planification et animation de vos pages Facebook, Instagram, TikTok et LinkedIn, avec un suivi des résultats chaque mois.' },
 			],
 			articles: [
 				'fiche-google-business-profile-12-optimisations-pour-apparaitre-dans-le-pack-local-en-2026',

@@ -34,6 +34,11 @@
 		{ q: 'Mon site peut-il accepter Orange Money, MTN Mobile Money ou Wave ?', a: 'Oui. Nous intégrons les paiements Mobile Money via des agrégateurs comme CinetPay, Flutterwave ou PayDunya, en plus de la carte bancaire. Vos clients paient directement sur votre site ou sur WhatsApp.' },
 		{ q: 'Mon site sera-t-il visible sur Google dans mon pays ?', a: 'Chaque site est optimisé pour le référencement naturel et le SEO local : ville et pays dans les pages, fiche Google Business, données structurées et inscription à la Search Console. Vos clients vous trouvent quand ils cherchent votre activité à Douala, Abidjan, Dakar ou ailleurs.' },
 		{ q: 'Faut-il un nom de domaine en .cm, .ci ou .sn ?', a: 'Ce n’est pas obligatoire, mais une extension locale peut renforcer la confiance et le référencement dans votre pays. Nous vous conseillons entre une extension locale et un .com selon vos marchés.' },
+		{ q: 'Cherchez-vous une agence web au Cameroun, à Douala ou à Yaoundé ?', a: 'Norbert Digital Service accompagne les entreprises camerounaises comme une agence digitale à Douala ou à Yaoundé : création de site internet, application mobile, référencement Google, marketing digital, community management et chatbot WhatsApp. Une agence de communication et de marketing digital qui connaît le Cameroun, avec un suivi à distance par WhatsApp.' },
+		{ q: 'Créez-vous des sites web en Côte d’Ivoire et à Abidjan ?', a: 'Oui. Pour la création de site web en Côte d’Ivoire, nous travaillons avec des entreprises d’Abidjan, de Yamoussoukro et de Bouaké : site vitrine, site e-commerce avec paiement Orange Money, MTN et Wave, application mobile et référencement local.' },
+		{ q: 'Êtes-vous une agence web à Dakar et au Sénégal ?', a: 'Oui. Nous accompagnons les entreprises de Dakar et du Sénégal comme une agence de communication digitale : création de site internet, publicité Facebook et Instagram, SEO et automatisation, avec paiement Wave et Orange Money intégré.' },
+		{ q: 'Travaillez-vous au Maroc, en Tunisie et en Algérie ?', a: 'Oui. Nous intervenons comme agence digitale et agence marketing digital pour le Maroc (Casablanca, Rabat, Marrakech, Tanger), la Tunisie et l’Algérie : création de site e-commerce, site vitrine, SEO et publicité en ligne.' },
+		{ q: 'Pouvez-vous créer un site au Gabon, au Congo, au Bénin ou au Togo ?', a: 'Oui : Libreville, Brazzaville, Pointe-Noire, Kinshasa, Cotonou, Lomé, Bamako, Ouagadougou ou Conakry, nous créons votre site internet professionnel et vos outils digitaux à distance, avec un devis en FCFA.' },
 		{ q: 'Travaillez-vous aussi avec la diaspora africaine ?', a: 'Oui. Nous accompagnons des entrepreneurs de la diaspora en France, en Belgique, au Canada et ailleurs qui lancent ou développent une activité en Afrique, avec un site et des outils pensés pour les deux marchés.' },
 	];
 
@@ -67,7 +72,7 @@
 </script>
 
 <Seo
-	title="Agence web en Afrique : création de site internet et application"
+	title="Agence web Afrique : Cameroun, Côte d’Ivoire, Sénégal, Maroc"
 	description="Agence web pour l’Afrique : création de site internet, application mobile, chatbot WhatsApp et SEO au Cameroun, en Côte d’Ivoire, au Sénégal, au Gabon, au Congo, au Bénin, au Togo, au Maroc… Paiement Mobile Money intégré. Devis gratuit sous 24h."
 	{jsonLd}
 />
@@ -96,7 +101,8 @@
 			<h2 class="h2">Création de site web, application et marketing digital pour l’Afrique</h2>
 			<p class="sub">
 				Que vous soyez une PME à Douala, une boutique à Abidjan, une startup à Dakar ou une ONG à Kinshasa, nous créons les
-				outils qui vous rendent visible et vous font gagner des clients.
+				outils qui vous rendent visible et vous font gagner des clients. Agence web, agence digitale et agence de
+				communication digitale à la fois : site internet, marketing digital, community management et publicité Facebook.
 			</p>
 		</div>
 		<div class="grid">

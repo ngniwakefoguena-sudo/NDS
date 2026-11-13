@@ -11,7 +11,7 @@
 			<span class="topbar-separator">★</span>
 			<span class="topbar-item topbar-highlight">+14 avis clients</span>
 			<span class="topbar-separator">🌍</span>
-			<span class="topbar-item">+300 clients accompagnés</span>
+			<span class="topbar-item">+30 clients accompagnés</span>
 		</div>
 		<div class="topbar-right">
 			<a href="mailto:norbertdigitalservices@gmail.com" class="topbar-email">

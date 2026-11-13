@@ -76,7 +76,7 @@
 				<div class="social-row">
 					<!-- LinkedIn -->
 					<a
-						href="https://www.linkedin.com/company/norbert-digital-service/?viewAsMember=true"
+						href="https://www.linkedin.com/company/norbert-digital-service/"
 						target="_blank"
 						rel="noopener"
 						aria-label="LinkedIn"

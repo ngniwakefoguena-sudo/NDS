@@ -51,7 +51,7 @@
 			</div>
 			<div class="trust">
 				<span class="stars" aria-hidden="true">{#each [0, 1, 2, 3, 4] as _}<Star class="w-3.5 h-3.5" />{/each}</span>
-				<span><strong>+14 avis clients</strong>, plus de 300 clients accompagnés</span>
+				<span><strong>+14 avis clients</strong>, plus de 30 clients accompagnés</span>
 			</div>
 		</div>
 

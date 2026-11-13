@@ -32,6 +32,24 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/blog/automatisation-n8n-2026-comment-les-pme-fran-aises-gagnent-15h-par-semaine"
+  to = "/blog/automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/agence-de-d%C3%A9veloppement-web-en-france-comment-choisir-la-bonne-en-2026"
+  to = "/blog/agence-de-developpement-web-en-france-comment-choisir-la-bonne-en-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/agence-de-développement-web-en-france-comment-choisir-la-bonne-en-2026"
+  to = "/blog/agence-de-developpement-web-en-france-comment-choisir-la-bonne-en-2026"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/admin/*"
   [headers.values]

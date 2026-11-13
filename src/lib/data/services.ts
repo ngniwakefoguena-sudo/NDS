@@ -251,6 +251,7 @@ export const services: Service[] = [
 				{ q: 'Comment apparaître sur Google Maps ?', a: 'Il faut créer et optimiser votre fiche Google Business Profile : catégorie, description, photos, horaires, avis clients et publications régulières. Nous nous en occupons pour que votre entreprise apparaisse dans le pack local quand on cherche votre activité près de chez soi.' },
 				{ q: 'Agence SEO, agence marketing digital ou agence de communication digitale : quelle différence ?', a: 'Une agence SEO travaille votre visibilité sur Google, une agence marketing digital couvre aussi la publicité (Google Ads, Facebook Ads, Meta) et l’acquisition, une agence de communication digitale s’occupe surtout de l’image et des réseaux sociaux. Nous réunissons les trois, avec en plus le GEO pour apparaître dans ChatGPT et Gemini.' },
 				{ q: 'Proposez-vous un community manager ?', a: 'Oui : création de contenus, planification et animation de vos pages Facebook, Instagram, TikTok et LinkedIn, avec un suivi des résultats chaque mois.' },
+				{ q: 'Cherchez-vous une agence marketing digital à Palaiseau ou en Essonne ?', a: 'Norbert Digital Service est une agence de marketing digital basée à Palaiseau (91), qui accompagne les entreprises de l’Essonne, des Yvelines, de Paris et d’Île-de-France : référencement SEO, Google Ads, publicité Facebook et Instagram, community management et création de site internet.' },
 			],
 			articles: [
 				'fiche-google-business-profile-12-optimisations-pour-apparaitre-dans-le-pack-local-en-2026',

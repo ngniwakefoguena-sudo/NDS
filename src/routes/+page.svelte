@@ -22,8 +22,8 @@
 </script>
 
 <Seo
-	title="Agence web, mobile et IA : site internet, application et chatbot"
-	description="Agence digitale internationale : création de site internet, application mobile, chatbot IA, automatisation et SEO pour les entreprises en France, en Afrique et partout dans le monde, à distance. Devis gratuit sous 24h."
+	title="Agence web et marketing digital : site internet, app et IA"
+	description="Agence web et de marketing digital, services digitaux pour entreprises : création de site internet, application mobile, chatbot IA, automatisation et SEO pour les entreprises en France, en Afrique et partout dans le monde, à distance. Devis gratuit sous 24h."
 />
 
 <Hero />

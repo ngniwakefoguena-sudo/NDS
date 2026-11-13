@@ -5,6 +5,8 @@ import { servicePages } from '$lib/data/services';
 const staticPages = [
 	{ path: '/',         priority: '1.0', changefreq: 'weekly' },
 	{ path: '/agence-web', priority: '0.9', changefreq: 'monthly' },
+	{ path: '/agence-web-afrique', priority: '0.9', changefreq: 'monthly' },
+	{ path: '/agence-web-international', priority: '0.9', changefreq: 'monthly' },
 	{ path: '/services', priority: '0.9', changefreq: 'monthly' },
 	{ path: '/vendia',   priority: '0.9', changefreq: 'monthly' },
 	{ path: '/projects', priority: '0.9', changefreq: 'weekly' },

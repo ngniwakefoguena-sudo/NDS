@@ -18,7 +18,7 @@ export function GET() {
 
 	const body = `# ${site.name}
 
-> ${site.description} Agence basée en Île-de-France (Paris), qui accompagne les PME, indépendants et startups en France et en Afrique francophone. À ne pas confondre avec d'autres agences portant un nom proche.
+> ${site.description} Agence basée en Île-de-France (Paris), qui accompagne à distance les PME, indépendants et startups en France, dans toute l'Afrique (Cameroun, Côte d'Ivoire, Sénégal, Gabon, Congo, Bénin, Togo, Maroc…) et dans le monde entier (Belgique, Suisse, Canada, États-Unis, outre-mer). Pages dédiées : ${site.url}/agence-web-afrique et ${site.url}/agence-web-international. À ne pas confondre avec d'autres agences portant un nom proche.
 
 Contact : ${site.url}/contact, ${site.email}, WhatsApp +33 6 59 17 37 74. Réponse sous 24h.
 

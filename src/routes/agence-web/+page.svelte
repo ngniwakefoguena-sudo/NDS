@@ -23,9 +23,9 @@
 
 	const zones = [
 		'France et Île-de-France (Paris, Palaiseau, Essonne, Yvelines)',
-		'Afrique francophone (Cameroun, Côte d’Ivoire, Sénégal, Gabon, Bénin, Togo)',
+		'Afrique francophone et anglophone (Cameroun, Côte d’Ivoire, Sénégal, Gabon, Congo, RD Congo, Bénin, Togo, Mali, Burkina Faso, Maroc, Nigeria, Ghana…)',
 		'Belgique, Suisse et Luxembourg',
-		'Canada et Québec',
+		'Canada, Québec, États-Unis et outre-mer (Antilles, Réunion, Guyane)',
 		'Partout dans le monde, à distance',
 	];
 
@@ -135,7 +135,9 @@
 			<h2 class="h2">Où que vous soyez, nous créons votre site</h2>
 			<p class="sub">
 				Agence web basée en Île-de-France, nous travaillons à distance avec des clients dans de nombreux pays. Les échanges
-				se font en visio, sur WhatsApp et par e-mail, avec un suivi clair à chaque étape.
+				se font en visio, sur WhatsApp et par e-mail, avec un suivi clair à chaque étape. Voir aussi notre
+				<a href="/agence-web-afrique" style="color:rgb(var(--accent-2));font-weight:600;text-decoration:underline">agence web en Afrique</a> et notre
+				<a href="/agence-web-international" style="color:rgb(var(--accent-2));font-weight:600;text-decoration:underline">agence web internationale</a>.
 			</p>
 		</div>
 		<ul class="checks">

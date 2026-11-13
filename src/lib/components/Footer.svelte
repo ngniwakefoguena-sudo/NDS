@@ -141,6 +141,8 @@
 				<h3 class="col-heading">En savoir plus</h3>
 				<ul class="link-list">
 					<li><a href="/agence-web" class="footer-link">Agence web</a></li>
+					<li><a href="/agence-web-afrique" class="footer-link">Agence web en Afrique</a></li>
+					<li><a href="/agence-web-international" class="footer-link">Agence web internationale</a></li>
 					<li><a href="/about" class="footer-link">À Propos</a></li>
 					<li><a href="/projects" class="footer-link">Réalisations</a></li>
 					<li><a href="/blog" class="footer-link">Blog</a></li>

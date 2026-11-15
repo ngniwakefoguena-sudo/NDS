@@ -25,6 +25,7 @@ const pages: [string, string][] = [
 	['/velume', '/en/velume'],
 	['/about', '/en/about'],
 	['/contact', '/en/contact'],
+	['/blog', '/en/blog'],
 	...Object.entries(serviceSlugEn).map(([fr, en]) => [`/services/${fr}`, `/en/services/${en}`] as [string, string])
 ];
 

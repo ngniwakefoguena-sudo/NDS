@@ -1,4 +1,4 @@
-import { getBlogPosts, getProjects } from '$lib/server/content';
+import { getBlogPosts, getBlogPostsEn, getProjects } from '$lib/server/content';
 import { site } from '$lib/data/site';
 import { servicePages } from '$lib/data/services';
 import { translatedPages } from '$lib/i18n';
@@ -49,6 +49,13 @@ export async function GET() {
   <url>
     <loc>${site.url}/projects/${p.slug}</loc>
     <lastmod>${today}</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>`),
+		...getBlogPostsEn().map(p => `
+  <url>
+    <loc>${site.url}/en/blog/${p.slug}</loc>
+    <lastmod>${p.date}</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>`),

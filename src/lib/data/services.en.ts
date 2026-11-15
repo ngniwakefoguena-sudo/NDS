@@ -26,7 +26,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'creation-site-web': {
 		title: 'Website Development',
 		description: 'High-performance websites and web apps, optimised for SEO, accessibility and conversion.',
-		metaTitle: 'Website design & development for businesses worldwide',
+		metaTitle: 'Website development services: business websites & online stores',
 		metaDescription: 'Professional website design and development for businesses worldwide: fast business websites and online stores that rank on Google and turn visitors into clients. Free quote within 24 hours.',
 		h1: 'Professional website design and development',
 		intro: [
@@ -53,7 +53,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'application-mobile': {
 		title: 'Mobile App Development',
 		description: 'Cross-platform iOS and Android apps, fast and native-feeling, from mock-up to app store release.',
-		metaTitle: 'Mobile app development for iOS and Android',
+		metaTitle: 'Mobile app development company: iOS & Android apps',
 		metaDescription: 'iOS and Android mobile app development with Flutter and React Native for businesses worldwide: MVP, UX design, development and release on the App Store and Google Play. Free quote.',
 		h1: 'iOS and Android mobile app development',
 		intro: [
@@ -80,7 +80,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'intelligence-artificielle': {
 		title: 'Artificial Intelligence',
 		description: 'AI built into your products: business chatbots, RAG, data analysis and recommendations.',
-		metaTitle: 'AI integration for businesses: chatbots, RAG and AI agents',
+		metaTitle: 'AI chatbot development & AI agents for business (WhatsApp, website)',
 		metaDescription: 'AI solutions for businesses worldwide: AI chatbots for your website and WhatsApp, RAG on your documents, AI agents and integration with your tools, with full control over your data. Free consultation.',
 		h1: 'Artificial intelligence for businesses',
 		intro: [
@@ -107,7 +107,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'automatisation-n8n': {
 		title: 'Business Automation',
 		description: 'Automate repetitive tasks with n8n and AI: invoicing, CRM, reporting and follow-ups.',
-		metaTitle: 'Business process automation with n8n and AI',
+		metaTitle: 'AI automation agency: n8n workflows & business process automation',
 		metaDescription: 'Business process automation for SMEs worldwide with n8n and AI: invoicing, reminders, CRM, reports and document processing. Save hours every week. Free audit.',
 		h1: 'Business process automation with n8n',
 		intro: [
@@ -134,7 +134,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'marketing-digital-seo': {
 		title: 'SEO & Digital Marketing',
 		description: 'SEO, GEO, Google Ads and Meta Ads to bring qualified clients to your business.',
-		metaTitle: 'SEO and digital marketing agency for international businesses',
+		metaTitle: 'SEO agency & digital marketing services for businesses worldwide',
 		metaDescription: 'SEO and digital marketing agency: international SEO, GEO for ChatGPT and AI search, Google Ads, Meta Ads, content and analytics to bring you more qualified leads. Free audit.',
 		h1: 'SEO and digital marketing agency',
 		intro: [
@@ -161,7 +161,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'generation-de-leads': {
 		title: 'Lead Generation',
 		description: 'Landing pages, outreach and automated CRM to fill your pipeline with qualified B2B and B2C leads.',
-		metaTitle: 'B2B and B2C lead generation: landing pages, outreach and CRM',
+		metaTitle: 'Lead generation services: landing pages, outreach & CRM (B2B, B2C)',
 		metaDescription: 'Lead generation for B2B and B2C businesses worldwide: high-converting landing pages, e-mail and LinkedIn outreach, conversion funnels, automated CRM and WhatsApp follow-ups.',
 		h1: 'B2B and B2C lead generation',
 		intro: [
@@ -242,7 +242,7 @@ const en: Record<string, Omit<ServicePageEn, 'slug' | 'frSlug'>> = {
 	'design-ui-ux': {
 		title: 'UI/UX Design',
 		description: 'User journeys, Figma mock-ups and design systems for websites and apps that convert.',
-		metaTitle: 'UI/UX design for websites and mobile apps',
+		metaTitle: 'UI/UX design agency for websites and mobile apps',
 		metaDescription: 'UI/UX design for websites and apps: user journeys, Figma mock-ups, clickable prototypes, design systems, interface audits and accessibility. For startups and businesses worldwide.',
 		h1: 'UI/UX design for websites and apps',
 		intro: [

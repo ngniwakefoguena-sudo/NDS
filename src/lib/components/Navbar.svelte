@@ -35,6 +35,7 @@
 					{ href: '/en/services', label: 'Services' },
 					{ href: '/en/vendia', label: 'Vendia' },
 					{ href: '/en/velume', label: 'Vélume' },
+					{ href: '/en/blog', label: 'Blog' },
 					{ href: '/en/about', label: 'About' },
 					{ href: '/en/contact', label: 'Contact' }
 				]

@@ -22,7 +22,7 @@
 </script>
 
 <Seo
-	title="Web, mobile & AI agency: websites, apps, chatbots and SEO"
+	title="Web development company: websites, mobile apps & AI chatbots"
 	description="Norbert Digital Service is a web, mobile and AI agency working with businesses worldwide: website development, mobile apps, AI chatbots, automation and SEO. 100% remote, in English or French. Free quote within 24 hours."
 	jsonLd={{
 		'@context': 'https://schema.org',

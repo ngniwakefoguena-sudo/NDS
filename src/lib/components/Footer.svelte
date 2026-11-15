@@ -44,6 +44,7 @@
 	const moreEn = [
 		['/en/about', 'About us'],
 		['/en/services', 'All services'],
+		['/en/blog', 'Blog'],
 		['/en/contact', 'Contact'],
 		['/', 'Version française']
 	];

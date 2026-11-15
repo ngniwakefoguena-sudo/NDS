@@ -8,7 +8,7 @@
 </script>
 
 <Seo
-	title="Digital services: websites, mobile apps, AI and SEO"
+	title="Web development, mobile app & AI services for businesses"
 	description="Website development, mobile apps, AI integration, n8n automation, SEO, digital marketing and lead generation for businesses worldwide. Explore our services."
 	jsonLd={{
 		'@context': 'https://schema.org',

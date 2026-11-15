@@ -2,6 +2,7 @@
 // avec `fs` au runtime : indispensable sur Vercel, où le dossier /content n'est
 // pas forcément présent dans la fonction serverless.
 const blogFiles = import.meta.glob<BlogPost>('/content/blog/*.json', { eager: true, import: 'default' });
+const blogEnFiles = import.meta.glob<BlogPost>('/content/blog-en/*.json', { eager: true, import: 'default' });
 const projectFiles = import.meta.glob<Project>('/content/projects/*.json', { eager: true, import: 'default' });
 const aboutFile = import.meta.glob<Record<string, string>>('/content/about.json', { eager: true, import: 'default' });
 
@@ -52,6 +53,20 @@ export function getBlogPosts(): BlogPost[] {
 
 export function getBlogPost(slug: string): BlogPost | null {
 	const post = blogFiles[`/content/blog/${slug}.json`];
+	return post ? { ...post, slug } : null;
+}
+
+/** Articles en anglais (/en/blog). Champ optionnel `service` : slug EN du service lié. */
+export function getBlogPostsEn(): (BlogPost & { service?: string })[] {
+	const now = new Date();
+	return Object.entries(blogEnFiles)
+		.map(([file, post]) => ({ ...post, slug: slugOf(file) }))
+		.filter((post) => !post.publish_date || new Date(post.publish_date) <= now)
+		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export function getBlogPostEn(slug: string): (BlogPost & { service?: string }) | null {
+	const post = blogEnFiles[`/content/blog-en/${slug}.json`];
 	return post ? { ...post, slug } : null;
 }
 

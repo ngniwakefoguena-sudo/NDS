@@ -51,7 +51,7 @@
 </script>
 
 <Seo
-	title="About us: an international digital agency"
+	title="About us: a remote web development & digital agency"
 	description="Norbert Digital Service is an independent digital agency: multichannel marketing strategy, website development, AI and automation for businesses worldwide, 100% remote."
 />
 

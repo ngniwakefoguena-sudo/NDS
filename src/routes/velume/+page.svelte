@@ -14,21 +14,6 @@
 	const appUrl = 'https://velum-app-cyan.vercel.app/';
 	const waDemo = `https://wa.me/33659173774?text=${encodeURIComponent('Bonjour, je souhaite une démonstration de Vélume, le logiciel de gestion tout-en-un.')}`;
 
-	const shots = [
-		{ src: 'velume-tableau-de-bord', title: 'Tableaux de bord', text: 'Ventes du jour, panier moyen, part du Mobile Money et produits les plus vendus, mis à jour en temps réel.' },
-		{ src: 'velume-caisse-mobile-money', title: 'Caisse & Mobile Money', text: 'Espèces, Orange Money, MTN MoMo et carte suivis séparément, clôture de caisse avec calcul automatique des écarts.' },
-		{ src: 'velume-ouverture-caisse', title: 'Point de vente tactile', text: 'Ouverture de caisse avec comptage des billets et pièces en FCFA : le tiroir attendu le soir est calculé tout seul.' },
-		{ src: 'velume-reservation-studios', title: 'Location et réservations', text: 'Réservations de studios, acomptes à encaisser, prochaines séances et ventes par caisse sur un seul écran.' },
-		{ src: 'velume-whatsapp', title: 'WhatsApp intégré', text: 'Les conversations clients arrivent dans Vélume : réponses enregistrées, appel vidéo et création d’opportunité en un clic.' },
-		{ src: 'velume-assistant-ia', title: 'Assistant Vélume AI', text: 'Posez une question en français : « ventes du jour », « factures en retard », « créneaux libres demain ».' },
-		{ src: 'velume-facturation', title: 'Facturation', text: 'Factures clients et fournisseurs, paiements, banque et balance âgée, avec les moyens de paiement locaux.' },
-		{ src: 'velume-planning', title: 'Planning des équipes', text: 'Les horaires de chaque employé par semaine, publiés en un clic et copiés d’une semaine à l’autre.' },
-		{ src: 'velume-rendez-vous', title: 'Rendez-vous', text: 'Agenda des séances, types de rendez-vous et page de réservation en ligne pour vos clients.' },
-		{ src: 'velume-crm', title: 'CRM', text: 'Pipeline commercial du premier contact à la vente, avec montants, étiquettes et priorités.' },
-		{ src: 'velume-inventaire', title: 'Inventaire', text: 'Valeur du stock, articles sous le seuil, pertes et commandes à recevoir, par famille de produits.' },
-		{ src: 'velume-ecran-cuisine', title: 'Écran de cuisine', text: 'Les commandes de la caisse s’affichent au bar et en cuisine : à préparer, en préparation, prêt.' }
-	];
-	let current = $state(0);
 
 	const modules = [
 		{ icon: Store, t: 'Point de vente', s: 'Caisse tactile, tickets, sessions' },
@@ -129,7 +114,7 @@
 			keywords: 'logiciel de gestion, ERP Afrique, logiciel de caisse, caisse enregistreuse, Mobile Money, Orange Money, MTN MoMo, gestion restaurant, gestion café, réservation studio, facturation FCFA, gestion de stock, planning employés',
 			inLanguage: ['fr', 'en'],
 			areaServed: ['Cameroun', 'Côte d’Ivoire', 'Sénégal', 'Gabon', 'France', 'Afrique francophone'],
-			screenshot: shots.map((s) => `${site.url}/images/velume/${s.src}.webp`),
+			screenshot: ['velume-tableau-de-bord', 'velume-assistant-ia', 'velume-ouverture-caisse', 'velume-caisse-mobile-money'].map((n) => `${site.url}/images/velume/${n}.webp`),
 			featureList: modules.map((m) => `${m.t} : ${m.s}`).join(' ; '),
 			offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: 'Démonstration gratuite' },
 			url,
@@ -164,7 +149,7 @@
 			</p>
 			<div class="ctas">
 				<a href="#demo" class="btn-lime">Demander une démo <ArrowRight class="w-4 h-4" /></a>
-				<a href="#visite" class="btn-line">Voir les écrans</a>
+				<a href="#visite" class="btn-line">Aperçu en images</a>
 			</div>
 			<ul class="hero-points">
 				<li><Check class="w-4 h-4" /> Orange Money et MTN MoMo</li>
@@ -175,8 +160,8 @@
 
 		<div class="browser-wrap">
 			<div class="browser">
-				<div class="browser-bar"><span></span><span></span><span></span><em>Vélume · accueil</em></div>
-				<img src="/images/velume/velume-accueil.webp" alt="Écran d’accueil de Vélume : plus de 30 applications de gestion (point de vente, facturation, inventaire, WhatsApp, planning, CRM)" width="1440" height="900" fetchpriority="high" />
+				<div class="browser-bar"><span></span><span></span><span></span><em>Vélume · tableau de bord</em></div>
+				<img src="/images/velume/velume-tableau-de-bord.webp" alt="Vélume : tableau de bord des ventes du jour en FCFA, réparties entre espèces, Orange Money, MTN MoMo et carte" width="1440" height="900" fetchpriority="high" />
 			</div>
 			<div class="mobile-float">
 				<img src="/images/velume/velume-mobile.webp" alt="Vélume sur téléphone" width="780" height="1688" loading="lazy" decoding="async" />
@@ -209,29 +194,25 @@
 	</div>
 </section>
 
-<!-- ───────────── Visite en images ───────────── -->
+<!-- ───────────── En images ───────────── -->
 <section id="visite" class="sec mist">
 	<div class="wrap">
 		<header class="sec-head" use:reveal>
 			<span class="kicker">Vélume en images</span>
-			<h2 class="h2">Visitez l’application, écran par écran</h2>
-			<p class="sub">Captures réelles de Vélume, avec les données de démonstration d’un café-studio créatif. Cliquez sur une miniature pour l’afficher en grand.</p>
+			<h2 class="h2">Un aperçu de l’application</h2>
+			<p class="sub">Deux écrans réels, avec des données de démonstration. Le reste se découvre pendant la démo personnalisée.</p>
 		</header>
-		<figure class="viewer">
-			<a href={`/images/velume/${shots[current].src}.webp`} target="_blank" rel="noopener" aria-label={`Agrandir : ${shots[current].title}`}>
-				<img src={`/images/velume/${shots[current].src}.webp`} alt={`Vélume, ${shots[current].title} : ${shots[current].text}`} width="1440" height="900" decoding="async" />
-			</a>
-			<figcaption><b>{shots[current].title}</b>{shots[current].text}</figcaption>
-		</figure>
-		<!-- Toutes les captures restent dans le HTML pour Google Images -->
-		<div class="thumbs" aria-label="Autres écrans de Vélume">
-			{#each shots as s, i}
-				<button type="button" class="thumb" class:on={i === current} onclick={() => (current = i)} aria-label={`Afficher : ${s.title}`}>
-					<img src={`/images/velume/${s.src}.webp`} alt={`Vélume, ${s.title} : ${s.text}`} width="1440" height="900" loading="lazy" decoding="async" />
-					<span>{s.title}</span>
-				</button>
-			{/each}
+		<div class="duo" use:reveal={{ stagger: 120 }}>
+			<figure class="viewer" data-reveal-item>
+				<img src="/images/velume/velume-assistant-ia.webp" alt="Vélume AI : l’assistant répond à la question « ventes du jour » avec le total en FCFA et le détail Orange Money, MTN MoMo, espèces et carte" width="1440" height="900" loading="lazy" decoding="async" />
+				<figcaption><b>Assistant Vélume AI</b>Une question en français, une réponse chiffrée : ventes du jour, factures en retard, créneaux libres.</figcaption>
+			</figure>
+			<figure class="viewer" data-reveal-item>
+				<img src="/images/velume/velume-ouverture-caisse.webp" alt="Vélume : ouverture de caisse avec comptage des billets et pièces en FCFA" width="1440" height="900" loading="lazy" decoding="async" />
+				<figcaption><b>Point de vente</b>Ouverture de caisse avec comptage des billets et pièces en FCFA : le tiroir attendu le soir est calculé tout seul.</figcaption>
+			</figure>
 		</div>
+		<p class="note"><Lock class="w-4 h-4" /> Vous voulez voir le reste ? <a href="#demo">Demandez une démonstration</a> : nous vous montrons tous les modules sur votre activité.</p>
 	</div>
 </section>
 
@@ -332,7 +313,7 @@
 		<div use:reveal>
 			<span class="kicker">Questions fréquentes</span>
 			<h2 class="h2">Tout savoir sur le logiciel de gestion Vélume</h2>
-			<p class="sub">Mobile Money, appareils, secteurs et langues : les réponses aux questions qu’on nous pose le plus.</p>
+			<p class="sub">Mobile Money, appareils, secteurs et langues : les réponses aux questions qu’on nous pose le plus. Pour aller plus loin, lisez notre <a class="inline-link" href="/blog/velume-logiciel-de-gestion-tout-en-un-caisse-mobile-money-stock">article complet sur Vélume</a>.</p>
 		</div>
 		<div class="faq">
 			{#each faq as f}
@@ -635,6 +616,9 @@
 		.viewer img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
 	.viewer figcaption { padding: 1rem 1.25rem 1.2rem; font-size: 0.95rem; color: rgb(var(--muted)); line-height: 1.55; }
 	.viewer figcaption b { display: block; font-family: 'Space Grotesk', sans-serif; color: rgb(var(--ink)); font-size: 1.05rem; margin-bottom: 0.2rem; }
+	.duo { display: grid; gap: 1.25rem; }
+	@media (min-width: 900px) { .duo { grid-template-columns: 1fr 1fr; } }
+	.note a, .inline-link { text-decoration: underline; color: rgb(var(--accent-2)); }
 	.thumbs { display: grid; gap: 1rem; margin-top: 1.25rem; }
 	.thumbs { grid-template-columns: repeat(2, 1fr); }
 	@media (min-width: 640px) { .thumbs { grid-template-columns: repeat(4, 1fr); } }

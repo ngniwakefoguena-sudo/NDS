@@ -28,8 +28,6 @@
 	const links = [
 		{ href: '/', label: 'Accueil' },
 		{ href: '/services', label: 'Services' },
-		{ href: '/vendia', label: 'Vendia' },
-		{ href: '/velume', label: 'Vélume' },
 		{ href: '/projects', label: 'Réalisations' },
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/about', label: 'À Propos' },

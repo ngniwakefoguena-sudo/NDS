@@ -50,6 +50,104 @@
   status = 301
   force = true
 
+
+# Liens courts pour les réseaux sociaux (posts Facebook, Instagram, LinkedIn)
+[[redirects]]
+  from = "/go/google"
+  to = "/agence-web?utm_source=reseaux&utm_medium=social&utm_campaign=google"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/fiche"
+  to = "/blog/fiche-google-business-profile-12-optimisations-pour-apparaitre-dans-le-pack-local-en-2026?utm_source=reseaux&utm_medium=social&utm_campaign=fiche"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/site"
+  to = "/services/creation-site-web?utm_source=reseaux&utm_medium=social&utm_campaign=site"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/vendia"
+  to = "/vendia?utm_source=reseaux&utm_medium=social&utm_campaign=vendia"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/velume"
+  to = "/velume?utm_source=reseaux&utm_medium=social&utm_campaign=velume"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/chatbot"
+  to = "/blog/chatbot-ia-sur-votre-site-web-comment-transformer-vos-visiteurs-en-clients-24h-sur-24?utm_source=reseaux&utm_medium=social&utm_campaign=chatbot"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/prix"
+  to = "/blog/combien-coute-un-site-vitrine-professionnel-en-2026-les-vrais-prix-et-ce-quils-incluent?utm_source=reseaux&utm_medium=social&utm_campaign=prix"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/clients"
+  to = "/blog/pourquoi-votre-site-web-vous-fait-perdre-des-clients-en-2026-et-comment-y-remedier?utm_source=reseaux&utm_medium=social&utm_campaign=clients"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/landing"
+  to = "/blog/landing-page-qui-convertit-la-methode-en-9-etapes-pour-generer-plus-de-demandes-de-devis?utm_source=reseaux&utm_medium=social&utm_campaign=landing"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/local"
+  to = "/blog/creation-de-site-internet-dans-les-yvelines-et-lessonne-le-guide-pour-les-tpe-et-pme?utm_source=reseaux&utm_medium=social&utm_campaign=local"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/auto"
+  to = "/services/automatisation-n8n?utm_source=reseaux&utm_medium=social&utm_campaign=auto"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/factures"
+  to = "/blog/automatiser-la-facturation-et-les-relances-clients-avec-n8n-le-guide-pratique-pour-les-pme?utm_source=reseaux&utm_medium=social&utm_campaign=factures"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/refonte"
+  to = "/blog/refonte-de-site-web-comment-refaire-son-site-sans-perdre-son-referencement-google?utm_source=reseaux&utm_medium=social&utm_campaign=refonte"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/geo"
+  to = "/blog/le-geo-le-nouveau-referencement-pour-apparaitre-dans-chatgpt-et-gemini?utm_source=reseaux&utm_medium=social&utm_campaign=geo"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/contact"
+  to = "/contact?utm_source=reseaux&utm_medium=social&utm_campaign=contact"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/blog"
+  to = "/blog?utm_source=reseaux&utm_medium=social&utm_campaign=blog"
+  status = 302
+  force = true
+
 [[headers]]
   for = "/admin/*"
   [headers.values]

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { isEn } from '$lib/i18n';
+	import { site } from '$lib/data/site';
 	const currentYear = new Date().getFullYear();
 	const en = $derived(isEn(page.url.pathname));
 	const servicesFr = [
@@ -129,7 +130,7 @@
 
 					<!-- Facebook -->
 					<a
-						href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61589061242648"
+						href={site.socials.facebook}
 						target="_blank"
 						rel="noopener"
 						aria-label="Facebook"
@@ -142,7 +143,7 @@
 
 					<!-- Instagram -->
 					<a
-						href="https://www.instagram.com/norbertdigitalservices/"
+						href={site.socials.instagram}
 						target="_blank"
 						rel="noopener"
 						aria-label="Instagram"

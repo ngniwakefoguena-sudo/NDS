@@ -3,6 +3,15 @@
 	import { Send, Mail, Clock, CircleCheck, Phone, CalendarDays } from 'lucide-svelte';
 	import { site } from '$lib/data/site';
 	import { track } from '$utils/track';
+	import { products } from '$lib/data/products';
+	import { onMount } from 'svelte';
+
+	// /contact?demo=vendia (ou velume…) : présélectionne la démo du produit
+	onMount(() => {
+		const pr = products.find((x) => x.slug === new URLSearchParams(location.search).get('demo'));
+		const el = document.getElementById('service') as HTMLSelectElement | null;
+		if (pr && el) el.value = pr.fr;
+	});
 
 	const countryCodes = [
 		// Europe francophone
@@ -318,6 +327,9 @@
 									<option value="Formation">Formation</option>
 									<option value="Data Engineering">Data Engineering</option>
 									<option value="Design UI/UX">Design UI/UX</option>
+									<optgroup label="Demander une démo">
+										{#each products as pr}<option value={pr.fr}>{pr.fr}</option>{/each}
+									</optgroup>
 									<option value="Autre">Autre</option>
 								</select>
 							</div>

@@ -3,9 +3,18 @@
 	import { site } from '$lib/data/site';
 	import { track } from '$utils/track';
 	import { servicesEn } from '$lib/data/services.en';
+	import { products } from '$lib/data/products';
+	import { onMount } from 'svelte';
+
+	// /contact?demo=vendia (ou velume…) : présélectionne la démo du produit
+	onMount(() => {
+		const pr = products.find((x) => x.slug === new URLSearchParams(location.search).get('demo'));
+		const el = document.querySelector('select[name=service]') as HTMLSelectElement | null;
+		if (pr && el) el.value = pr.en;
+	});
 	import { Send, Mail, Clock, CircleCheck, MessageCircle, Globe } from 'lucide-svelte';
 
-	const options = [...servicesEn.map((s) => s.page.title), 'Vendia (WhatsApp sales agent)', 'Vélume (business management software)', 'Other'];
+	const options = servicesEn.map((s) => s.page.title);
 	const wa = `https://wa.me/33659173774?text=${encodeURIComponent('Hello, I would like to discuss a project with Norbert Digital Service.')}`;
 
 	let sending = $state(false);
@@ -90,6 +99,10 @@
 							<select name="service" required>
 								<option value="" disabled selected>Choose a service</option>
 								{#each options as o}<option value={o}>{o}</option>{/each}
+								<optgroup label="Book a demo">
+									{#each products as pr}<option value={pr.en}>{pr.en}</option>{/each}
+								</optgroup>
+								<option value="Other">Other</option>
 							</select>
 						</label>
 						<label><span>Budget <span class="opt">(optional)</span></span><input name="budget" placeholder="e.g. $3,000 – $10,000" /></label>

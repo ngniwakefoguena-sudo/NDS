@@ -25,7 +25,7 @@
 		<!-- Texte -->
 		<div class="copy">
 			<h1 id="hero-title" class="title">
-				<span class="kicker"><span class="dot"></span>Agence web, mobile et IA · France, Afrique et international</span>
+				<span class="kicker"><span class="dot"></span>Agence web, mobile et IA · Partout dans le monde</span>
 				<span class="l l1">Nous créons votre</span>
 				<span class="l rot">
 					<span class="sr-only">site web, application mobile, automatisation ou assistant IA</span>

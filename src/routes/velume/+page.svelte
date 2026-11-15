@@ -11,13 +11,12 @@
 	} from 'lucide-svelte';
 
 	const url = `${site.url}/velume`;
-	const appUrl = 'https://velum-app-cyan.vercel.app/';
 	const waDemo = `https://wa.me/33659173774?text=${encodeURIComponent('Bonjour, je souhaite une démonstration de Vélume, le logiciel de gestion tout-en-un.')}`;
 
 
 	const modules = [
 		{ icon: Store, t: 'Point de vente', s: 'Caisse tactile, tickets, sessions' },
-		{ icon: Wallet, t: 'Caisse & Mobile Money', s: 'Orange Money, MTN MoMo, clôtures' },
+		{ icon: Wallet, t: 'Caisse & paiements', s: 'Tous moyens de paiement, clôtures' },
 		{ icon: Receipt, t: 'Facturation', s: 'Devis, factures, paiements' },
 		{ icon: CalendarDays, t: 'Rendez-vous & location', s: 'Réservation en ligne, acomptes' },
 		{ icon: MessageCircle, t: 'WhatsApp & discussion', s: 'Clients, équipe, visio' },
@@ -32,12 +31,12 @@
 
 	const benefits = [
 		{ icon: Layers, title: 'Un seul logiciel au lieu de dix', text: 'Caisse, factures, stock, planning, réservations et messages au même endroit : fini les cahiers, Excel et applications qui ne se parlent pas.' },
-		{ icon: Smartphone, title: 'Pensé pour le Mobile Money', text: 'Orange Money, MTN MoMo, espèces et carte suivis séparément, montants en FCFA, clôture de caisse qui calcule les écarts.' },
+		{ icon: CreditCard, title: 'Tous les moyens de paiement', text: 'Espèces, carte bancaire, virement, Mobile Money ou portefeuille local : chaque paiement est suivi séparément, dans votre devise.' },
 		{ icon: ChartColumn, title: 'Vos chiffres en temps réel', text: 'Ventes du jour, factures en retard, stock bas : vous savez où en est votre entreprise sans attendre la fin du mois.' },
 		{ icon: Bot, title: 'Un assistant IA intégré', text: 'Demandez « ventes du jour » ou « créneaux libres demain » et Vélume répond, sans chercher dans les menus.' },
 		{ icon: MessageCircle, title: 'WhatsApp au cœur de la relation', text: 'Les demandes clients deviennent des opportunités dans le CRM, avec réponses types et appel vidéo.' },
 		{ icon: Monitor, title: 'Sur tous les écrans', text: 'Téléphone, tablette, poste de travail ou caisse tactile : l’interface s’adapte à chaque poste.' },
-		{ icon: Languages, title: 'Français et anglais', text: 'Interface, menus et rapports bilingues, en un clic, pour vos équipes et vos clients.' },
+		{ icon: Languages, title: 'Multilingue et multi-devises', text: 'Interface en français et en anglais, montants dans la devise de votre pays : Vélume s’adapte à votre marché.' },
 		{ icon: ShieldCheck, title: 'Droits par rôle', text: 'Gérant, barista, serveur, cuisinier, photographe : chacun ne voit que ce qui le concerne.' }
 	];
 
@@ -45,7 +44,7 @@
 		{ icon: Coffee, title: 'Cafés et salons de thé', text: 'Caisse, écran bar, recettes et coût des boissons, fidélité.' },
 		{ icon: UtensilsCrossed, title: 'Restaurants', text: 'Commandes en salle, écran cuisine, livraison et hygiène HACCP.' },
 		{ icon: Camera, title: 'Studios photo, vidéo, podcast', text: 'Réservation de créneaux, acomptes, galerie clients et contrats signés.' },
-		{ icon: ShoppingBag, title: 'Boutiques et commerces', text: 'Point de vente, stock, achats fournisseurs et Mobile Money.' },
+		{ icon: ShoppingBag, title: 'Boutiques et commerces', text: 'Point de vente, stock, achats fournisseurs et encaissements.' },
 		{ icon: Scissors, title: 'Salons et instituts', text: 'Rendez-vous en ligne, planning des équipes et cartes de fidélité.' },
 		{ icon: ClipboardList, title: 'PME de services', text: 'Devis, factures, projets, notes de frais et suivi des employés.' }
 	];
@@ -58,11 +57,11 @@
 	];
 
 	const faq = [
-		{ q: 'Qu’est-ce que Vélume ?', a: 'Vélume est un logiciel de gestion tout-en-un (de type ERP) conçu par Norbert Digital Service pour les cafés, restaurants, studios et commerces. Il réunit plus de 30 applications : point de vente, caisse et Mobile Money, facturation, inventaire, réservations, planning, CRM, WhatsApp et un assistant IA.' },
-		{ q: 'Vélume gère-t-il Orange Money et MTN Mobile Money ?', a: 'Oui. Chaque encaissement est enregistré par moyen de paiement (espèces, Orange Money, MTN MoMo, carte), les montants sont en FCFA et la clôture de caisse calcule automatiquement les écarts.' },
+		{ q: 'Qu’est-ce que Vélume ?', a: 'Vélume est un logiciel de gestion tout-en-un (de type ERP) conçu par Norbert Digital Service pour les cafés, restaurants, studios et commerces. Il réunit plus de 30 applications : point de vente, caisse multi-paiements, facturation, inventaire, réservations, planning, CRM, WhatsApp et un assistant IA.' },
+		{ q: 'Quels moyens de paiement Vélume gère-t-il ?', a: 'Tous les moyens de paiement courants : espèces, carte bancaire, virement, Mobile Money et portefeuilles électroniques locaux. Chaque encaissement est enregistré par moyen de paiement, dans votre devise, et la clôture de caisse calcule automatiquement les écarts.' },
 		{ q: 'Sur quels appareils fonctionne Vélume ?', a: 'Dans le navigateur, sur téléphone, tablette, ordinateur ou caisse tactile. L’affichage s’adapte au poste de travail, sans installation compliquée.' },
-		{ q: 'Pour quels types d’entreprises ?', a: 'Cafés, restaurants, studios photo et vidéo, boutiques, salons et PME de services, en Afrique francophone comme en France. Les modules s’activent selon votre activité.' },
-		{ q: 'Vélume existe-t-il en anglais ?', a: 'Oui, l’interface, les menus et les rapports sont disponibles en français et en anglais, avec un changement de langue en un clic.' },
+		{ q: 'Pour quels types d’entreprises ?', a: 'Cafés, restaurants, studios photo et vidéo, boutiques, salons et PME de services, partout dans le monde : Europe, Afrique, Amérique du Nord, Moyen-Orient. Les modules s’activent selon votre activité.' },
+		{ q: 'Vélume fonctionne-t-il dans mon pays ?', a: 'Oui. Vélume s’utilise dans le navigateur, partout dans le monde. L’interface est en français et en anglais, les montants s’affichent dans votre devise et les moyens de paiement se configurent selon votre marché.' },
 		{ q: 'Comment obtenir Vélume pour mon entreprise ?', a: 'Demandez une démonstration avec le formulaire ci-dessous ou sur WhatsApp. Nous vous présentons l’outil sur votre activité, puis nous le configurons à votre marque.' }
 	];
 
@@ -99,8 +98,8 @@
 </script>
 
 <Seo
-	title="Vélume : logiciel de gestion tout-en-un, caisse et Mobile Money"
-	description="Vélume, le logiciel de gestion tout-en-un pour cafés, restaurants, studios et commerces : caisse, Orange Money et MTN MoMo, facturation, stock, réservations, planning, CRM, WhatsApp et assistant IA. Démo gratuite."
+	title="Vélume : logiciel de gestion tout-en-un, caisse et facturation"
+	description="Vélume, le logiciel de gestion tout-en-un pour cafés, restaurants, studios et commerces du monde entier : caisse et tous moyens de paiement, facturation, stock, réservations, planning, CRM, WhatsApp et assistant IA. Démo gratuite."
 	image="/images/velume/velume-tableau-de-bord.webp"
 	jsonLd={[
 		{
@@ -110,11 +109,11 @@
 			applicationCategory: 'BusinessApplication',
 			applicationSubCategory: 'ERP, logiciel de caisse, logiciel de gestion',
 			operatingSystem: 'Web, Android, iOS, Windows, macOS',
-			description: 'Logiciel de gestion tout-en-un : point de vente, caisse et Mobile Money, facturation, inventaire, réservations, planning, CRM, WhatsApp et assistant IA, en français et en anglais.',
-			keywords: 'logiciel de gestion, ERP Afrique, logiciel de caisse, caisse enregistreuse, Mobile Money, Orange Money, MTN MoMo, gestion restaurant, gestion café, réservation studio, facturation FCFA, gestion de stock, planning employés',
+			description: 'Logiciel de gestion tout-en-un : point de vente, caisse multi-paiements, facturation, inventaire, réservations, planning, CRM, WhatsApp et assistant IA, en français et en anglais.',
+			keywords: 'logiciel de gestion, ERP, ERP PME, logiciel de caisse, caisse enregistreuse, point de vente, gestion restaurant, gestion café, logiciel de réservation, facturation, gestion de stock, planning employés, business management software, POS software',
 			inLanguage: ['fr', 'en'],
-			areaServed: ['Cameroun', 'Côte d’Ivoire', 'Sénégal', 'Gabon', 'France', 'Afrique francophone'],
-			screenshot: ['velume-tableau-de-bord', 'velume-assistant-ia', 'velume-ouverture-caisse', 'velume-caisse-mobile-money'].map((n) => `${site.url}/images/velume/${n}.webp`),
+			areaServed: 'Worldwide',
+			screenshot: ['velume-tableau-de-bord', 'velume-assistant-ia', 'velume-planning', 'velume-caisse-mobile-money'].map((n) => `${site.url}/images/velume/${n}.webp`),
 			featureList: modules.map((m) => `${m.t} : ${m.s}`).join(' ; '),
 			offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: 'Démonstration gratuite' },
 			url,
@@ -144,16 +143,16 @@
 			<span class="badge"><span class="dot"></span> Nouveau · Une solution Norbert Digital Service</span>
 			<h1 class="title">Vélume, <span class="hl">toute votre entreprise</span> dans un seul logiciel</h1>
 			<p class="lead">
-				Caisse et Mobile Money, factures, stock, réservations, planning des équipes, CRM et WhatsApp : Vélume réunit plus de 30 applications
-				de gestion, pensées pour les cafés, restaurants, studios et commerces d’Afrique et d’ailleurs.
+				Caisse et paiements, factures, stock, réservations, planning des équipes, CRM et WhatsApp : Vélume réunit plus de 30 applications
+				de gestion, pensées pour les cafés, restaurants, studios et commerces, partout dans le monde.
 			</p>
 			<div class="ctas">
 				<a href="#demo" class="btn-lime">Demander une démo <ArrowRight class="w-4 h-4" /></a>
 				<a href="#visite" class="btn-line">Aperçu en images</a>
 			</div>
 			<ul class="hero-points">
-				<li><Check class="w-4 h-4" /> Orange Money et MTN MoMo</li>
-				<li><Check class="w-4 h-4" /> Montants en FCFA</li>
+				<li><Check class="w-4 h-4" /> Tous moyens de paiement</li>
+				<li><Check class="w-4 h-4" /> Multi-devises</li>
 				<li><Check class="w-4 h-4" /> Français et anglais</li>
 			</ul>
 		</div>
@@ -161,7 +160,7 @@
 		<div class="browser-wrap">
 			<div class="browser">
 				<div class="browser-bar"><span></span><span></span><span></span><em>Vélume · tableau de bord</em></div>
-				<img src="/images/velume/velume-tableau-de-bord.webp" alt="Vélume : tableau de bord des ventes du jour en FCFA, réparties entre espèces, Orange Money, MTN MoMo et carte" width="1440" height="900" fetchpriority="high" />
+				<img src="/images/velume/velume-tableau-de-bord.webp" alt="Vélume : tableau de bord des ventes du jour, réparties par moyen de paiement (espèces, mobile, virement, carte)" width="1440" height="900" fetchpriority="high" />
 			</div>
 			<div class="mobile-float">
 				<img src="/images/velume/velume-mobile.webp" alt="Vélume sur téléphone" width="780" height="1688" loading="lazy" decoding="async" />
@@ -174,8 +173,8 @@
 <section class="strip">
 	<div class="wrap strip-grid" use:reveal={{ stagger: 80 }}>
 		<div data-reveal-item><strong>30+</strong><span>applications intégrées</span></div>
-		<div data-reveal-item><strong>4 moyens</strong><span>espèces, Orange Money, MTN MoMo, carte</span></div>
-		<div data-reveal-item><strong>2 langues</strong><span>français et anglais</span></div>
+		<div data-reveal-item><strong>Tous paiements</strong><span>espèces, carte, virement, mobile</span></div>
+		<div data-reveal-item><strong>Monde entier</strong><span>multilingue et multi-devises</span></div>
 		<div data-reveal-item><strong>Tous écrans</strong><span>téléphone, tablette, caisse</span></div>
 	</div>
 </section>
@@ -188,7 +187,7 @@
 			<h2 class="h2">Votre activité ne tient plus dans un cahier et trois applications</h2>
 		</div>
 		<div class="why-text">
-			<p>Les ventes sont notées à la caisse, les paiements Mobile Money sur le téléphone du gérant, les factures dans Excel, les réservations sur WhatsApp et le planning sur un papier au mur. Le soir, personne ne sait vraiment combien l’entreprise a gagné.</p>
+			<p>Les ventes sont notées à la caisse, les paiements par carte et par mobile sur un autre outil, les factures dans Excel, les réservations sur WhatsApp et le planning sur un papier au mur. Le soir, personne ne sait vraiment combien l’entreprise a gagné.</p>
 			<p>Vélume met tout au même endroit. <strong>Chaque vente, chaque paiement et chaque réservation alimente automatiquement vos tableaux de bord</strong> : vous pilotez avec des chiffres justes, en temps réel.</p>
 		</div>
 	</div>
@@ -204,12 +203,12 @@
 		</header>
 		<div class="duo" use:reveal={{ stagger: 120 }}>
 			<figure class="viewer" data-reveal-item>
-				<img src="/images/velume/velume-assistant-ia.webp" alt="Vélume AI : l’assistant répond à la question « ventes du jour » avec le total en FCFA et le détail Orange Money, MTN MoMo, espèces et carte" width="1440" height="900" loading="lazy" decoding="async" />
+				<img src="/images/velume/velume-assistant-ia.webp" alt="Vélume AI : l’assistant répond à la question « ventes du jour » avec le total et le détail par moyen de paiement" width="1440" height="900" loading="lazy" decoding="async" />
 				<figcaption><b>Assistant Vélume AI</b>Une question en français, une réponse chiffrée : ventes du jour, factures en retard, créneaux libres.</figcaption>
 			</figure>
 			<figure class="viewer" data-reveal-item>
-				<img src="/images/velume/velume-ouverture-caisse.webp" alt="Vélume : ouverture de caisse avec comptage des billets et pièces en FCFA" width="1440" height="900" loading="lazy" decoding="async" />
-				<figcaption><b>Point de vente</b>Ouverture de caisse avec comptage des billets et pièces en FCFA : le tiroir attendu le soir est calculé tout seul.</figcaption>
+				<img src="/images/velume/velume-planning.webp" alt="Vélume : planning hebdomadaire des employés par poste" width="1440" height="900" loading="lazy" decoding="async" />
+				<figcaption><b>Planning des équipes</b>Les horaires de chaque employé sur la semaine, publiés en un clic et recopiés d’une semaine à l’autre.</figcaption>
 			</figure>
 		</div>
 		<p class="note"><Lock class="w-4 h-4" /> Vous voulez voir le reste ? <a href="#demo">Demandez une démonstration</a> : nous vous montrons tous les modules sur votre activité.</p>
@@ -255,17 +254,17 @@
 <section class="night">
 	<div class="wrap dash-grid">
 		<div use:reveal>
-			<span class="kicker light">Caisse & Mobile Money</span>
+			<span class="kicker light">Caisse & paiements</span>
 			<h2 class="h2 light">Chaque franc encaissé est suivi, du tiroir au téléphone</h2>
-			<p class="night-text">À l’ouverture, l’équipe compte le fond de caisse. Pendant la journée, chaque vente est rangée par moyen de paiement. Le soir, Vélume calcule ce que le tiroir et les comptes Mobile Money doivent contenir, et signale le moindre écart.</p>
+			<p class="night-text">À l’ouverture, l’équipe compte le fond de caisse. Pendant la journée, chaque vente est rangée par moyen de paiement. Le soir, Vélume calcule ce que le tiroir et chaque compte de paiement doivent contenir, et signale le moindre écart.</p>
 			<ul class="night-list">
-				<li><Check class="w-4 h-4" /> Espèces, Orange Money, MTN MoMo et carte séparés</li>
-				<li><Check class="w-4 h-4" /> Comptage des billets et pièces en FCFA</li>
-				<li><Check class="w-4 h-4" /> Rapprochement des transactions Mobile Money</li>
+				<li><Check class="w-4 h-4" /> Espèces, carte, virement et paiement mobile séparés</li>
+				<li><Check class="w-4 h-4" /> Comptage du fond de caisse, dans votre devise</li>
+				<li><Check class="w-4 h-4" /> Rapprochement des paiements électroniques</li>
 			</ul>
 		</div>
 		<figure class="viewer" use:reveal={{ delay: 120 }}>
-			<img src="/images/velume/velume-caisse-mobile-money.webp" alt="Vélume : vue d’ensemble Caisse et Mobile Money avec espèces, Orange Money, MTN MoMo, carte et clôtures de caisse" width="1440" height="900" loading="lazy" decoding="async" />
+			<img src="/images/velume/velume-caisse-mobile-money.webp" alt="Vélume : vue d’ensemble de la caisse avec espèces, paiement mobile, virement, carte et clôtures de caisse" width="1440" height="900" loading="lazy" decoding="async" />
 		</figure>
 	</div>
 </section>
@@ -313,7 +312,7 @@
 		<div use:reveal>
 			<span class="kicker">Questions fréquentes</span>
 			<h2 class="h2">Tout savoir sur le logiciel de gestion Vélume</h2>
-			<p class="sub">Mobile Money, appareils, secteurs et langues : les réponses aux questions qu’on nous pose le plus. Pour aller plus loin, lisez notre <a class="inline-link" href="/blog/velume-logiciel-de-gestion-tout-en-un-caisse-mobile-money-stock">article complet sur Vélume</a>.</p>
+			<p class="sub">Paiements, appareils, secteurs et pays : les réponses aux questions qu’on nous pose le plus. Pour aller plus loin, lisez notre <a class="inline-link" href="/blog/velume-logiciel-de-gestion-tout-en-un-caisse-mobile-money-stock">article complet sur Vélume</a>.</p>
 		</div>
 		<div class="faq">
 			{#each faq as f}
@@ -341,7 +340,6 @@
 			<div class="direct">
 				<a href={waDemo} target="_blank" rel="noopener"><MessageCircle class="w-4 h-4" /> WhatsApp France : +33 6 59 17 37 74</a>
 				<a href={`https://wa.me/237659324756?text=${encodeURIComponent('Bonjour, je souhaite une démonstration de Vélume.')}`} target="_blank" rel="noopener"><MessageCircle class="w-4 h-4" /> WhatsApp Cameroun : +237 6 59 32 47 56</a>
-				<a href={appUrl} target="_blank" rel="noopener"><Globe class="w-4 h-4" /> Ouvrir l’application Vélume</a>
 			</div>
 		</div>
 
@@ -373,7 +371,7 @@
 							{#each sectorOptions as o}<option value={o}>{o}</option>{/each}
 						</select>
 					</label>
-					<label><span>Votre besoin <span class="opt">(facultatif)</span></span><textarea name="message" rows="3" placeholder="Ex. : 2 points de vente, suivi Mobile Money et stock"></textarea></label>
+					<label><span>Votre besoin <span class="opt">(facultatif)</span></span><textarea name="message" rows="3" placeholder="Ex. : 2 points de vente, suivi des paiements et du stock"></textarea></label>
 					<button type="submit" class="btn-lime full" disabled={sending}>
 						{sending ? 'Envoi en cours…' : 'Recevoir ma démonstration'} <ArrowRight class="w-4 h-4" />
 					</button>

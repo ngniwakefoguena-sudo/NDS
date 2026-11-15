@@ -58,15 +58,15 @@
 <section class="vendia velume" aria-labelledby="velume-title">
 	<div class="wrap vendia-grid">
 		<a href="/velume" class="v-shot" use:reveal={{ delay: 120 }} aria-label="Découvrir Vélume">
-			<img src="/images/velume/velume-tableau-de-bord.webp" alt="Vélume : tableau de bord des ventes du jour en FCFA avec Orange Money et MTN MoMo" width="1440" height="900" loading="lazy" decoding="async" />
+			<img src="/images/velume/velume-tableau-de-bord.webp" alt="Vélume : tableau de bord des ventes du jour par moyen de paiement" width="1440" height="900" loading="lazy" decoding="async" />
 		</a>
 		<div use:reveal>
 			<span class="v-badge"><span class="v-dot"></span> Notre produit · Nouveau</span>
 			<h2 id="velume-title" class="h2">Vélume, le logiciel de gestion tout-en-un</h2>
-			<p class="sub">Caisse et Mobile Money, factures, stock, réservations, planning, CRM et WhatsApp dans une seule application. Pour les cafés, restaurants, studios et commerces.</p>
+			<p class="sub">Caisse et paiements, factures, stock, réservations, planning, CRM et WhatsApp dans une seule application. Pour les cafés, restaurants, studios et commerces du monde entier.</p>
 			<ul class="v-points">
 				<li><Check class="w-4 h-4" /> Plus de 30 applications intégrées</li>
-				<li><Check class="w-4 h-4" /> Orange Money, MTN MoMo, montants en FCFA</li>
+				<li><Check class="w-4 h-4" /> Tous moyens de paiement, multi-devises</li>
 				<li><Check class="w-4 h-4" /> Assistant IA, en français et en anglais</li>
 			</ul>
 			<div class="v-ctas">

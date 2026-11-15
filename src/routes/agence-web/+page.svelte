@@ -10,7 +10,7 @@
 		{ icon: Bot, title: 'Chatbot et intelligence artificielle', text: 'Assistant IA sur votre site ou sur WhatsApp, qui répond à vos clients 24h/24 et qualifie vos prospects.', href: '/services/intelligence-artificielle' },
 		{ icon: Workflow, title: 'Automatisation', text: 'Devis, factures, relances, CRM : vos tâches répétitives tournent seules grâce à n8n et à l’IA.', href: '/services/automatisation-n8n' },
 		{ icon: Bot, title: 'Vendia, agent WhatsApp', text: 'Notre agent commercial sur WhatsApp : devis, paiement Mobile Money ou carte et contrat en PDF, 24h/24.', href: '/vendia' },
-		{ icon: Workflow, title: 'Vélume, logiciel de gestion', text: 'Caisse, Mobile Money, factures, stock, réservations et planning dans une seule application.', href: '/velume' },
+		{ icon: Workflow, title: 'Vélume, logiciel de gestion', text: 'Caisse et tous moyens de paiement, factures, stock, réservations et planning dans une seule application.', href: '/velume' },
 		{ icon: Palette, title: 'Design UI/UX', text: 'Maquettes claires et modernes, une identité cohérente et une navigation qui guide vers le contact.', href: '/services/design-ui-ux' },
 	];
 

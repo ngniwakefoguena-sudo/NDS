@@ -1,4 +1,6 @@
 <script lang="ts">
+	import TechBackground from '$lib/components/TechBackground.svelte';
+
 	import '../app.css';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -175,6 +177,8 @@
 	})}</script>`}
 </svelte:head>
 
+
+<TechBackground />
 
 <div class="min-h-screen flex flex-col">
 	<TopBar />

@@ -96,7 +96,7 @@
 </script>
 
 <Seo
-	title="Vendia : chatbot WhatsApp Business qui vend 24h/24"
+	title="Vendia : chatbot WhatsApp IA (WhatsApp Business API) qui vend 24h/24"
 	description="Chatbot WhatsApp intelligent pour entreprises : Vendia répond 24h/24, calcule vos devis, encaisse par Mobile Money (MTN, Orange) ou carte et envoie le contrat en PDF. Assurance, microfinance, santé, commerce. Démo gratuite."
 	jsonLd={[
 		{

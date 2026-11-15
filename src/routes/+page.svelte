@@ -22,7 +22,7 @@
 </script>
 
 <Seo
-	title="Agence web et marketing digital : site internet, app et IA"
+	title="Agence web et digitale : création de site internet, application et IA"
 	description="Agence web et de marketing digital, services digitaux pour entreprises : création de site internet, application mobile, chatbot IA, automatisation et SEO pour les entreprises du monde entier, 100 % à distance. Devis gratuit sous 24h."
 />
 

@@ -50,9 +50,9 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, rgb(152,200,22), rgb(112,160,8))',
 		page: {
 			slug: 'creation-site-web',
-			metaTitle: 'Création site internet professionnel : prix, vitrine, e-commerce',
+			metaTitle: 'Création site internet professionnel, site vitrine et e-commerce : prix et devis',
 			metaDescription: 'Création de site internet pour les entreprises en France, en Afrique et dans le monde entier : sites vitrines et e-commerce rapides, bien référencés sur Google et pensés pour vous apporter des clients. Devis gratuit.',
-			h1: 'Création de site web professionnel',
+			h1: 'Création de site internet professionnel',
 			intro: [
 				'Votre site est souvent le premier contact entre votre entreprise et un futur client. S’il est lent, difficile à lire sur mobile ou introuvable sur Google, ce client part chez un concurrent sans même vous avoir appelé.',
 				'Norbert Digital Service conçoit des sites vitrines, des boutiques en ligne et des applications web sur mesure pour les PME, les indépendants et les startups. Chaque site est rapide, adapté au mobile, optimisé pour le référencement naturel et construit pour générer des demandes de contact.',
@@ -140,9 +140,9 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #a855f7, #ec4899)',
 		page: {
 			slug: 'intelligence-artificielle',
-			metaTitle: 'Chatbot IA pour site web et WhatsApp Business, IA en entreprise',
+			metaTitle: 'Chatbot IA et agent IA pour entreprise : site web et WhatsApp',
 			metaDescription: 'Chatbot IA pour site web et WhatsApp, assistants RAG connectés à vos documents, agents IA : intégrez l’intelligence artificielle dans votre PME de façon concrète, sécurisée et conforme RGPD.',
-			h1: 'Intelligence artificielle pour les entreprises',
+			h1: 'Chatbot IA, agents IA et intelligence artificielle pour les entreprises',
 			intro: [
 				'L’intelligence artificielle n’est plus réservée aux grands groupes. Une PME peut aujourd’hui répondre plus vite à ses clients, retrouver une information dans ses documents en quelques secondes ou automatiser l’analyse de ses données.',
 				'Nous intégrons l’IA là où elle apporte un gain mesurable : chatbots qui connaissent votre métier, assistants connectés à vos documents internes, agents qui exécutent des tâches et outils d’analyse. Chaque projet part d’un cas d’usage concret, pas d’une mode.',
@@ -183,7 +183,7 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #f59e0b, #ef4444)',
 		page: {
 			slug: 'automatisation-n8n',
-			metaTitle: 'Automatisation n8n et IA pour PME : gagnez du temps',
+			metaTitle: 'Automatisation n8n et IA pour entreprise : workflows sur mesure',
 			metaDescription: 'Expert n8n, à distance partout dans le monde : automatisation de vos tâches répétitives avec n8n, Make, Python et l’IA (relances, facturation, CRM, e-mails, rapports). Gagnez des heures chaque semaine.',
 			h1: 'Automatisation des processus avec n8n',
 			intro: [
@@ -270,8 +270,8 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #ec4899, #f97316)',
 		page: {
 			slug: 'generation-de-leads',
-			metaTitle: 'Génération de leads B2B et B2C : prospects qualifiés',
-			metaDescription: 'Landing pages, campagnes e-mail et LinkedIn, tunnels de conversion et CRM automatisé : un système d’acquisition qui vous apporte des prospects qualifiés.',
+			metaTitle: 'Génération de leads et landing page qui convertit (B2B et B2C)',
+			metaDescription: 'Création de landing page qui convertit, campagnes e-mail et LinkedIn, tunnels de conversion et CRM automatisé : un système de génération de leads qui vous apporte des prospects qualifiés.',
 			h1: 'Génération de leads B2B et B2C',
 			intro: [
 				'Trouver de nouveaux clients ne devrait pas dépendre uniquement du bouche-à-oreille. Un système d’acquisition bien construit vous apporte des prospects qualifiés de façon régulière et prévisible.',
@@ -351,9 +351,9 @@ export const services: Service[] = [
 		iconBg: 'linear-gradient(135deg, #059669, #065f46)',
 		page: {
 			slug: 'formation',
-			metaTitle: 'Formation IA, automatisation, développement web et mobile',
-			metaDescription: 'Formations sur mesure pour vos équipes : intelligence artificielle, automatisation n8n, développement web et mobile, Python et data. En présentiel ou à distance.',
-			h1: 'Formations IA, automatisation et développement',
+			metaTitle: 'Formation IA et ChatGPT pour entreprises, automatisation et développement',
+			metaDescription: 'Formation IA et ChatGPT pour vos équipes, automatisation n8n, développement web et mobile, Python et data : des formations pratiques sur vos cas réels, à distance partout dans le monde ou en présentiel.',
+			h1: 'Formation IA, ChatGPT, automatisation et développement',
 			intro: [
 				'Les outils évoluent vite : IA générative, automatisation, nouveaux frameworks. Vos équipes ont besoin de comprendre ce qui est possible et de savoir s’en servir dans leur travail de tous les jours.',
 				'Nous proposons des formations pratiques, construites autour de vos cas d’usage réels. Chaque session alterne explications et exercices sur vos propres outils, pour que les participants repartent avec quelque chose qui fonctionne.',

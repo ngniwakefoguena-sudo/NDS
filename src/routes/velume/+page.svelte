@@ -98,7 +98,7 @@
 </script>
 
 <Seo
-	title="Vélume : logiciel de gestion tout-en-un, caisse et facturation"
+	title="Vélume : logiciel de caisse et de gestion tout-en-un (ERP pour PME)"
 	description="Vélume, le logiciel de gestion tout-en-un pour cafés, restaurants, studios et commerces du monde entier : caisse et tous moyens de paiement, facturation, stock, réservations, planning, CRM, WhatsApp et assistant IA. Démo gratuite."
 	image="/images/velume/velume-tableau-de-bord.webp"
 	jsonLd={[

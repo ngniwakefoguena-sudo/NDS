@@ -81,6 +81,7 @@ export const services: Service[] = [
 				{ q: 'Agence web ou développeur web freelance : que choisir ?', a: 'Un développeur web freelance est souvent moins cher mais couvre rarement le design, le SEO et le marketing. Norbert Digital Service combine la souplesse et les tarifs d’un freelance avec les compétences d’une agence : site, référencement, publicité et IA avec un seul interlocuteur.' },
 			],
 			articles: [
+				'creer-un-site-internet-professionnel-les-10-etapes-du-nom-de-domaine-a-la-mise-en-ligne',
 				'creation-de-site-internet-dans-les-yvelines-et-lessonne-le-guide-pour-les-tpe-et-pme',
 				'combien-coute-un-site-vitrine-professionnel-en-2026-les-vrais-prix-et-ce-quils-incluent',
 				'pourquoi-votre-site-web-vous-fait-perdre-des-clients-en-2026-et-comment-y-remedier',
@@ -167,6 +168,7 @@ export const services: Service[] = [
 				{ q: 'Quels sont des exemples d’intelligence artificielle en entreprise ?', a: 'Chatbot sur le site ou sur WhatsApp, tri automatique des e-mails, rédaction de devis et de comptes rendus, recherche dans les documents internes, analyse des ventes ou qualification des prospects : l’IA en entreprise sert d’abord à gagner du temps sur les tâches répétitives.' },
 			],
 			articles: [
+				'agent-ia-definition-exemples-et-comment-creer-un-agent-ia-pour-votre-entreprise',
 				'chatbot-ia-sur-votre-site-web-comment-transformer-vos-visiteurs-en-clients-24h-sur-24',
 				'rag-chatbots-metier-et-agents-ia-le-guide-complet-pour-integrer-lintelligence-artificielle-en-entreprise-en-2026',
 				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
@@ -209,6 +211,7 @@ export const services: Service[] = [
 				{ q: 'Avez-vous des exemples d’automatisation n8n avec l’IA ?', a: 'Oui : réponse automatique aux demandes de devis, création de factures et relances, synchronisation du CRM, résumé des e-mails par l’IA, publication sur les réseaux sociaux ou alertes WhatsApp à chaque nouveau client. Chaque workflow n8n est construit sur mesure à partir de vos outils.' },
 			],
 			articles: [
+				'n8n-cest-quoi-et-comment-creer-votre-premier-workflow-tutoriel-debutant',
 				'automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine',
 				'automatisation-ia-pour-pme-comment-gagner-dix-heures-par-semaine-avec-n8n-et-lia',
 				'automatiser-la-facturation-et-les-relances-clients-avec-n8n-le-guide-pratique-pour-les-pme',
@@ -254,6 +257,7 @@ export const services: Service[] = [
 				{ q: 'Travaillez-vous avec des entreprises à l’étranger ?', a: 'Oui. Nous accompagnons des entreprises du monde entier, à distance : référencement SEO international, Google Ads, publicité Facebook et Instagram, community management et création de site internet, en français ou en anglais.' },
 			],
 			articles: [
+				'referencement-google-12-actions-pour-apparaitre-en-premiere-page-en-2026',
 				'fiche-google-business-profile-12-optimisations-pour-apparaitre-dans-le-pack-local-en-2026',
 				'seo-local-2026-la-strategie-complete-pour-dominer-google',
 				'le-geo-le-nouveau-referencement-pour-apparaitre-dans-chatgpt-et-gemini',
@@ -376,6 +380,7 @@ export const services: Service[] = [
 				{ q: 'Peut-on apprendre à créer son propre site ou ses automatisations ?', a: 'Oui : nous formons aussi à la création et à la mise à jour de sites web, au référencement de base et à la mise en place d’automatisations avec n8n, pour gagner en autonomie.' },
 			],
 			articles: [
+				'formation-chatgpt-et-ia-en-entreprise-programme-prix-et-comment-former-vos-equipes',
 				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
 				'automatisation-ia-pour-pme-comment-gagner-dix-heures-par-semaine-avec-n8n-et-lia',
 				'rag-chatbots-metier-et-agents-ia-le-guide-complet-pour-integrer-lintelligence-artificielle-en-entreprise-en-2026',

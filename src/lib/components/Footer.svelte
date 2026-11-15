@@ -1,5 +1,54 @@
 <script lang="ts">
+	import { page } from '$app/state';
+	import { isEn } from '$lib/i18n';
 	const currentYear = new Date().getFullYear();
+	const en = $derived(isEn(page.url.pathname));
+	const servicesFr = [
+		['/services/creation-site-web', 'Création de site internet'],
+		['/services/application-mobile', 'Création d’application mobile'],
+		['/services/intelligence-artificielle', 'Intelligence Artificielle'],
+		['/services/automatisation-n8n', 'Automatisation'],
+		['/services/marketing-digital-seo', 'SEO et marketing digital'],
+		['/services/generation-de-leads', 'Génération de Leads'],
+		['/services/data-engineering', 'Data Engineering'],
+		['/services/formation', 'Formation'],
+		['/services/design-ui-ux', 'Design UI/UX'],
+		['/services/backend-api', 'Backend & API'],
+		['/vendia', 'Vendia · Agent WhatsApp'],
+		['/velume', 'Vélume · Logiciel de gestion']
+	];
+	const servicesEn = [
+		['/en/services/website-development', 'Website development'],
+		['/en/services/mobile-app-development', 'Mobile app development'],
+		['/en/services/artificial-intelligence', 'Artificial intelligence'],
+		['/en/services/business-automation', 'Business automation'],
+		['/en/services/digital-marketing-seo', 'SEO & digital marketing'],
+		['/en/services/lead-generation', 'Lead generation'],
+		['/en/services/data-engineering', 'Data engineering'],
+		['/en/services/ai-training', 'AI training'],
+		['/en/services/ui-ux-design', 'UI/UX design'],
+		['/en/services/backend-api-development', 'Backend & API'],
+		['/en/vendia', 'Vendia · WhatsApp sales agent'],
+		['/en/velume', 'Vélume · Business management software']
+	];
+	const moreFr = [
+		['/agence-web', 'Agence web'],
+		['/agence-web-afrique', 'Agence web en Afrique'],
+		['/agence-web-international', 'Agence web internationale'],
+		['/about', 'À Propos'],
+		['/projects', 'Réalisations'],
+		['/blog', 'Blog'],
+		['/contact', 'Contact'],
+		['/en', 'English version']
+	];
+	const moreEn = [
+		['/en/about', 'About us'],
+		['/en/services', 'All services'],
+		['/en/contact', 'Contact'],
+		['/', 'Version française']
+	];
+	const svc = $derived(en ? servicesEn : servicesFr);
+	const more = $derived(en ? moreEn : moreFr);
 </script>
 
 <!-- SVG Wave Transition -->
@@ -34,26 +83,15 @@
 
 			<!-- LEFT COLUMN: Nos services -->
 			<div class="footer-col col-services">
-				<h3 class="col-heading">Nos services</h3>
+				<h3 class="col-heading">{en ? 'Our services' : 'Nos services'}</h3>
 				<ul class="link-list">
-					<li><a href="/services/creation-site-web" class="footer-link">Création de site internet</a></li>
-					<li><a href="/services/application-mobile" class="footer-link">Création d’application mobile</a></li>
-					<li><a href="/services/intelligence-artificielle" class="footer-link">Intelligence Artificielle</a></li>
-					<li><a href="/services/automatisation-n8n" class="footer-link">Automatisation</a></li>
-					<li><a href="/services/marketing-digital-seo" class="footer-link">SEO et marketing digital</a></li>
-					<li><a href="/services/generation-de-leads" class="footer-link">Génération de Leads</a></li>
-					<li><a href="/services/data-engineering" class="footer-link">Data Engineering</a></li>
-					<li><a href="/services/formation" class="footer-link">Formation</a></li>
-					<li><a href="/services/design-ui-ux" class="footer-link">Design UI/UX</a></li>
-					<li><a href="/services/backend-api" class="footer-link">Backend & API</a></li>
-					<li><a href="/vendia" class="footer-link">Vendia · Agent WhatsApp</a></li>
-					<li><a href="/velume" class="footer-link">Vélume · Logiciel de gestion</a></li>
+					{#each svc as [href, label]}<li><a {href} class="footer-link">{label}</a></li>{/each}
 				</ul>
 			</div>
 
 			<!-- CENTER COLUMN: Logo + Name + Socials -->
 			<div class="footer-col col-brand">
-				<a href="/" class="brand-block">
+				<a href={en ? '/en' : '/'} class="brand-block">
 					<div class="logo-wrapper">
 						<img
 							src="/images/logo-sm.webp"
@@ -70,7 +108,7 @@
 				</a>
 
 				<p class="brand-tagline">
-					Solutions digitales sur mesure pour transformer votre vision en réalité.
+					{en ? 'Custom digital solutions to turn your vision into reality.' : 'Solutions digitales sur mesure pour transformer votre vision en réalité.'}
 				</p>
 
 				<!-- Social icons row -->
@@ -139,15 +177,9 @@
 
 			<!-- RIGHT COLUMN: En savoir plus -->
 			<div class="footer-col col-about">
-				<h3 class="col-heading">En savoir plus</h3>
+				<h3 class="col-heading">{en ? 'Learn more' : 'En savoir plus'}</h3>
 				<ul class="link-list">
-					<li><a href="/agence-web" class="footer-link">Agence web</a></li>
-					<li><a href="/agence-web-afrique" class="footer-link">Agence web en Afrique</a></li>
-					<li><a href="/agence-web-international" class="footer-link">Agence web internationale</a></li>
-					<li><a href="/about" class="footer-link">À Propos</a></li>
-					<li><a href="/projects" class="footer-link">Réalisations</a></li>
-					<li><a href="/blog" class="footer-link">Blog</a></li>
-					<li><a href="/contact" class="footer-link">Contact</a></li>
+					{#each more as [href, label]}<li><a {href} class="footer-link">{label}</a></li>{/each}
 				</ul>
 			</div>
 		</div>
@@ -156,8 +188,8 @@
 	<!-- Copyright bar -->
 	<div class="copyright-bar">
 		<div class="copyright-inner">
-			<p>© {currentYear} Norbert Digital Service. Tous droits réservés.</p>
-			<p>Conçu & développé par <strong>Norbert Digital Service</strong></p>
+			<p>© {currentYear} Norbert Digital Service. {en ? 'All rights reserved.' : 'Tous droits réservés.'}</p>
+			<p>{en ? 'Designed & built by' : 'Conçu & développé par'} <strong>Norbert Digital Service</strong></p>
 		</div>
 	</div>
 </footer>

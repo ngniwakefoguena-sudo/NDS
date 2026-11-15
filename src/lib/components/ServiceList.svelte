@@ -1,19 +1,20 @@
 <script lang="ts">
 	import { ArrowUpRight } from 'lucide-svelte';
 	import { reveal } from '$lib/actions/motion';
-	import type { Service, ServicePage } from '$lib/data/services';
+	import type { Component } from 'svelte';
 
-	let { items }: { items: (Service & { page: ServicePage })[] } = $props();
+	type Item = { icon: Component<any> | any; description?: string; page: { slug: string; h1: string; description?: string } };
+	let { items, base = '/services' }: { items: Item[]; base?: string } = $props();
 </script>
 
 <ul class="svc-list" use:reveal={{ stagger: 60 }}>
 	{#each items as s (s.page.slug)}
 		<li data-reveal-item>
-			<a href="/services/{s.page.slug}" class="svc-row">
+			<a href="{base}/{s.page.slug}" class="svc-row">
 				<span class="svc-icon"><s.icon class="w-5 h-5" /></span>
 				<span class="svc-text">
 					<span class="svc-title">{s.page.h1}</span>
-					<span class="svc-desc">{s.description}</span>
+					<span class="svc-desc">{s.description ?? s.page.description}</span>
 				</span>
 				<span class="svc-arrow" aria-hidden="true"><ArrowUpRight class="w-5 h-5" /></span>
 			</a>

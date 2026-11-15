@@ -29,7 +29,8 @@ export async function handle({ event, resolve }) {
 		return Response.redirect(new URL(cleanPath + event.url.search, event.url.origin), 301);
 	}
 
-	const response = await resolve(event);
+	const english = event.url.pathname === '/en' || event.url.pathname.startsWith('/en/');
+	const response = await resolve(event, english ? { transformPageChunk: ({ html }) => html.replace('<html lang="fr">', '<html lang="en">') } : undefined);
 
 	// Seules les anciennes copies *.vercel.app reçoivent « noindex ».
 	// Les adresses *.netlify.app sont déjà redirigées en 301 vers norbertdigitalservice.fr (netlify.toml) :

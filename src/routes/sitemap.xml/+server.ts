@@ -1,6 +1,7 @@
 import { getBlogPosts, getProjects } from '$lib/server/content';
 import { site } from '$lib/data/site';
 import { servicePages } from '$lib/data/services';
+import { translatedPages } from '$lib/i18n';
 
 const staticPages = [
 	{ path: '/',         priority: '1.0', changefreq: 'weekly' },
@@ -35,6 +36,13 @@ export async function GET() {
     <loc>${site.url}/services/${s.page.slug}</loc>
     <lastmod>${today}</lastmod>
     <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>`),
+		...translatedPages.map(([, en]) => `
+  <url>
+    <loc>${site.url}${en}</loc>
+    <lastmod>${today}</lastmod>
+    <priority>${en === '/en' ? '1.0' : '0.9'}</priority>
     <changefreq>monthly</changefreq>
   </url>`),
 		...projects.map(p => `

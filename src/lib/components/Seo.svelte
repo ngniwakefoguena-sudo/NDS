@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { site } from '$lib/data/site';
+	import { alternatesFor, isEn } from '$lib/i18n';
 
 	interface Props {
 		/** Titre de la page (sans le nom du site, il est ajouté automatiquement). Laisser vide pour l'accueil. */
@@ -19,7 +20,9 @@
 
 	const absolute = (src: string) => (src.startsWith('http') ? src : `${site.url}${src.startsWith('/') ? '' : '/'}${src}`);
 
-	const fullTitle = $derived(title ? `${title} | ${site.name}` : `${site.name} | Agence Web, Mobile & IA`);
+	const en = $derived(isEn(page.url.pathname));
+	const alt = $derived(alternatesFor(page.url.pathname));
+	const fullTitle = $derived(title ? `${title} | ${site.name}` : en ? `${site.name} | Web, Mobile & AI Agency` : `${site.name} | Agence Web, Mobile & IA`);
 	// URL canonique toujours sur le domaine principal, sans paramètres ni slash final :
 	// évite que les copies *.vercel.app / *.netlify.app ou les URLs avec ?utm=… soient vues comme du contenu dupliqué.
 	const canonical = $derived(`${site.url}${page.url.pathname === '/' ? '/' : page.url.pathname.replace(/\/$/, '')}`);
@@ -31,6 +34,11 @@
 	<title>{fullTitle}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={canonical} />
+	{#if alt}
+		<link rel="alternate" hreflang="fr" href={`${site.url}${alt.fr}`} />
+		<link rel="alternate" hreflang="en" href={`${site.url}${alt.en}`} />
+		<link rel="alternate" hreflang="x-default" href={`${site.url}${alt.en}`} />
+	{/if}
 	{#if noindex}<meta name="robots" content="noindex, follow" />{/if}
 
 	<meta property="og:title" content={fullTitle} />
@@ -40,7 +48,7 @@
 	<meta property="og:image" content={ogImage} />
 	<meta property="og:image:alt" content={title ?? site.name} />
 	<meta property="og:site_name" content={site.name} />
-	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:locale" content={en ? 'en_US' : 'fr_FR'} />
 	{#if publishedTime}<meta property="article:published_time" content={publishedTime} />{/if}
 
 	<meta name="twitter:card" content="summary_large_image" />

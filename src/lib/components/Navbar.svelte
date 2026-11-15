@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Moon, Sun, Menu, X } from 'lucide-svelte';
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
+	import { isEn, alternatesFor } from '$lib/i18n';
 
 	let isDark = $state(false);
 	let menuOpen = $state(false);
@@ -25,16 +27,35 @@
 		}
 	}
 
-	const links = [
-		{ href: '/', label: 'Accueil' },
-		{ href: '/services', label: 'Services' },
-		{ href: '/projects', label: 'Réalisations' },
-		{ href: '/blog', label: 'Blog' },
-		{ href: '/about', label: 'À Propos' },
-		{ href: '/contact', label: 'Contact' },
-	];
+	const en = $derived(isEn(page.url.pathname));
+	const links = $derived(
+		en
+			? [
+					{ href: '/en', label: 'Home' },
+					{ href: '/en/services', label: 'Services' },
+					{ href: '/en/vendia', label: 'Vendia' },
+					{ href: '/en/velume', label: 'Vélume' },
+					{ href: '/en/about', label: 'About' },
+					{ href: '/en/contact', label: 'Contact' }
+				]
+			: [
+					{ href: '/', label: 'Accueil' },
+					{ href: '/services', label: 'Services' },
+					{ href: '/projects', label: 'Réalisations' },
+					{ href: '/blog', label: 'Blog' },
+					{ href: '/about', label: 'À Propos' },
+					{ href: '/contact', label: 'Contact' }
+				]
+	);
+	// Lien vers la même page dans l'autre langue (ou l'accueil de l'autre langue)
+	const langHref = $derived.by(() => {
+		const a = alternatesFor(page.url.pathname);
+		return en ? (a ? a.fr : '/') : a ? a.en : '/en';
+	});
+	const contactHref = $derived(en ? '/en/contact' : '/contact');
+	const cta = $derived(en ? 'Start a project' : 'Démarrer un projet');
 
-	const waLink = `https://wa.me/33659173774?text=${encodeURIComponent('Salut , Je souhaite en savoir plus sur vos services digitaux')}`;
+	const waLink = $derived(`https://wa.me/33659173774?text=${encodeURIComponent(en ? 'Hello, I would like to know more about your digital services' : 'Salut , Je souhaite en savoir plus sur vos services digitaux')}`);
 </script>
 
 <nav
@@ -46,7 +67,7 @@
 	<div class="max-w-7xl mx-auto px-6 lg:px-8 h-[68px] flex items-center justify-between">
 
 		<!-- Logo -->
-		<a href="/" class="flex items-center gap-2.5">
+		<a href={en ? '/en' : '/'} class="flex items-center gap-2.5">
 			<div class="logo-ring w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
 				<img src="/images/logo-sm.webp" alt="" fetchpriority="high" class="w-full h-full object-cover" width="80" height="80" />
 			</div>
@@ -82,7 +103,7 @@
 				onclick={toggleTheme}
 				class="p-1.5 rounded-lg transition-colors text-muted hover:text-ink"
 				style="background: var(--glass-bg); border: 1px solid var(--glass-border);"
-				aria-label="Basculer le thème"
+				aria-label={en ? 'Toggle theme' : 'Basculer le thème'}
 			>
 				{#if isDark}
 					<Sun class="w-4 h-4" />
@@ -92,16 +113,23 @@
 			</button>
 
 			<a
-				href="/contact"
+				href={langHref}
+				hreflang={en ? 'fr' : 'en'}
+				class="lang-switch"
+				aria-label={en ? 'Version française' : 'English version'}
+			>{en ? 'FR' : 'EN'}</a>
+
+			<a
+				href={contactHref}
 				class="px-5 py-2 rounded-lg text-[14px] font-semibold text-white whitespace-nowrap transition-opacity hover:opacity-85"
 				style="background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-2))); box-shadow: 0 6px 20px rgba(120,175,10,0.40);"
 			>
-				Démarrer un projet
+				{cta}
 			</a>
 		</div>
 
 		<!-- Mobile burger -->
-		<button class="xl:hidden p-2 transition-colors" style="{heroMode ? 'color: #ffffff;' : 'color: rgb(var(--muted));'}" onclick={() => (menuOpen = !menuOpen)} aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}>
+		<button class="xl:hidden p-2 transition-colors" style="{heroMode ? 'color: #ffffff;' : 'color: rgb(var(--muted));'}" onclick={() => (menuOpen = !menuOpen)} aria-label={menuOpen ? (en ? "Close menu" : "Fermer le menu") : (en ? "Open menu" : "Ouvrir le menu")}>
 			{#if menuOpen}<X class="w-6 h-6" />{:else}<Menu class="w-6 h-6" />{/if}
 		</button>
 	</div>
@@ -135,15 +163,16 @@
 			</a>
 			<div class="flex items-center justify-between px-4 py-1">
 				<button onclick={toggleTheme} class="flex items-center gap-2 text-[14px] text-muted hover:text-ink transition-colors">
-					{#if isDark}<Sun class="w-4 h-4" /> Mode clair{:else}<Moon class="w-4 h-4" /> Mode sombre{/if}
+					{#if isDark}<Sun class="w-4 h-4" /> {en ? 'Light mode' : 'Mode clair'}{:else}<Moon class="w-4 h-4" /> {en ? 'Dark mode' : 'Mode sombre'}{/if}
 				</button>
+				<a href={langHref} hreflang={en ? 'fr' : 'en'} class="lang-switch" onclick={() => (menuOpen = false)}>{en ? 'Français' : 'English'}</a>
 			</div>
 			<a
-				href="/contact"
+				href={contactHref}
 				onclick={() => (menuOpen = false)}
 				class="mt-2 text-center py-2.5 rounded-lg text-[14px] font-semibold text-white"
 				style="background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-2)));"
-			>Démarrer un projet</a>
+			>{cta}</a>
 		</div>
 	{/if}
 </nav>
@@ -155,6 +184,8 @@
 	.mobile-menu {
 		top: 68px;
 	}
+	.lang-switch { display: inline-flex; align-items: center; justify-content: center; min-width: 2.2rem; height: 2rem; padding: 0 0.6rem; border-radius: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: rgb(var(--ink)); background: var(--glass-bg); border: 1px solid var(--glass-border); transition: border-color 0.2s; }
+	.lang-switch:hover { border-color: rgb(var(--accent)); }
 	.logo-ring {
 		box-shadow: 0 0 0 2px rgba(152,200,22,0.45), 0 4px 14px rgba(80,110,20,0.20);
 	}

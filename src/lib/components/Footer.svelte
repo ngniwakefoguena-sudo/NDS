@@ -47,6 +47,7 @@
 					<li><a href="/services/design-ui-ux" class="footer-link">Design UI/UX</a></li>
 					<li><a href="/services/backend-api" class="footer-link">Backend & API</a></li>
 					<li><a href="/vendia" class="footer-link">Vendia · Agent WhatsApp</a></li>
+					<li><a href="/velume" class="footer-link">Vélume · Logiciel de gestion</a></li>
 				</ul>
 			</div>
 

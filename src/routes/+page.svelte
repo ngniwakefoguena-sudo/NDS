@@ -54,6 +54,29 @@
 	</div>
 </section>
 
+<!-- ═════════ Produit : Vélume ═════════ -->
+<section class="vendia velume" aria-labelledby="velume-title">
+	<div class="wrap vendia-grid">
+		<a href="/velume" class="v-shot" use:reveal={{ delay: 120 }} aria-label="Découvrir Vélume">
+			<img src="/images/velume/velume-tableau-de-bord.webp" alt="Vélume : tableau de bord des ventes du jour en FCFA avec Orange Money et MTN MoMo" width="1440" height="900" loading="lazy" decoding="async" />
+		</a>
+		<div use:reveal>
+			<span class="v-badge"><span class="v-dot"></span> Notre produit · Nouveau</span>
+			<h2 id="velume-title" class="h2">Vélume, le logiciel de gestion tout-en-un</h2>
+			<p class="sub">Caisse et Mobile Money, factures, stock, réservations, planning, CRM et WhatsApp dans une seule application. Pour les cafés, restaurants, studios et commerces.</p>
+			<ul class="v-points">
+				<li><Check class="w-4 h-4" /> Plus de 30 applications intégrées</li>
+				<li><Check class="w-4 h-4" /> Orange Money, MTN MoMo, montants en FCFA</li>
+				<li><Check class="w-4 h-4" /> Assistant IA, en français et en anglais</li>
+			</ul>
+			<div class="v-ctas">
+				<a href="/velume" class="btn-lime">Découvrir Vélume <ArrowRight class="w-4 h-4" /></a>
+				<a href="/velume#demo" class="btn-line">Demander une démo</a>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ═════════ Réalisations ═════════ -->
 {#if data.featured.length}
 	<section class="sec mist" aria-labelledby="work-title">
@@ -131,6 +154,8 @@
 	.v-shot { display: block; border-radius: 1.4rem; overflow: hidden; box-shadow: 0 30px 70px rgba(40, 70, 10, 0.18); border: 1px solid rgb(var(--line) / 0.08); transition: transform 0.35s; }
 	.v-shot:hover { transform: translateY(-4px); }
 	.v-shot img { display: block; width: 100%; height: auto; }
+	.velume { background: rgb(var(--bg)); }
+	@media (min-width: 1024px) { .velume .vendia-grid { grid-template-columns: 1.1fr 0.9fr; } }
 
 	.sec { padding: 4rem 0; background: rgb(var(--bg)); }
 	.sec.mist { background: rgb(var(--mist)); }

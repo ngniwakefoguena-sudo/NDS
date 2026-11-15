@@ -24,7 +24,7 @@ const company = `## Qui sommes-nous
 - Valeurs : Innovation (technologies récentes, solutions durables) ; Fiabilité (code testé, déploiements stables, documentation soignée, on livre ce qu'on promet dans les délais) ; Proximité (un interlocuteur dédié, des points réguliers, de la transparence).
 - Basée en Île-de-France (Paris et Yvelines). Clients en France et en Afrique francophone (notamment Côte d'Ivoire et Cameroun). Les projets peuvent se mener entièrement à distance.
 - Chiffres affichés sur le site : 15+ projets livrés, 5 ans d'expertise, 98 % de clients satisfaits, +40 % de croissance moyenne constatée chez les clients, 14 avis clients.
-- Partenaires et clients de confiance : ICS Innovations (Abidjan), Afrilife Insurance, Mahkong, Puol, Deniscoflash.
+- Partenaires et clients de confiance : ICS Innovations (Abidjan), Afrilife Insurance, Mahkong, Puol.
 
 ## Nous contacter
 - Formulaire de devis : ${site.url}/contact (on peut y choisir le service, indiquer un budget estimé et proposer un rendez-vous : matin 9h–12h, après-midi 14h–18h ou soir 18h–20h).

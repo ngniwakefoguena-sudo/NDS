@@ -119,7 +119,6 @@
 	<div class="wrap">
 		<header class="sec-head center" use:reveal>
 			<h2 id="partners-title" class="h2">They trust us</h2>
-			<p class="denisco" aria-label="Deniscoflash"><span class="d1">Denis</span><span class="d2">coflash</span></p>
 		</header>
 	</div>
 	<div class="marquee">
@@ -287,10 +286,6 @@
 
 	/* ── Partenaires ── */
 	.partners { padding-bottom: 3.5rem; }
-	.denisco { font-family: 'Tangerine', cursive; font-weight: 700; font-size: 2.1rem; line-height: 1; margin: 1rem 0 0; }
-	.d1 { color: #19100a; }
-	.d2 { color: rgb(232, 93, 4); }
-	:global([data-theme='dark']) .d1 { color: rgba(255, 255, 255, 0.9); }
 	.marquee {
 		overflow: hidden;
 		mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);

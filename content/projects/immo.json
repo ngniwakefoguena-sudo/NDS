@@ -22,6 +22,5 @@
     "PostgreSQL"
   ],
   "cover": "/images/immo.webp",
-  "featured": false,
-  "link_github": "https://github.com/deniscoflash"
+  "featured": false
 }

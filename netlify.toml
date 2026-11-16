@@ -137,6 +137,12 @@
   force = true
 
 [[redirects]]
+  from = "/go/monde"
+  to = "/agence-web-international?utm_source=reseaux&utm_medium=social&utm_campaign=monde"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/go/contact"
   to = "/contact?utm_source=reseaux&utm_medium=social&utm_campaign=contact"
   status = 302

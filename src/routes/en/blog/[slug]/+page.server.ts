@@ -2,6 +2,7 @@ import { getBlogPostEn as getBlogPost, getBlogPostsEn as getBlogPosts, type Blog
 import { error } from '@sveltejs/kit';
 import { getServiceEn } from '$lib/data/services.en';
 import { marked } from 'marked';
+import { insertFormCta } from '$lib/server/blogCta';
 
 // Extension pour centrer du texte : :::center ... :::
 const centerExtension = {
@@ -58,5 +59,5 @@ export async function load({ params }) {
 	// Le titre de l'article est déjà le seul <h1> de la page : les titres « # » du contenu deviennent des <h2>
 	const body = post.body.replace(/^# /gm, '## ');
 
-	return { post: { ...post, html: await marked.parse(body), readingTime }, related: relatedPosts(post), service: relatedService(post) };
+	return { post: { ...post, html: insertFormCta(await marked.parse(body), 'en', post.title), readingTime }, related: relatedPosts(post), service: relatedService(post) };
 }

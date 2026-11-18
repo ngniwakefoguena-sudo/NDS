@@ -30,7 +30,7 @@
 				Insights &amp; <span class="bg-clip-text text-transparent" style="background-image: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-2)));">Expertise</span>
 			</h1>
 			<p class="text-base text-muted max-w-lg mx-auto leading-relaxed">
-				Guides and insights on web, mobile, AI and automation for growing businesses.
+				Guides and insights on web, mobile, AI and automation for growing businesses.<br /><strong class="text-ink">{data.posts.length} articles</strong> published
 			</p>
 		</div>
 

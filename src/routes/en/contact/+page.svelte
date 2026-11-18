@@ -86,7 +86,7 @@
 					<button type="button" class="again" onclick={() => (sent = false)}>Send another message</button>
 				</div>
 			{:else}
-				<form name="contact" method="POST" data-netlify="true" {...{ 'netlify-honeypot': 'bot-field' }} onsubmit={submit}>
+				<form id="formulaire" name="contact" method="POST" data-netlify="true" {...{ 'netlify-honeypot': 'bot-field' }} onsubmit={submit}>
 					<input type="hidden" name="form-name" value="contact" />
 					<p hidden><label>Leave empty <input name="bot-field" /></label></p>
 					<label>Name and company<input name="entreprise" required autocomplete="organization" placeholder="Jane Smith, Acme Ltd" /></label>

@@ -154,6 +154,18 @@
   status = 302
   force = true
 
+[[redirects]]
+  from = "/go/agent-ia"
+  to = "/blog/agent-ia-definition-exemples-et-comment-creer-un-agent-ia-pour-votre-entreprise?utm_source=reseaux&utm_medium=social&utm_campaign=agent-ia"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/n8n"
+  to = "/blog/n8n-cest-quoi-et-comment-creer-votre-premier-workflow-tutoriel-debutant?utm_source=reseaux&utm_medium=social&utm_campaign=n8n"
+  status = 302
+  force = true
+
 [[headers]]
   for = "/admin/*"
   [headers.values]

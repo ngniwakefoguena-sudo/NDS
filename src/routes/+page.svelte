@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FollowUs from '$lib/components/FollowUs.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import ServiceBento from '$lib/components/ServiceBento.svelte';
@@ -124,6 +125,8 @@
 </section>
 
 <!-- ═════════ Appel à l'action ═════════ -->
+<div style="padding:0 1.25rem"><FollowUs lang="fr" /></div>
+
 <section class="cta" aria-labelledby="cta-title">
 	<div class="wrap cta-inner" use:reveal>
 		<h2 id="cta-title" class="cta-title">Un projet en tête ? Parlons-en.</h2>

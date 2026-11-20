@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FollowUs from '$lib/components/FollowUs.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import ServiceList from '$lib/components/ServiceList.svelte';
 	import { ArrowRight, Check } from 'lucide-svelte';
@@ -138,6 +139,8 @@
 </section>
 
 <!-- ═════════ Appel à l'action ═════════ -->
+<div style="padding:0 1.25rem"><FollowUs lang="en" /></div>
+
 <section class="cta" aria-labelledby="cta-title">
 	<div class="wrap cta-inner" use:reveal>
 		<h2 id="cta-title" class="cta-title">Got a project in mind? Let’s talk.</h2>

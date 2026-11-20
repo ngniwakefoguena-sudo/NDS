@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FollowUs from '$lib/components/FollowUs.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/data/site';
 	import type { PageData } from './$types';
@@ -92,6 +93,8 @@
 				{@html data.post.html}
 			</div>
 		</article>
+
+		<FollowUs lang="en" />
 
 		{#if data.related.length}
 			<!-- À lire aussi : maillage interne entre articles -->

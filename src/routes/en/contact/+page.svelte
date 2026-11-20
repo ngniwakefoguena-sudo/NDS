@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FollowUs from '$lib/components/FollowUs.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/data/site';
 	import { track } from '$utils/track';
@@ -84,6 +85,7 @@
 					<h2>Message sent!</h2>
 					<p>Thank you. We will get back to you within 24 hours.</p>
 					<button type="button" class="again" onclick={() => (sent = false)}>Send another message</button>
+					<FollowUs lang="en" />
 				</div>
 			{:else}
 				<form id="formulaire" name="contact" method="POST" data-netlify="true" {...{ 'netlify-honeypot': 'bot-field' }} onsubmit={submit}>

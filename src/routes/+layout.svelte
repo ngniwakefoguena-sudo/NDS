@@ -163,7 +163,7 @@
 			"Data engineering", "Web scraping", "Design UI/UX", "Carte de fidélité digitale"
 		],
 		"hasMap": "https://www.google.com/maps/search/?api=1&query=Norbert+Digital+Service",
-		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook]
+		"sameAs": [site.socials.linkedin, site.socials.instagram, site.socials.facebook, site.socials.tiktok]
 	})}</script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify({
 		"@context": "https://schema.org",

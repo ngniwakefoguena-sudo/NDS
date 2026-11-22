@@ -30,7 +30,7 @@ const company = `## Qui sommes-nous
 - Formulaire de devis : ${site.url}/contact (on peut y choisir le service, indiquer un budget estimé et proposer un rendez-vous : matin 9h–12h, après-midi 14h–18h ou soir 18h–20h).
 - E-mail : ${site.email}
 - Téléphone et WhatsApp : +33 6 59 17 37 74 — lien WhatsApp : https://wa.me/33659173774
-- LinkedIn : ${site.socials.linkedin.split('?')[0]} — Instagram : ${site.socials.instagram} — Facebook : ${site.socials.facebook}
+- LinkedIn : ${site.socials.linkedin.split('?')[0]} — Instagram : ${site.socials.instagram} — Facebook : ${site.socials.facebook} — TikTok : ${site.socials.tiktok}
 - Réponse sous 24h ouvrées. Première consultation gratuite et sans engagement.
 
 ## Tarifs et délais

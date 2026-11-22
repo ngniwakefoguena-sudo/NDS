@@ -8,6 +8,7 @@ export const site = {
 		linkedin: 'https://www.linkedin.com/company/norbert-digital-service/',
 		instagram: 'https://www.instagram.com/norbertdigitalservice/',
 		facebook: 'https://www.facebook.com/profile.php?id=61596420968753',
+		tiktok: 'https://www.tiktok.com/@norbertdigitalservice',
 		whatsapp: `https://wa.me/33659173774?text=${encodeURIComponent('Salut , Je souhaite en savoir plus sur vos services digitaux')}`,
 	},
 	ogImage: 'https://norbertdigitalservice.fr/images/og-preview.jpg',

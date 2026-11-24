@@ -51,7 +51,7 @@
 			</div>
 			<div class="trust">
 				<span class="stars" aria-hidden="true">{#each [0, 1, 2, 3, 4] as _}<Star class="w-3.5 h-3.5" />{/each}</span>
-				<span><strong>+14 avis clients</strong>, plus de 30 clients accompagnés</span>
+				<span><strong>Noté 5,0 sur Google</strong>, plus de 30 clients accompagnés</span>
 			</div>
 		</div>
 
@@ -70,7 +70,7 @@
 			</div>
 			<div class="float f3">
 				<span class="ico"><Rocket class="w-4 h-4" /></span>
-				<div><strong><span use:countUp>15+</span> projets</strong><small><span use:countUp>98%</span> de clients satisfaits</small></div>
+				<div><strong><span use:countUp>15+</span> projets</strong><small>livrés en France, en Afrique et ailleurs</small></div>
 			</div>
 		</div>
 	</div>

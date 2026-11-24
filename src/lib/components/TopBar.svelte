@@ -12,7 +12,7 @@
 				{en ? 'Ads · SEO/GEO · Design' : 'Ads SEO/GEO Créa'}
 			</span>
 			<span class="topbar-separator">★</span>
-			<span class="topbar-item topbar-highlight">{en ? '14+ client reviews' : '+14 avis clients'}</span>
+			<span class="topbar-item topbar-highlight">{en ? 'Free quote within 24h' : 'Devis gratuit sous 24h'}</span>
 			<span class="topbar-separator">🌍</span>
 			<span class="topbar-item">{en ? '30+ clients served' : '+30 clients accompagnés'}</span>
 		</div>

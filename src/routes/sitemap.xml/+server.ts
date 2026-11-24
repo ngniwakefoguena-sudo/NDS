@@ -7,6 +7,7 @@ const staticPages = [
 	{ path: '/',         priority: '1.0', changefreq: 'weekly' },
 	{ path: '/agence-web', priority: '0.9', changefreq: 'monthly' },
 	{ path: '/agence-web-afrique', priority: '0.9', changefreq: 'monthly' },
+	...['cameroun','cote-d-ivoire','senegal','gabon'].map((c) => ({ path: `/agence-web-${c}`, priority: '0.8', changefreq: 'monthly' })),
 	{ path: '/agence-web-international', priority: '0.9', changefreq: 'monthly' },
 	{ path: '/services', priority: '0.9', changefreq: 'monthly' },
 	{ path: '/vendia',   priority: '0.9', changefreq: 'monthly' },

@@ -168,7 +168,8 @@
 				</details>
 			{/each}
 		</div>
-		<p class="sub" style="margin-top:2rem">Vous êtes en Europe, au Canada ou ailleurs ? Découvrez notre <a href="/agence-web-international" class="link">agence web internationale</a>.</p>
+		<p class="sub" style="margin-top:2rem">Pages pays : <a href="/agence-web-cameroun" class="link">Cameroun</a> · <a href="/agence-web-cote-d-ivoire" class="link">Côte d’Ivoire</a> · <a href="/agence-web-senegal" class="link">Sénégal</a> · <a href="/agence-web-gabon" class="link">Gabon</a>.</p>
+		<p class="sub" style="margin-top:1rem">Vous êtes en Europe, au Canada ou ailleurs ? Découvrez notre <a href="/agence-web-international" class="link">agence web internationale</a>.</p>
 	</div>
 </section>
 

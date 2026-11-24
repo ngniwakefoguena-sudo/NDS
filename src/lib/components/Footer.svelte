@@ -35,6 +35,8 @@
 	const moreFr = [
 		['/agence-web', 'Agence web'],
 		['/agence-web-afrique', 'Agence web en Afrique'],
+		['/agence-web-cameroun', 'Agence web Cameroun'],
+		['/agence-web-cote-d-ivoire', 'Agence web Côte d’Ivoire'],
 		['/agence-web-international', 'Agence web internationale'],
 		['/about', 'À Propos'],
 		['/projects', 'Réalisations'],

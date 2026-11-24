@@ -14,6 +14,7 @@
 	const waLink = $derived(
 		`https://wa.me/33659173774?text=${encodeURIComponent(`Hello, I would like to know more about your “${p.title}” service.`)}`
 	);
+	const quoteHref = $derived(`/en/contact?service=${encodeURIComponent(p.title)}#formulaire`);
 </script>
 
 <Seo
@@ -62,7 +63,7 @@
 				<p class="lead">{para}</p>
 			{/each}
 			<div class="ctas">
-				<a href="/en/contact" class="btn-lime">Get a free quote <ArrowRight class="w-4 h-4" /></a>
+				<a href={quoteHref} class="btn-lime">Get a free quote <ArrowRight class="w-4 h-4" /></a>
 				<a href={waLink} target="_blank" rel="noopener" class="btn-line">Chat on WhatsApp</a>
 			</div>
 		</div>
@@ -146,7 +147,7 @@
 		<h2 id="cta-title" class="cta-title">Let’s talk about your project</h2>
 		<p>Describe your needs in a few lines: you will get a reply within 24 hours with the next steps.</p>
 		<div class="ctas center">
-			<a href="/en/contact" class="btn-lime">Get a free quote <ArrowRight class="w-4 h-4" /></a>
+			<a href={quoteHref} class="btn-lime">Get a free quote <ArrowRight class="w-4 h-4" /></a>
 			<a href={waLink} target="_blank" rel="noopener" class="btn-line dark">Chat on WhatsApp</a>
 		</div>
 	</div>

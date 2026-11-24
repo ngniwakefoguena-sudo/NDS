@@ -16,6 +16,11 @@
 	const waLink = $derived(
 		`https://wa.me/33659173774?text=${encodeURIComponent(`Bonjour, je souhaite en savoir plus sur votre offre « ${service.title} ».`)}`
 	);
+	const formService: Record<string, string> = {
+		'creation-site-web': 'Développement Web', 'application-mobile': 'Application Mobile', 'intelligence-artificielle': 'Intelligence Artificielle',
+		'automatisation-n8n': 'Automatisation', 'marketing-digital-seo': 'Marketing Digital', 'generation-de-leads': 'Génération de Leads B2B/B2C', 'formation': 'Formation'
+	};
+	const quoteHref = $derived(`/contact${formService[data.slug] ? '?service=' + encodeURIComponent(formService[data.slug]) : ''}#formulaire`);
 </script>
 
 <Seo
@@ -64,7 +69,7 @@
 				<p class="lead">{para}</p>
 			{/each}
 			<div class="ctas">
-				<a href="/contact" class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
+				<a href={quoteHref} class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
 				<a href={waLink} target="_blank" rel="noopener" class="btn-line">Discuter sur WhatsApp</a>
 			</div>
 		</div>
@@ -163,7 +168,7 @@
 		<h2 id="cta-title" class="cta-title">Parlons de votre projet</h2>
 		<p>Décrivez votre besoin en quelques lignes : vous recevez une réponse sous 24h avec les prochaines étapes.</p>
 		<div class="ctas center">
-			<a href="/contact" class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
+			<a href={quoteHref} class="btn-lime">Demander un devis <ArrowRight class="w-4 h-4" /></a>
 			<a href={waLink} target="_blank" rel="noopener" class="btn-line dark">Discuter sur WhatsApp</a>
 		</div>
 	</div>

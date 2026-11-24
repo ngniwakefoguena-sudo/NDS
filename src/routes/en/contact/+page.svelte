@@ -12,6 +12,8 @@
 		const pr = products.find((x) => x.slug === new URLSearchParams(location.search).get('demo'));
 		const el = document.querySelector('select[name=service]') as HTMLSelectElement | null;
 		if (pr && el) el.value = pr.en;
+		const sv = new URLSearchParams(location.search).get('service');
+		if (!pr && sv && el && [...el.options].some((o) => o.value === sv)) el.value = sv;
 	});
 	import { Send, Mail, Clock, CircleCheck, MessageCircle, Globe } from 'lucide-svelte';
 
@@ -71,9 +73,12 @@
 				<li><Clock class="w-5 h-5" /> Reply within 24 hours</li>
 				<li><Globe class="w-5 h-5" /> 100% remote, clients worldwide</li>
 				<li><MessageCircle class="w-5 h-5" /> English or French</li>
+				<li><CircleCheck class="w-5 h-5" /> You talk directly with Norbert, the founder</li>
+				<li><CircleCheck class="w-5 h-5" /> Free, detailed quote, no commitment</li>
+				<li><CircleCheck class="w-5 h-5" /> Trusted by ICS Innovations, Afrilife Insurance, Puol · 5.0 ★ on Google</li>
 			</ul>
 			<div class="direct">
-				<a href={wa} target="_blank" rel="noopener"><MessageCircle class="w-4 h-4" /> WhatsApp: +33 6 59 17 37 74</a>
+				<a href={wa} target="_blank" rel="noopener" class="wa-big" onclick={() => track('contact_click', { method: 'whatsapp', location: 'contact_page_en' })}><MessageCircle class="w-4 h-4" /> Faster: chat on WhatsApp (+33 6 59 17 37 74)</a>
 				<a href="mailto:{site.email}"><Mail class="w-4 h-4" /> norbertdigitalservices@gmail.com</a>
 			</div>
 		</div>
@@ -91,15 +96,15 @@
 				<form id="formulaire" name="contact" method="POST" data-netlify="true" {...{ 'netlify-honeypot': 'bot-field' }} onsubmit={submit}>
 					<input type="hidden" name="form-name" value="contact" />
 					<p hidden><label>Leave empty <input name="bot-field" /></label></p>
-					<label>Name and company<input name="entreprise" required autocomplete="organization" placeholder="Jane Smith, Acme Ltd" /></label>
+					<label><span>Name or company <span class="opt">(optional)</span></span><input name="entreprise" autocomplete="organization" placeholder="Jane Smith, Acme Ltd" /></label>
 					<div class="row">
 						<label>Email<input name="email" type="email" required autocomplete="email" placeholder="you@company.com" /></label>
 						<label>Phone / WhatsApp<input name="telephone" type="tel" autocomplete="tel" placeholder="+1 … / +44 … / +33 …" /></label>
 					</div>
 					<div class="row">
-						<label>Service
-							<select name="service" required>
-								<option value="" disabled selected>Choose a service</option>
+						<label><span>Service <span class="opt">(optional)</span></span>
+							<select name="service">
+								<option value="" selected>Not sure yet</option>
 								{#each options as o}<option value={o}>{o}</option>{/each}
 								<optgroup label="Book a demo">
 									{#each products as pr}<option value={pr.en}>{pr.en}</option>{/each}
@@ -109,7 +114,7 @@
 						</label>
 						<label><span>Budget <span class="opt">(optional)</span></span><input name="budget" placeholder="e.g. $3,000 – $10,000" /></label>
 					</div>
-					<label>Your project<textarea name="besoin" rows="5" required placeholder="Context, goals, timeline…"></textarea></label>
+					<label>Your project<textarea name="besoin" rows="5" required placeholder="In one or two sentences: what you want to build. We will handle the rest."></textarea></label>
 					<input type="hidden" name="reunion_date" value="" />
 					<input type="hidden" name="reunion_creneau" value="" />
 					<button type="submit" class="btn" disabled={sending}>{sending ? 'Sending…' : 'Send my request'} <Send class="w-4 h-4" /></button>
@@ -154,4 +159,5 @@
 	.done :global(svg) { color: rgb(var(--accent-2)); }
 	.done h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; }
 	.again { background: none; border: 0; text-decoration: underline; color: rgb(var(--muted)); cursor: pointer; }
+	.wa-big { background:#25D366 !important; color:#fff !important; font-weight:700; padding:.7rem 1rem; border-radius:999px; }
 </style>

@@ -12,6 +12,8 @@
 		const pr = products.find((x) => x.slug === new URLSearchParams(location.search).get('demo'));
 		const el = document.getElementById('service') as HTMLSelectElement | null;
 		if (pr && el) el.value = pr.fr;
+		const sv = new URLSearchParams(location.search).get('service');
+		if (!pr && sv && el && [...el.options].some((o) => o.value === sv)) el.value = sv;
 	});
 
 	const countryCodes = [
@@ -205,6 +207,28 @@
 
 			<!-- Info -->
 			<div class="flex flex-col gap-4">
+				<a href="https://wa.me/33659173774?text={encodeURIComponent('Bonjour Norbert, je souhaite un devis pour mon projet.')}" target="_blank" rel="noopener" class="wa-card rounded-2xl p-5 flex items-center gap-4" onclick={() => track('contact_click', { method: 'whatsapp', location: 'contact_page' })}>
+					<div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#25D366;">
+						<svg viewBox="0 0 24 24" class="w-5 h-5" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+					</div>
+					<div>
+						<p class="text-sm font-bold text-ink mb-0.5">Plus rapide : écrivez-nous sur WhatsApp</p>
+						<p class="text-xs text-muted">Réponse en général dans l'heure, du lundi au vendredi</p>
+					</div>
+				</a>
+
+				<div class="info-card rounded-2xl p-5">
+					<p class="text-xs font-semibold text-ink mb-2">Pourquoi nous écrire ?</p>
+					<ul class="text-xs text-muted flex flex-col gap-1.5">
+						<li>✓ Vous échangez directement avec Norbert, le fondateur</li>
+						<li>✓ Devis gratuit et détaillé, sans engagement</li>
+						<li>✓ Projets menés à distance, partout dans le monde</li>
+						<li>✓ Déjà réalisé pour ICS Innovations, Afrilife Insurance, Puol</li>
+						<li>✓ Note 5,0 ★ sur Google</li>
+					</ul>
+					<a href="/projects" class="inline-block mt-3 text-xs font-semibold text-accent-2 underline">Voir nos réalisations</a>
+				</div>
+
 				<div class="info-card rounded-2xl p-5 flex items-start gap-4">
 					<div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(152,200,22,0.12); border: 1px solid rgba(152,200,22,0.22);">
 						<Mail class="w-4 h-4 text-accent" />
@@ -280,12 +304,12 @@
 						<!-- Ligne 1 : Entreprise + Email -->
 						<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 							<div class="flex flex-col gap-1.5">
-								<label for="entreprise" class="text-xs font-semibold text-ink">Entreprise / Nom</label>
-								<input id="entreprise" name="entreprise" type="text" required placeholder="Acme Corp" class="field rounded-2xl px-4 py-3 text-sm w-full" />
+								<label for="entreprise" class="text-xs font-semibold text-ink">Votre nom ou entreprise <span class="text-muted font-normal">(optionnel)</span></label>
+								<input id="entreprise" name="entreprise" type="text" placeholder="Marie Dupont ou Acme" class="field rounded-2xl px-4 py-3 text-sm w-full" />
 							</div>
 							<div class="flex flex-col gap-1.5">
-								<label for="email" class="text-xs font-semibold text-ink">Email professionnel</label>
-								<input id="email" name="email" type="email" required placeholder="vous@entreprise.com" class="field rounded-2xl px-4 py-3 text-sm w-full" />
+								<label for="email" class="text-xs font-semibold text-ink">Votre e-mail</label>
+								<input id="email" name="email" type="email" required placeholder="vous@exemple.com" class="field rounded-2xl px-4 py-3 text-sm w-full" />
 							</div>
 						</div>
 
@@ -318,9 +342,9 @@
 						<!-- Ligne 3 : Service + Budget -->
 						<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 							<div class="flex flex-col gap-1.5">
-								<label for="service" class="text-xs font-semibold text-ink">Type de prestation</label>
-								<select id="service" name="service" required class="field rounded-2xl px-4 py-3 text-sm w-full cursor-pointer">
-									<option value="" disabled selected>Sélectionnez un service</option>
+								<label for="service" class="text-xs font-semibold text-ink">Type de prestation <span class="text-muted font-normal">(optionnel)</span></label>
+								<select id="service" name="service" class="field rounded-2xl px-4 py-3 text-sm w-full cursor-pointer">
+									<option value="" selected>Je ne sais pas encore</option>
 									<option value="Développement Web">Développement Web</option>
 									<option value="Application Mobile">Application Mobile</option>
 									<option value="Intelligence Artificielle">Intelligence Artificielle</option>
@@ -345,7 +369,7 @@
 						<!-- Besoin -->
 						<div class="flex flex-col gap-1.5">
 							<label for="besoin" class="text-xs font-semibold text-ink">Décrivez votre besoin</label>
-							<textarea id="besoin" name="besoin" rows="4" required placeholder="Contexte, objectifs, contraintes techniques..." class="field rounded-2xl px-4 py-3 text-sm w-full resize-none"></textarea>
+							<textarea id="besoin" name="besoin" rows="4" required placeholder="En une ou deux phrases : ce que vous voulez faire. On s'occupe du reste." class="field rounded-2xl px-4 py-3 text-sm w-full resize-none"></textarea>
 						</div>
 
 						<!-- Toggle réunion -->
@@ -486,4 +510,6 @@
 		transition: opacity 0.2s, transform 0.2s;
 	}
 	.btn-pill:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+	.wa-card { background: rgba(37,211,102,0.08); border: 1.5px solid rgba(37,211,102,0.45); transition: transform .15s; }
+	.wa-card:hover { transform: translateY(-2px); }
 </style>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import QuickContact from '$lib/components/QuickContact.svelte';
 	import TechBackground from '$lib/components/TechBackground.svelte';
 
 	import '../app.css';
@@ -189,4 +190,5 @@
 	<Footer />
 </div>
 
+<QuickContact />
 {#if ChayaComp}<ChayaComp />{/if}

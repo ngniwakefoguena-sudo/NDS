@@ -166,6 +166,30 @@
   status = 302
   force = true
 
+[[redirects]]
+  from = "/go/trouver"
+  to = "/blog/comment-trouver-des-clients-sur-internet-12-methodes-efficaces-pour-les-pme-en-2026?utm_source=reseaux&utm_medium=social&utm_campaign=trouver"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/momo"
+  to = "/blog/paiement-mobile-money-sur-votre-site-web-le-guide-2026-orange-money-mtn-momo-carte?utm_source=reseaux&utm_medium=social&utm_campaign=momo"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/domaine"
+  to = "/blog/comment-choisir-son-nom-de-domaine-com-fr-cm-ci-le-guide-complet?utm_source=reseaux&utm_medium=social&utm_campaign=domaine"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/console"
+  to = "/blog/google-search-console-le-guide-complet-pour-suivre-et-ameliorer-votre-referencement?utm_source=reseaux&utm_medium=social&utm_campaign=console"
+  status = 302
+  force = true
+
 [[headers]]
   for = "/admin/*"
   [headers.values]

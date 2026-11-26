@@ -299,6 +299,7 @@ export const services: Service[] = [
 				{ q: 'Qu’est-ce qu’une landing page et en ai-je besoin ?', a: 'Une landing page est une page conçue pour un seul objectif, comme obtenir une demande de devis. Elle convertit bien mieux qu’une page d’accueil pour vos campagnes publicitaires et vos offres spécifiques.' },
 			],
 			articles: [
+				'comment-trouver-des-clients-sur-internet-12-methodes-efficaces-pour-les-pme-en-2026',
 				'landing-page-qui-convertit-la-methode-en-9-etapes-pour-generer-plus-de-demandes-de-devis',
 				'agence-growth-hacking-paris-accelerez-votre-croissance-en-2026',
 				'chatbot-whatsapp-business-pour-pme-automatiser-le-service-client-sans-perdre-le-contact-humain',

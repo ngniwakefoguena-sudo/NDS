@@ -51,6 +51,13 @@
   force = true
 
 
+# Article fusionné dans le guide n8n complet (évite deux articles concurrents sur Google)
+[[redirects]]
+  from = "/blog/automatisation-ia-pour-pme-comment-gagner-dix-heures-par-semaine-avec-n8n-et-lia"
+  to = "/blog/automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine"
+  status = 301
+  force = true
+
 # Liens courts pour les réseaux sociaux (posts Facebook, Instagram, LinkedIn)
 [[redirects]]
   from = "/go/google"

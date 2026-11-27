@@ -215,7 +215,6 @@ export const services: Service[] = [
 			articles: [
 				'n8n-cest-quoi-et-comment-creer-votre-premier-workflow-tutoriel-debutant',
 				'automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine',
-				'automatisation-ia-pour-pme-comment-gagner-dix-heures-par-semaine-avec-n8n-et-lia',
 				'automatiser-la-facturation-et-les-relances-clients-avec-n8n-le-guide-pratique-pour-les-pme',
 			],
 		},
@@ -385,7 +384,7 @@ export const services: Service[] = [
 			articles: [
 				'formation-chatgpt-et-ia-en-entreprise-programme-prix-et-comment-former-vos-equipes',
 				'intelligence-artificielle-pour-les-pme-ce-qui-est-possible-en-2026',
-				'automatisation-ia-pour-pme-comment-gagner-dix-heures-par-semaine-avec-n8n-et-lia',
+				'automatisation-n8n-2026-comment-les-pme-francaises-gagnent-15h-par-semaine',
 				'rag-chatbots-metier-et-agents-ia-le-guide-complet-pour-integrer-lintelligence-artificielle-en-entreprise-en-2026',
 			],
 		},

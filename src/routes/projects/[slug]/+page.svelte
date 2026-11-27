@@ -16,8 +16,8 @@
 </script>
 
 <Seo
-	title={data.project.title}
-	description={data.project.tagline_fr}
+	title={`${data.project.title} – ${data.project.tagline_fr ?? "réalisation"}`}
+	description={(data.project.description_fr ?? data.project.tagline_fr ?? '').slice(0, 158)}
 	image={data.project.cover || undefined}
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -125,6 +125,44 @@
 							<span class="tag-pill">{tag}</span>
 						{/each}
 					</div>
+				</div>
+			{/if}
+
+			<!-- Service lié (maillage interne + contexte pour Google) -->
+			{#if data.service}
+				<div class="card fade-up" style="animation-delay: 0.25s;">
+					<div class="card-header">
+						<h2 class="card-title">Le service derrière ce projet : {data.service.name.toLowerCase()}</h2>
+					</div>
+					<p class="card-text">{data.service.intro}</p>
+					<ul class="related-list">
+						{#each data.service.includes as inc}
+							<li><strong>{inc.title}</strong> : {inc.text}</li>
+						{/each}
+					</ul>
+					<p class="card-text"><a href="/services/{data.service.slug}" class="inline-link">Découvrir notre offre {data.service.name.toLowerCase()} →</a></p>
+				</div>
+			{/if}
+
+			{#if data.articles.length}
+				<div class="card fade-up" style="animation-delay: 0.3s;">
+					<div class="card-header"><h2 class="card-title">Nos guides sur le sujet</h2></div>
+					<ul class="related-list">
+						{#each data.articles as a (a.slug)}
+							<li><a href="/blog/{a.slug}" class="inline-link">{a.title}</a></li>
+						{/each}
+					</ul>
+				</div>
+			{/if}
+
+			{#if data.others.length}
+				<div class="card fade-up" style="animation-delay: 0.35s;">
+					<div class="card-header"><h2 class="card-title">Autres réalisations</h2></div>
+					<ul class="related-list">
+						{#each data.others as o (o.slug)}
+							<li><a href="/projects/{o.slug}" class="inline-link">{o.title}</a>{#if o.tagline_fr} : {o.tagline_fr}{/if}</li>
+						{/each}
+					</ul>
 				</div>
 			{/if}
 		</div>
@@ -421,6 +459,19 @@
 		line-height: 1.75;
 		margin: 0;
 	}
+	.card-text + .card-text, .related-list + .card-text { margin-top: 0.9rem; }
+	.related-list {
+		margin: 0.9rem 0 0;
+		padding-left: 1.1rem;
+		list-style: disc;
+		display: grid;
+		gap: 0.5rem;
+		font-size: 0.9375rem;
+		color: rgb(var(--muted));
+		line-height: 1.6;
+	}
+	.related-list strong { color: rgb(var(--ink)); }
+	.inline-link { color: rgb(var(--ink)); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 	/* ───── STACK PILLS ───── */
 	.stack-grid {

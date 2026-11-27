@@ -14,6 +14,8 @@ export interface BlogPost {
 	date: string;
 	publish_date?: string;
 	summary: string;
+	/** Description courte pour Google (≈ 155 caractères). Sinon, le résumé est utilisé. */
+	description?: string;
 	cover: string;
 	tags: string[];
 	body: string;

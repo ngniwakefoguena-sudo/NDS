@@ -70,6 +70,7 @@ collections:
       - { label: "Date de publication", name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
       - { label: "Publier à cette date/heure (programmer)", name: publish_date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ssZ", required: false, hint: "Laissez vide pour publier immédiatement. Sinon, l'article sera visible uniquement à partir de cette date et heure." }
       - { label: "Résumé", name: summary, widget: text }
+      - { label: "Description Google (155 caractères max.)", name: description, widget: text, required: false, hint: "Texte affiché sous le titre dans Google. Laissez vide pour utiliser le résumé." }
       - { label: "Image de couverture", name: cover, widget: image, required: false }
       - { label: "Tags", name: tags, widget: list, required: false }
       - { label: "Contenu (Markdown)", name: body, widget: markdown }

@@ -101,6 +101,23 @@
 	</section>
 {/if}
 
+<!-- ═════════ Guides du blog ═════════ -->
+{#if data.posts.length}
+	<section class="sec" aria-labelledby="guides-title">
+		<div class="wrap">
+			<header class="sec-head split" use:reveal>
+				<h2 id="guides-title" class="h2">Nos guides pour réussir en ligne</h2>
+				<a href="/blog" class="link">Tous les articles <ArrowRight class="w-4 h-4" /></a>
+			</header>
+			<ul class="guides">
+				{#each data.posts as p (p.slug)}
+					<li><a href="/blog/{p.slug}" class="guide">{p.title}</a></li>
+				{/each}
+			</ul>
+		</div>
+	</section>
+{/if}
+
 <!-- ═════════ Partenaires ═════════ -->
 <section class="sec partners" aria-labelledby="partners-title">
 	<div class="wrap">
@@ -272,6 +289,16 @@
 	.work-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: rgb(var(--ink)); margin: 0 0 0.3rem; }
 	.work-card:hover .work-title { text-decoration: underline; text-decoration-color: rgb(var(--accent)); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 	.work-desc { font-size: 0.87rem; color: rgb(var(--muted)); margin: 0; line-height: 1.5; }
+
+	/* ── Guides ── */
+	.guides { display: grid; gap: 0.75rem; list-style: none; margin: 0; padding: 0; }
+	@media (min-width: 768px) { .guides { grid-template-columns: repeat(2, 1fr); } }
+	.guide {
+		display: block; height: 100%; padding: 1rem 1.15rem; border-radius: 0.9rem;
+		border: 1px solid rgb(var(--ink) / 0.1); color: rgb(var(--ink)); font-weight: 600;
+		font-size: 0.95rem; line-height: 1.45; text-decoration: none; transition: border-color 0.2s, background 0.2s;
+	}
+	.guide:hover { border-color: rgb(var(--accent)); background: rgb(var(--accent) / 0.06); }
 
 	/* ── Partenaires ── */
 	.partners { padding-bottom: 3.5rem; }

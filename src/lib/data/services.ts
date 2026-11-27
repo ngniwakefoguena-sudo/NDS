@@ -87,6 +87,8 @@ export const services: Service[] = [
 				'pourquoi-votre-site-web-vous-fait-perdre-des-clients-en-2026-et-comment-y-remedier',
 				'refonte-de-site-web-comment-refaire-son-site-sans-perdre-son-referencement-google',
 				'shopify-woocommerce-ou-e-commerce-sur-mesure-quelle-solution-choisir-pour-votre-boutique-en-ligne',
+				'agence-de-developpement-web-en-france-comment-choisir-la-bonne-en-2026',
+				'developpeur-web-freelance-paris-freelance-ou-agence-que-choisir-en-2026',
 			],
 		},
 	},

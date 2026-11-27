@@ -19,7 +19,7 @@
 
 <Seo
 	title={data.post.title}
-	description={data.post.summary}
+	description={data.post.description ?? data.post.summary}
 	image={data.post.cover || undefined}
 	type="article"
 	publishedTime={data.post.date}
